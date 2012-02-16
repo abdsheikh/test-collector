@@ -1,0 +1,18 @@
+D:\Project Send File In LAN\File Transfer using C# Socket\File_Transfer_WinApplication_Using_My_DLL\FT_Server_Win\FT_Server_Win\bin\Debug\FT_Server_Win.exe
+D:\Project Send File In LAN\File Transfer using C# Socket\File_Transfer_WinApplication_Using_My_DLL\FT_Server_Win\FT_Server_Win\bin\Debug\FT_Server_Win.pdb
+D:\Project Send File In LAN\File Transfer using C# Socket\File_Transfer_WinApplication_Using_My_DLL\FT_Server_Win\FT_Server_Win\obj\Debug\ResolveAssemblyReference.cache
+D:\Project Send File In LAN\File Transfer using C# Socket\File_Transfer_WinApplication_Using_My_DLL\FT_Server_Win\FT_Server_Win\obj\Debug\FT_Server_Win.Properties.Resources.resources
+D:\Project Send File In LAN\File Transfer using C# Socket\File_Transfer_WinApplication_Using_My_DLL\FT_Server_Win\FT_Server_Win\obj\Debug\GenerateResource-ResGen.read.1.tlog
+D:\Project Send File In LAN\File Transfer using C# Socket\File_Transfer_WinApplication_Using_My_DLL\FT_Server_Win\FT_Server_Win\obj\Debug\GenerateResource-ResGen.write.1.tlog
+D:\Project Send File In LAN\File Transfer using C# Socket\File_Transfer_WinApplication_Using_My_DLL\FT_Server_Win\FT_Server_Win\obj\Debug\FT_Server_Win.exe
+D:\Project Send File In LAN\File Transfer using C# Socket\File_Transfer_WinApplication_Using_My_DLL\FT_Server_Win\FT_Server_Win\obj\Debug\FT_Server_Win.pdb
+D:\Project Send File In LAN\File Transfer using C# Socket\File_Transfer_WinApplication_Using_My_DLL\FT_Server_Win\FT_Server_Win\obj\Debug\FT_Server_Win.UiTServer.resources
+D:\aCuong\thamkhao\File_Transfer_In_LAN\FT_Server_Win\FT_Server_Win\obj\Debug\FT_Server_Win.exe
+D:\aCuong\thamkhao\File_Transfer_In_LAN\FT_Server_Win\FT_Server_Win\obj\Debug\FT_Server_Win.pdb
+D:\aCuong\thamkhao\File_Transfer_In_LAN\FT_Server_Win\FT_Server_Win\bin\Debug\FT_Server_Win.exe
+D:\aCuong\thamkhao\File_Transfer_In_LAN\FT_Server_Win\FT_Server_Win\bin\Debug\FT_Server_Win.pdb
+D:\aCuong\thamkhao\File_Transfer_In_LAN\FT_Server_Win\FT_Server_Win\obj\Debug\ResolveAssemblyReference.cache
+D:\aCuong\thamkhao\File_Transfer_In_LAN\FT_Server_Win\FT_Server_Win\obj\Debug\FT_Server_Win.Properties.Resources.resources
+D:\aCuong\thamkhao\File_Transfer_In_LAN\FT_Server_Win\FT_Server_Win\obj\Debug\GenerateResource-ResGen.read.1.tlog
+D:\aCuong\thamkhao\File_Transfer_In_LAN\FT_Server_Win\FT_Server_Win\obj\Debug\GenerateResource-ResGen.write.1.tlog
+D:\aCuong\thamkhao\File_Transfer_In_LAN\FT_Server_Win\FT_Server_Win\obj\Debug\FT_Server_Win.AppServer.resources
