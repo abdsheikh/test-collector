@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="FT_Client">
+</Property><Property Name="Solution File" Value="D:\aCuong\thamkhao\File_Transfer_In_LAN\FT_Client\FT_Client.sln">
+</Property><Property Name="User Options File" Value="D:\aCuong\thamkhao\File_Transfer_In_LAN\FT_Client\FT_Client.suo">
+</Property><Property Name="Date" Value="Sunday, December 18, 2011">
+</Property><Property Name="Time" Value="17:47 PM">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="FT_Client.sln" Description="File successfully backed up as D:\aCuong\thamkhao\File_Transfer_In_LAN\FT_Client\Backup\FT_Client.sln">
+</Event><Event ErrorLevel="0" Project="" Source="FT_Client.suo" Description="File successfully backed up as D:\aCuong\thamkhao\File_Transfer_In_LAN\FT_Client\Backup\FT_Client.suo">
+</Event><Event ErrorLevel="0" Project="FT_Client" Source="FT_Client\FT_Client.csproj" Description="Project file successfully backed up as D:\aCuong\thamkhao\File_Transfer_In_LAN\FT_Client\Backup\FT_Client\FT_Client.csproj">
+</Event><Event ErrorLevel="0" Project="FT_Client" Source="FT_Client\FT_Client.csproj.user" Description="Project user file successfully backed up as D:\aCuong\thamkhao\File_Transfer_In_LAN\FT_Client\Backup\FT_Client\FT_Client.csproj.user">
+</Event><Event ErrorLevel="0" Project="FT_Client" Source="FT_Client\Form1.cs" Description="File successfully backed up as D:\aCuong\thamkhao\File_Transfer_In_LAN\FT_Client\Backup\FT_Client\Form1.cs">
+</Event><Event ErrorLevel="0" Project="FT_Client" Source="FT_Client\Form1.Designer.cs" Description="File successfully backed up as D:\aCuong\thamkhao\File_Transfer_In_LAN\FT_Client\Backup\FT_Client\Form1.Designer.cs">
+</Event><Event ErrorLevel="0" Project="FT_Client" Source="FT_Client\Program.cs" Description="File successfully backed up as D:\aCuong\thamkhao\File_Transfer_In_LAN\FT_Client\Backup\FT_Client\Program.cs">
+</Event><Event ErrorLevel="0" Project="FT_Client" Source="FT_Client\Properties\AssemblyInfo.cs" Description="File successfully backed up as D:\aCuong\thamkhao\File_Transfer_In_LAN\FT_Client\Backup\FT_Client\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="FT_Client" Source="FT_Client\SyncScoketClient_ByteArr_Dll.cs" Description="File successfully backed up as D:\aCuong\thamkhao\File_Transfer_In_LAN\FT_Client\Backup\FT_Client\SyncScoketClient_ByteArr_Dll.cs">
+</Event><Event ErrorLevel="0" Project="FT_Client" Source="FT_Client\Ziplb.cs" Description="File successfully backed up as D:\aCuong\thamkhao\File_Transfer_In_LAN\FT_Client\Backup\FT_Client\Ziplb.cs">
+</Event><Event ErrorLevel="0" Project="FT_Client" Source="FT_Client\Properties\Resources.Designer.cs" Description="File successfully backed up as D:\aCuong\thamkhao\File_Transfer_In_LAN\FT_Client\Backup\FT_Client\Properties\Resources.Designer.cs">
+</Event><Event ErrorLevel="0" Project="FT_Client" Source="FT_Client\Properties\Settings.Designer.cs" Description="File successfully backed up as D:\aCuong\thamkhao\File_Transfer_In_LAN\FT_Client\Backup\FT_Client\Properties\Settings.Designer.cs">
+</Event><Event ErrorLevel="0" Project="FT_Client" Source="FT_Client\Properties\Settings.settings" Description="File successfully backed up as D:\aCuong\thamkhao\File_Transfer_In_LAN\FT_Client\Backup\FT_Client\Properties\Settings.settings">
+</Event><Event ErrorLevel="0" Project="FT_Client" Source="FT_Client\Form1.resx" Description="File successfully backed up as D:\aCuong\thamkhao\File_Transfer_In_LAN\FT_Client\Backup\FT_Client\Form1.resx">
+</Event><Event ErrorLevel="0" Project="FT_Client" Source="FT_Client\Properties\Resources.resx" Description="File successfully backed up as D:\aCuong\thamkhao\File_Transfer_In_LAN\FT_Client\Backup\FT_Client\Properties\Resources.resx">
+</Event><Event ErrorLevel="0" Project="FT_Client" Source="FT_Client\FT_Client.csproj" Description="The project file does not require conversion.">
+</Event><Event ErrorLevel="3" Project="FT_Client" Source="FT_Client\FT_Client.csproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="0" Project="" Source="FT_Client.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="FT_Client.sln" Description="Converted">
+</Event></UpgradeLog>

@@ -1,0 +1,18 @@
+D:\Project Send File In LAN\File Transfer using C# Socket\File_Transfer_WinApplication_Using_My_DLL\FT_Client\FT_Client\obj\Debug\FT_Client.exe
+D:\Project Send File In LAN\File Transfer using C# Socket\File_Transfer_WinApplication_Using_My_DLL\FT_Client\FT_Client\obj\Debug\FT_Client.pdb
+D:\Project Send File In LAN\File Transfer using C# Socket\File_Transfer_WinApplication_Using_My_DLL\FT_Client\FT_Client\bin\Debug\FT_Client.exe
+D:\Project Send File In LAN\File Transfer using C# Socket\File_Transfer_WinApplication_Using_My_DLL\FT_Client\FT_Client\bin\Debug\FT_Client.pdb
+D:\Project Send File In LAN\File Transfer using C# Socket\File_Transfer_WinApplication_Using_My_DLL\FT_Client\FT_Client\obj\Debug\ResolveAssemblyReference.cache
+D:\Project Send File In LAN\File Transfer using C# Socket\File_Transfer_WinApplication_Using_My_DLL\FT_Client\FT_Client\obj\Debug\FT_Client.Form1.resources
+D:\Project Send File In LAN\File Transfer using C# Socket\File_Transfer_WinApplication_Using_My_DLL\FT_Client\FT_Client\obj\Debug\FT_Client.Properties.Resources.resources
+D:\Project Send File In LAN\File Transfer using C# Socket\File_Transfer_WinApplication_Using_My_DLL\FT_Client\FT_Client\obj\Debug\GenerateResource-ResGen.read.1.tlog
+D:\Project Send File In LAN\File Transfer using C# Socket\File_Transfer_WinApplication_Using_My_DLL\FT_Client\FT_Client\obj\Debug\GenerateResource-ResGen.write.1.tlog
+D:\aCuong\thamkhao\File_Transfer_In_LAN\FT_Client\FT_Client\obj\Debug\FT_Client.exe
+D:\aCuong\thamkhao\File_Transfer_In_LAN\FT_Client\FT_Client\obj\Debug\FT_Client.pdb
+D:\aCuong\thamkhao\File_Transfer_In_LAN\FT_Client\FT_Client\bin\Debug\FT_Client.exe
+D:\aCuong\thamkhao\File_Transfer_In_LAN\FT_Client\FT_Client\obj\Debug\ResolveAssemblyReference.cache
+D:\aCuong\thamkhao\File_Transfer_In_LAN\FT_Client\FT_Client\obj\Debug\FT_Client.Form1.resources
+D:\aCuong\thamkhao\File_Transfer_In_LAN\FT_Client\FT_Client\obj\Debug\FT_Client.Properties.Resources.resources
+D:\aCuong\thamkhao\File_Transfer_In_LAN\FT_Client\FT_Client\obj\Debug\GenerateResource-ResGen.read.1.tlog
+D:\aCuong\thamkhao\File_Transfer_In_LAN\FT_Client\FT_Client\obj\Debug\GenerateResource-ResGen.write.1.tlog
+D:\aCuong\thamkhao\File_Transfer_In_LAN\FT_Client\FT_Client\bin\Debug\FT_Client.pdb
