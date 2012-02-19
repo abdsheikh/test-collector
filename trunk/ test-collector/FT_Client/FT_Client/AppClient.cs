@@ -12,8 +12,10 @@ namespace FT_Client
 {
     public partial class AppClient : Form
     {
+        //public static Student sinhvien;
+
         SynchronusClient_ByteArr objClient = new SynchronusClient_ByteArr("1","127.0.0.1",@"C:\Users\THIENSUHACK\Desktop\rc2");
-        public static string idClient="08242454";
+        public static string idClient="";
         public static string outputFolderZipFiles;
         public static string outputZipFiles = outputFolderZipFiles + idClient + ".zip";
 
@@ -33,6 +35,13 @@ namespace FT_Client
         //Check if the /zipfiles folder is existed
         public void CheckOuputZipFolder()
         {
+            if(CheckInfoStudent()==1)
+            {
+                MessageBox.Show("Vui lòng điền Mã sinh viên!");
+                label1.Text = "Vui lòng điền MaSV trước khi GỬI FILE!";
+                txtMaSV.Focus();
+                return;
+            }
             outputFolderZipFiles = Directory.GetCurrentDirectory() + "\\zipfiles";
             outputZipFiles = outputFolderZipFiles + "\\" + idClient + ".zip";
             if (!Directory.Exists(outputFolderZipFiles))
@@ -44,7 +53,19 @@ namespace FT_Client
                 { 
                 }
         }
-
+        //check info of student
+        public int CheckInfoStudent()
+        {
+            if(txtMaSV.Text=="") //masv is not set.
+            {
+                return 1;
+            }
+            else
+            {
+                idClient = txtMaSV.Text;
+            }
+            return 0;
+        }
         void objClient_FileReceiveCompleted()
         {
             MessageBox.Show("File receive done");
@@ -59,9 +80,9 @@ namespace FT_Client
         {
             portSend = 8080;
             portReceive = 8081;
-            txtRecievedPort.Text = "8081";
+           // txtRecievedPort.Text = "8081";
             txtSendPort.Text = "8080";
-            lbOutPutPathFolder.Text = @"C:\";
+           // lbOutPutPathFolder.Text = @"C:\";
 
             this.AllowDrop = true;
             this.DragEnter += Form1_DragEnter;
@@ -93,10 +114,15 @@ namespace FT_Client
         private void btnReceive_Click(object sender, EventArgs e)
         {
             
-            objClient.ReceiveFileFromServer(txtFileName.Text);
+           // objClient.ReceiveFileFromServer(txtFileName.Text);
 
         }
-
+        /// <summary>
+        /// Select folder for output path
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /*
         private void button1_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog fbd = new FolderBrowserDialog();
@@ -109,7 +135,7 @@ namespace FT_Client
                 lbOutPutPathFolder.Text = fbd.SelectedPath;
             }
         }
-
+        */
         private void btFileToSend_Click(object sender, EventArgs e)
         {
             OpenFileDialog op = new OpenFileDialog();
@@ -142,10 +168,10 @@ namespace FT_Client
             try
             {
                 portSend = Convert.ToInt32(txtSendPort.Text);
-                portReceive = Convert.ToInt32(txtRecievedPort.Text);
+                //portReceive = Convert.ToInt32("");
                 string ipad = txtIp1.Text+"."+txtIp2.Text+"."+ txtIp3.Text +"."+ txtIp4.Text;               
                 //MessageBox.Show(ipad);
-                outPathDefault = lbOutPutPathFolder.Text;
+              //  outPathDefault = lbOutPutPathFolder.Text;
                 objClient.SettingClient("2", ipad, portSend, portReceive, outPathDefault);
                 label1.Text = "Setting Successfully!";
             }
@@ -185,7 +211,12 @@ namespace FT_Client
 
         private void btZipFiles_Click(object sender, EventArgs e)
         {
-            if(lbFiles.Items.Count<=0)
+            ZipFilesToSend(); 
+        }
+
+        private void ZipFilesToSend()
+        {
+            if (lbFiles.Items.Count <= 0)
             {
                 MessageBox.Show("Please! Select Files before ZipFiles!");
                 return;
@@ -193,12 +224,12 @@ namespace FT_Client
             else
             {
                 files = new string[lbFiles.Items.Count];
-                for (int index=0; index < lbFiles.Items.Count; index++)
+                for (int index = 0; index < lbFiles.Items.Count; index++)
                 {
                     files[index] = lbFiles.Items[index].ToString();
                 }
                 CheckOuputZipFolder();
-                isZipSuccess=ziptool.Zip(outputZipFiles, files);
+                isZipSuccess = ziptool.Zip(outputZipFiles, files);
                 if (isZipSuccess)
                 {
                     label1.Text = "Zip Files is Successfull! File: " + outputZipFiles + " is Ready to send!";
@@ -208,8 +239,25 @@ namespace FT_Client
                 {
                     label1.Text = "Zip Files is Fail !";
                 }
-            }            
+            }
         }
+
+        private void deleteFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int indexitem = lbFiles.SelectedIndex;
+            if(indexitem>0&&indexitem<=lbFiles.Items.Count)
+            lbFiles.Items.RemoveAt(lbFiles.SelectedIndex);
+        }
+
+        private void deleteAllFilesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lbFiles.Items.Clear();
+        }
+
+        private void zipFilesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ZipFilesToSend();
+        }    
         
     }
 }
