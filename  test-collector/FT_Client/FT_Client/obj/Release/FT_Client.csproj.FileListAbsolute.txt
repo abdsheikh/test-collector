@@ -7,3 +7,12 @@ D:\aCuong\thamkhao\File_Transfer_In_LAN\FT_Client\FT_Client\obj\Release\Generate
 D:\aCuong\thamkhao\File_Transfer_In_LAN\FT_Client\FT_Client\obj\Release\GenerateResource-ResGen.write.1.tlog
 D:\aCuong\thamkhao\File_Transfer_In_LAN\FT_Client\FT_Client\obj\Release\FT_Client.exe
 D:\aCuong\thamkhao\File_Transfer_In_LAN\FT_Client\FT_Client\obj\Release\FT_Client.pdb
+D:\SendFileLan\FT_Client\FT_Client\obj\Release\FT_Client.exe
+D:\SendFileLan\FT_Client\FT_Client\obj\Release\FT_Client.pdb
+D:\SendFileLan\FT_Client\FT_Client\bin\Release\FT_Client.exe
+D:\SendFileLan\FT_Client\FT_Client\bin\Release\FT_Client.pdb
+D:\SendFileLan\FT_Client\FT_Client\obj\Release\ResolveAssemblyReference.cache
+D:\SendFileLan\FT_Client\FT_Client\obj\Release\FT_Client.AppClient.resources
+D:\SendFileLan\FT_Client\FT_Client\obj\Release\FT_Client.Properties.Resources.resources
+D:\SendFileLan\FT_Client\FT_Client\obj\Release\GenerateResource-ResGen.read.1.tlog
+D:\SendFileLan\FT_Client\FT_Client\obj\Release\GenerateResource-ResGen.write.1.tlog
