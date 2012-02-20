@@ -14,7 +14,8 @@ namespace FT_Server_Win
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AppServer());
+            //Application.Run(new AppServer());
+            Application.Run(new ServerUI());
         }
     }
 }

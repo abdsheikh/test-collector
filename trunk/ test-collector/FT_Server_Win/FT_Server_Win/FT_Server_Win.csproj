@@ -60,8 +60,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extension.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServerSocketControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ServerSocketControl.Designer.cs">
+      <DependentUpon>ServerSocketControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ServerUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServerUI.Designer.cs">
+      <DependentUpon>ServerUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="SyncSocketServerMulClient_Dll.cs" />
     <Compile Include="AppServer.cs">
       <SubType>Form</SubType>
@@ -81,6 +94,12 @@
     </Compile>
     <EmbeddedResource Include="AppServer.resx">
       <DependentUpon>AppServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServerSocketControl.resx">
+      <DependentUpon>ServerSocketControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServerUI.resx">
+      <DependentUpon>ServerUI.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
