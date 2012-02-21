@@ -38,6 +38,9 @@
             this.gridViewClientList = new System.Windows.Forms.DataGridView();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtMessage = new System.Windows.Forms.TextBox();
+            this.bậtKếtNốiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ngắtKếtNốiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewClientList)).BeginInit();
@@ -53,6 +56,8 @@
             // hệThốngToolStripMenuItem
             // 
             this.hệThốngToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bậtKếtNốiToolStripMenuItem,
+            this.ngắtKếtNốiToolStripMenuItem,
             this.càiĐặtKếtNốiToolStripMenuItem,
             this.toolStripMenuItem1,
             this.thoátToolStripMenuItem});
@@ -87,6 +92,8 @@
             this.gridViewClientList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             resources.ApplyResources(this.gridViewClientList, "gridViewClientList");
             this.gridViewClientList.Name = "gridViewClientList";
+            this.gridViewClientList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.gridViewClientList.RowHeadersVisible = false;
             // 
             // statusStrip1
             // 
@@ -99,10 +106,28 @@
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
             // 
+            // txtMessage
+            // 
+            resources.ApplyResources(this.txtMessage, "txtMessage");
+            this.txtMessage.Name = "txtMessage";
+            // 
+            // bậtKếtNốiToolStripMenuItem
+            // 
+            this.bậtKếtNốiToolStripMenuItem.Name = "bậtKếtNốiToolStripMenuItem";
+            resources.ApplyResources(this.bậtKếtNốiToolStripMenuItem, "bậtKếtNốiToolStripMenuItem");
+            this.bậtKếtNốiToolStripMenuItem.Click += new System.EventHandler(this.bậtKếtNốiToolStripMenuItem_Click);
+            // 
+            // ngắtKếtNốiToolStripMenuItem
+            // 
+            this.ngắtKếtNốiToolStripMenuItem.Name = "ngắtKếtNốiToolStripMenuItem";
+            resources.ApplyResources(this.ngắtKếtNốiToolStripMenuItem, "ngắtKếtNốiToolStripMenuItem");
+            this.ngắtKếtNốiToolStripMenuItem.Click += new System.EventHandler(this.ngắtKếtNốiToolStripMenuItem_Click);
+            // 
             // ServerUI
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.txtMessage);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox1);
@@ -131,5 +156,8 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView gridViewClientList;
+        private System.Windows.Forms.TextBox txtMessage;
+        private System.Windows.Forms.ToolStripMenuItem bậtKếtNốiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ngắtKếtNốiToolStripMenuItem;
     }
 }
