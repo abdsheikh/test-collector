@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.btnSend = new System.Windows.Forms.Button();
-            this.txtFileName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.gbClientSetting = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -38,6 +37,10 @@
             this.btZipFiles = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.lbFiles = new System.Windows.Forms.ListBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.zipFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteAllFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtIp4 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.txtIp3 = new System.Windows.Forms.TextBox();
@@ -65,11 +68,13 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.hệThốngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tHoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.deleteFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteAllFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.zipFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.numBox = new System.Windows.Forms.NumericUpDown();
+            this.lbNumber = new System.Windows.Forms.Label();
+            this.lbFileName = new System.Windows.Forms.Label();
             this.gbClientSetting.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabInfoSv.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -77,12 +82,14 @@
             this.tabPage2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numBox)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSend
             // 
-            this.btnSend.Location = new System.Drawing.Point(524, 34);
+            this.btnSend.Location = new System.Drawing.Point(359, 18);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(97, 37);
             this.btnSend.TabIndex = 0;
@@ -90,41 +97,34 @@
             this.btnSend.UseVisualStyleBackColor = true;
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
-            // txtFileName
-            // 
-            this.txtFileName.Location = new System.Drawing.Point(201, 294);
-            this.txtFileName.Name = "txtFileName";
-            this.txtFileName.Size = new System.Drawing.Size(261, 20);
-            this.txtFileName.TabIndex = 2;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(74, 143);
+            this.label1.Location = new System.Drawing.Point(78, 68);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(61, 13);
             this.label1.TabIndex = 3;
-            this.label1.Text = "label1";
+            this.label1.Text = "client info...";
             // 
             // gbClientSetting
             // 
+            this.gbClientSetting.Controls.Add(this.lbFileName);
             this.gbClientSetting.Controls.Add(this.label9);
             this.gbClientSetting.Controls.Add(this.btFileToSend);
             this.gbClientSetting.Controls.Add(this.btZipFiles);
             this.gbClientSetting.Controls.Add(this.label2);
             this.gbClientSetting.Controls.Add(this.lbFiles);
-            this.gbClientSetting.Controls.Add(this.txtFileName);
-            this.gbClientSetting.Location = new System.Drawing.Point(351, 65);
+            this.gbClientSetting.Location = new System.Drawing.Point(368, 29);
             this.gbClientSetting.Name = "gbClientSetting";
-            this.gbClientSetting.Size = new System.Drawing.Size(651, 356);
+            this.gbClientSetting.Size = new System.Drawing.Size(537, 359);
             this.gbClientSetting.TabIndex = 4;
             this.gbClientSetting.TabStop = false;
-            this.gbClientSetting.Text = "Client Setting";
+            this.gbClientSetting.Text = "Gửi File";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(19, 294);
+            this.label9.Location = new System.Drawing.Point(16, 294);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(45, 13);
             this.label9.TabIndex = 16;
@@ -142,7 +142,7 @@
             // 
             // btZipFiles
             // 
-            this.btZipFiles.Location = new System.Drawing.Point(556, 294);
+            this.btZipFiles.Location = new System.Drawing.Point(443, 321);
             this.btZipFiles.Name = "btZipFiles";
             this.btZipFiles.Size = new System.Drawing.Size(84, 32);
             this.btZipFiles.TabIndex = 15;
@@ -163,14 +163,44 @@
             // 
             this.lbFiles.ContextMenuStrip = this.contextMenuStrip1;
             this.lbFiles.FormattingEnabled = true;
-            this.lbFiles.Location = new System.Drawing.Point(17, 42);
+            this.lbFiles.Location = new System.Drawing.Point(19, 41);
             this.lbFiles.Name = "lbFiles";
-            this.lbFiles.Size = new System.Drawing.Size(623, 225);
+            this.lbFiles.Size = new System.Drawing.Size(508, 225);
             this.lbFiles.TabIndex = 13;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.zipFilesToolStripMenuItem,
+            this.deleteAllFilesToolStripMenuItem,
+            this.deleteFileToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(127, 70);
+            // 
+            // zipFilesToolStripMenuItem
+            // 
+            this.zipFilesToolStripMenuItem.Name = "zipFilesToolStripMenuItem";
+            this.zipFilesToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.zipFilesToolStripMenuItem.Text = "Zip Files";
+            this.zipFilesToolStripMenuItem.Click += new System.EventHandler(this.zipFilesToolStripMenuItem_Click);
+            // 
+            // deleteAllFilesToolStripMenuItem
+            // 
+            this.deleteAllFilesToolStripMenuItem.Name = "deleteAllFilesToolStripMenuItem";
+            this.deleteAllFilesToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.deleteAllFilesToolStripMenuItem.Text = "Clear Box";
+            this.deleteAllFilesToolStripMenuItem.Click += new System.EventHandler(this.deleteAllFilesToolStripMenuItem_Click);
+            // 
+            // deleteFileToolStripMenuItem
+            // 
+            this.deleteFileToolStripMenuItem.Name = "deleteFileToolStripMenuItem";
+            this.deleteFileToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.deleteFileToolStripMenuItem.Text = "Delete file";
+            this.deleteFileToolStripMenuItem.Click += new System.EventHandler(this.deleteFileToolStripMenuItem_Click);
             // 
             // txtIp4
             // 
-            this.txtIp4.Location = new System.Drawing.Point(247, 105);
+            this.txtIp4.Location = new System.Drawing.Point(251, 80);
             this.txtIp4.Name = "txtIp4";
             this.txtIp4.Size = new System.Drawing.Size(39, 20);
             this.txtIp4.TabIndex = 12;
@@ -178,7 +208,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(182, 162);
+            this.button2.Location = new System.Drawing.Point(201, 135);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(89, 32);
             this.button2.TabIndex = 11;
@@ -188,7 +218,7 @@
             // 
             // txtIp3
             // 
-            this.txtIp3.Location = new System.Drawing.Point(202, 105);
+            this.txtIp3.Location = new System.Drawing.Point(206, 80);
             this.txtIp3.Name = "txtIp3";
             this.txtIp3.Size = new System.Drawing.Size(39, 20);
             this.txtIp3.TabIndex = 8;
@@ -196,7 +226,7 @@
             // 
             // txtIp2
             // 
-            this.txtIp2.Location = new System.Drawing.Point(153, 105);
+            this.txtIp2.Location = new System.Drawing.Point(157, 80);
             this.txtIp2.Name = "txtIp2";
             this.txtIp2.Size = new System.Drawing.Size(43, 20);
             this.txtIp2.TabIndex = 7;
@@ -204,7 +234,7 @@
             // 
             // txtIp1
             // 
-            this.txtIp1.Location = new System.Drawing.Point(101, 105);
+            this.txtIp1.Location = new System.Drawing.Point(105, 80);
             this.txtIp1.Name = "txtIp1";
             this.txtIp1.Size = new System.Drawing.Size(45, 20);
             this.txtIp1.TabIndex = 6;
@@ -212,7 +242,7 @@
             // 
             // txtSendPort
             // 
-            this.txtSendPort.Location = new System.Drawing.Point(118, 33);
+            this.txtSendPort.Location = new System.Drawing.Point(105, 33);
             this.txtSendPort.Name = "txtSendPort";
             this.txtSendPort.Size = new System.Drawing.Size(153, 20);
             this.txtSendPort.TabIndex = 4;
@@ -221,7 +251,7 @@
             // lbIpAdress
             // 
             this.lbIpAdress.AutoSize = true;
-            this.lbIpAdress.Location = new System.Drawing.Point(6, 108);
+            this.lbIpAdress.Location = new System.Drawing.Point(10, 83);
             this.lbIpAdress.Name = "lbIpAdress";
             this.lbIpAdress.Size = new System.Drawing.Size(89, 13);
             this.lbIpAdress.TabIndex = 2;
@@ -238,7 +268,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(128, 43);
+            this.button3.Location = new System.Drawing.Point(70, 16);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(113, 39);
             this.button3.TabIndex = 6;
@@ -249,7 +279,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 142);
+            this.label3.Location = new System.Drawing.Point(17, 67);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 13);
             this.label3.TabIndex = 7;
@@ -261,9 +291,9 @@
             this.groupBox1.Controls.Add(this.btnSend);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(351, 427);
+            this.groupBox1.Location = new System.Drawing.Point(368, 397);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(645, 163);
+            this.groupBox1.Size = new System.Drawing.Size(537, 87);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Gửi File";
@@ -272,34 +302,37 @@
             // 
             this.tabInfoSv.Controls.Add(this.tabPage1);
             this.tabInfoSv.Controls.Add(this.tabPage2);
-            this.tabInfoSv.Location = new System.Drawing.Point(12, 43);
+            this.tabInfoSv.Location = new System.Drawing.Point(10, 21);
             this.tabInfoSv.Name = "tabInfoSv";
             this.tabInfoSv.SelectedIndex = 0;
-            this.tabInfoSv.Size = new System.Drawing.Size(333, 531);
+            this.tabInfoSv.Size = new System.Drawing.Size(329, 426);
             this.tabInfoSv.TabIndex = 9;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.pictureBox1);
             this.tabPage1.Controls.Add(this.groupBox3);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(325, 505);
+            this.tabPage1.Size = new System.Drawing.Size(321, 400);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Thông tin Sinh Viên";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.lbNumber);
+            this.groupBox3.Controls.Add(this.numBox);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.txtNgaySinh);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.txtHoTen);
             this.groupBox3.Controls.Add(this.txtMaSV);
-            this.groupBox3.Location = new System.Drawing.Point(6, 15);
+            this.groupBox3.Location = new System.Drawing.Point(15, 15);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(313, 284);
+            this.groupBox3.Size = new System.Drawing.Size(289, 178);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Thông tin";
@@ -323,7 +356,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(28, 64);
+            this.label5.Location = new System.Drawing.Point(18, 64);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(49, 13);
             this.label5.TabIndex = 3;
@@ -332,7 +365,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(34, 22);
+            this.label4.Location = new System.Drawing.Point(20, 22);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 13);
             this.label4.TabIndex = 2;
@@ -360,7 +393,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(325, 505);
+            this.tabPage2.Size = new System.Drawing.Size(321, 400);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Cài đặt kết nối";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -368,7 +401,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(42, 42);
+            this.label8.Location = new System.Drawing.Point(40, 44);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(237, 13);
             this.label8.TabIndex = 2;
@@ -377,7 +410,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(80, 16);
+            this.label7.Location = new System.Drawing.Point(78, 18);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(175, 13);
             this.label7.TabIndex = 1;
@@ -393,9 +426,9 @@
             this.groupBox2.Controls.Add(this.txtIp1);
             this.groupBox2.Controls.Add(this.txtIp2);
             this.groupBox2.Controls.Add(this.txtIp3);
-            this.groupBox2.Location = new System.Drawing.Point(14, 71);
+            this.groupBox2.Location = new System.Drawing.Point(12, 73);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(296, 301);
+            this.groupBox2.Size = new System.Drawing.Size(296, 193);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "groupBox2";
@@ -406,7 +439,7 @@
             this.hệThốngToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1008, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(913, 24);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -421,45 +454,74 @@
             // tHoátToolStripMenuItem
             // 
             this.tHoátToolStripMenuItem.Name = "tHoátToolStripMenuItem";
-            this.tHoátToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-            this.tHoátToolStripMenuItem.Text = "THoát";
+            this.tHoátToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
+            this.tHoátToolStripMenuItem.Text = "Thoát";
             // 
-            // contextMenuStrip1
+            // groupBox4
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.zipFilesToolStripMenuItem,
-            this.deleteAllFilesToolStripMenuItem,
-            this.deleteFileToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(127, 70);
+            this.groupBox4.Controls.Add(this.tabInfoSv);
+            this.groupBox4.Location = new System.Drawing.Point(12, 29);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(350, 457);
+            this.groupBox4.TabIndex = 11;
+            this.groupBox4.TabStop = false;
             // 
-            // deleteFileToolStripMenuItem
+            // pictureBox1
             // 
-            this.deleteFileToolStripMenuItem.Name = "deleteFileToolStripMenuItem";
-            this.deleteFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.deleteFileToolStripMenuItem.Text = "Delete file";
-            this.deleteFileToolStripMenuItem.Click += new System.EventHandler(this.deleteFileToolStripMenuItem_Click);
+            this.pictureBox1.Image = global::FT_Client.Properties.Resources.students;
+            this.pictureBox1.Location = new System.Drawing.Point(15, 222);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(289, 167);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
-            // deleteAllFilesToolStripMenuItem
+            // numBox
             // 
-            this.deleteAllFilesToolStripMenuItem.Name = "deleteAllFilesToolStripMenuItem";
-            this.deleteAllFilesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.deleteAllFilesToolStripMenuItem.Text = "Clear Box";
-            this.deleteAllFilesToolStripMenuItem.Click += new System.EventHandler(this.deleteAllFilesToolStripMenuItem_Click);
+            this.numBox.Location = new System.Drawing.Point(115, 139);
+            this.numBox.Maximum = new decimal(new int[] {
+            111,
+            0,
+            0,
+            0});
+            this.numBox.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numBox.Name = "numBox";
+            this.numBox.Size = new System.Drawing.Size(47, 20);
+            this.numBox.TabIndex = 6;
+            this.numBox.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
-            // zipFilesToolStripMenuItem
+            // lbNumber
             // 
-            this.zipFilesToolStripMenuItem.Name = "zipFilesToolStripMenuItem";
-            this.zipFilesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.zipFilesToolStripMenuItem.Text = "Zip Files";
-            this.zipFilesToolStripMenuItem.Click += new System.EventHandler(this.zipFilesToolStripMenuItem_Click);
+            this.lbNumber.AutoSize = true;
+            this.lbNumber.Location = new System.Drawing.Point(17, 141);
+            this.lbNumber.Name = "lbNumber";
+            this.lbNumber.Size = new System.Drawing.Size(73, 13);
+            this.lbNumber.TabIndex = 7;
+            this.lbNumber.Text = "Lần Nộp Thứ:";
+            // 
+            // lbFileName
+            // 
+            this.lbFileName.AutoSize = true;
+            this.lbFileName.Location = new System.Drawing.Point(175, 296);
+            this.lbFileName.Name = "lbFileName";
+            this.lbFileName.Size = new System.Drawing.Size(90, 13);
+            this.lbFileName.TabIndex = 17;
+            this.lbFileName.Text = "File name to send";
             // 
             // AppClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 589);
-            this.Controls.Add(this.tabInfoSv);
+            this.ClientSize = new System.Drawing.Size(913, 491);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gbClientSetting);
             this.Controls.Add(this.menuStrip1);
@@ -469,6 +531,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.gbClientSetting.ResumeLayout(false);
             this.gbClientSetting.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabInfoSv.ResumeLayout(false);
@@ -481,7 +544,9 @@
             this.groupBox2.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.contextMenuStrip1.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -490,7 +555,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnSend;
-        private System.Windows.Forms.TextBox txtFileName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox gbClientSetting;
         private System.Windows.Forms.Label lbSendPort;
@@ -529,6 +593,11 @@
         private System.Windows.Forms.ToolStripMenuItem zipFilesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteAllFilesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteFileToolStripMenuItem;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.NumericUpDown numBox;
+        private System.Windows.Forms.Label lbNumber;
+        private System.Windows.Forms.Label lbFileName;
     }
 }
 
