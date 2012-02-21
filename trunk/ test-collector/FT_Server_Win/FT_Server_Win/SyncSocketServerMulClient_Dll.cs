@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.IO;
 using System.Windows.Forms;
+using FT_Server_Win;
 
 
 namespace ServerSockets.Synchronous.UsingByteArray
@@ -22,7 +23,8 @@ namespace ServerSockets.Synchronous.UsingByteArray
         public string outPath ;
         public static string status="",presentOperation = "";
         public string currentStatus = "";
-
+        public List<ClientItem> clientItemList;
+        public string MessagePool;
 
         #region Constructor
         public SyncSocketServerMulClient(int receivePort, int sendPort, int maxClient, string outPutPath)
@@ -39,6 +41,8 @@ namespace ServerSockets.Synchronous.UsingByteArray
             this.outPath = outPutPath;
             SyncSocketServerMulClient.status = "";
             SyncSocketServerMulClient.presentOperation = "";
+            clientItemList = new List<ClientItem>();
+            MessagePool = string.Empty;
         }
         /// <summary>
         /// Default sets Receive Port:8080, Send Port:8081, Buffer Size:10KB, Max Client:100 and Out path: C:\
@@ -51,8 +55,9 @@ namespace ServerSockets.Synchronous.UsingByteArray
             SyncSocketServerMulClient.maxClientReceived = 100;
             this.outPath = @"C:\";
             SyncSocketServerMulClient.status = "";
-            //SyncSocketServerMulClient.progress = 0;
             SyncSocketServerMulClient.presentOperation = "";
+            clientItemList = new List<ClientItem>();
+            MessagePool = string.Empty;
 
         }
         #endregion
@@ -84,8 +89,6 @@ namespace ServerSockets.Synchronous.UsingByteArray
             SyncSocketServerMulClient.status = "";
             SyncSocketServerMulClient.presentOperation = "";
         }
-
-        
 
         #region SERVER SYNCHRONOUS SOCKET DATA RECEIVE
         Thread threadReceiveServer, threadSendServer;
@@ -143,11 +146,12 @@ namespace ServerSockets.Synchronous.UsingByteArray
                 Socket clientSock;
                 clientSock = receiveSock.Accept();
                 SyncSocketServerMulClient serObj = new SyncSocketServerMulClient(SyncSocketServerMulClient.receivePort, SyncSocketServerMulClient.sendPort, SyncSocketServerMulClient.bufferSize, this.outPath);
+                MessagePool += ipEndReceive.Address.ToString() + " connected";
+                clientItemList.Add(new ClientItem(ipEndReceive.Address.Address.ToString(), ipEndReceive.Address.ToString(), "08520625", "Song Vu", 1));
                 Thread newClient = new Thread(serObj.ReadDataFromClient);
                 newClient.Start(clientSock);
             }
             receiveSock.Close();
-
         }
 
         private void ReadDataFromClient(object clientObject)
@@ -161,16 +165,14 @@ namespace ServerSockets.Synchronous.UsingByteArray
                 SyncSocketServerMulClient.presentOperation = "";
                 clientSock = (Socket)clientObject;
                 bool flag = true;
-                Console.WriteLine("New connection estublished. Socket {0}", clientSock.GetHashCode());
+                //Console.WriteLine("New connection estublished. Socket {0}", clientSock.GetHashCode());
                 int totalDataLen, receivedLen, fileNameLen, fileContentStartIndex;
 
                 byte[] data = new byte[bufferSize];
                 //DATA FORMAT: [FILE SIZE LEN INFO[0-3]][FILE NAME LEN INFO[4-7]][FILE NAME DATA][FILE CONTENT]
 
-
-
                 //GET FILE NAME, SIZE ETC.
-                currentStatus =presentOperation = "Data Receiving";
+                currentStatus = presentOperation = "Data Receiving";
                 int len = clientSock.Receive(data);
                 if (len == 0)
                 {

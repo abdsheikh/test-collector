@@ -13,7 +13,7 @@ namespace FT_Server_Win
     {
 
         #region Properties
-        SyncSocketServerMulClient m_ServerSocketObject;
+        public SyncSocketServerMulClient m_ServerSocketObject;
 
         private string m_OutputPath;
 
