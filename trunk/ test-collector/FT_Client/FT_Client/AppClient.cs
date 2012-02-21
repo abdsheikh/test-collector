@@ -16,8 +16,9 @@ namespace FT_Client
 
         SynchronusClient_ByteArr objClient = new SynchronusClient_ByteArr("1","127.0.0.1",@"C:\Users\THIENSUHACK\Desktop\rc2");
         public static string idClient="";
+        public static string nameStudent = "Khong Ten";
         public static string outputFolderZipFiles;
-        public static string outputZipFiles = outputFolderZipFiles + idClient + ".zip";
+        public static string outputZipFiles = "";
 
         public static int portSend, portReceive;
         public static string ipAddress, outPathDefault = @"C:\";
@@ -31,19 +32,33 @@ namespace FT_Client
                        objClient.FileSendCompleted += new SynchronusClient_ByteArr.FileSendCompletedDelegate(objClient_FileSendCompleted);
                        objClient.FileReceiveCompleted += new SynchronusClient_ByteArr.FileSendCompletedDelegate(objClient_FileReceiveCompleted);
         }
-
+        public int checkNumBox(string nbox)
+        {
+            Int32 num = 1;
+            try
+            {
+                num = Convert.ToInt32(nbox);
+                if (num < 1 || num > 111)
+                {
+                    return 1;
+                }
+                else return num;
+            }
+            catch (System.Exception ex)
+            {
+                return num;
+            }
+        }
         //Check if the /zipfiles folder is existed
         public void CheckOuputZipFolder()
         {
-            if(CheckInfoStudent()==1)
-            {
-                MessageBox.Show("Vui lòng điền Mã sinh viên!");
-                label1.Text = "Vui lòng điền MaSV trước khi GỬI FILE!";
-                txtMaSV.Focus();
-                return;
-            }
+            int lannop = checkNumBox(numBox.Value.ToString());
+
+            ConvertTiengVietKoDau tv = new ConvertTiengVietKoDau();
+            nameStudent=tv.Convert(nameStudent);
+            idClient = tv.Convert(idClient);
             outputFolderZipFiles = Directory.GetCurrentDirectory() + "\\zipfiles";
-            outputZipFiles = outputFolderZipFiles + "\\" + idClient + ".zip";
+            outputZipFiles = outputFolderZipFiles + "\\" + idClient+"_"+nameStudent +"_"+"So"+lannop+ ".zip";
             if (!Directory.Exists(outputFolderZipFiles))
                 try
                 {
@@ -60,10 +75,13 @@ namespace FT_Client
             {
                 return 1;
             }
-            else
+           
+            idClient = txtMaSV.Text;
+            if(txtHoTen.Text=="")
             {
-                idClient = txtMaSV.Text;
+                return 2;
             }
+            nameStudent = txtHoTen.Text;          
             return 0;
         }
         void objClient_FileReceiveCompleted()
@@ -93,10 +111,14 @@ namespace FT_Client
         {
             if (isZipSuccess)
             {
-                txtFileName.Text = outputZipFiles;
-            }            
-            if (txtFileName.Text == "") return;
-            if(!File.Exists(txtFileName.Text))
+                lbFileName.Text = outputZipFiles;
+            }
+            if (outputZipFiles == "")
+            {
+                MessageBox.Show("Vui lòng chọn Files trước khi gửi!");
+                return;
+            }
+            if(!File.Exists(lbFileName.Text))
             {
                 MessageBox.Show("File ko tồn tại!");
                 return;
@@ -106,7 +128,7 @@ namespace FT_Client
                 MessageBox.Show("Please! Connect To Server before sending file!!!");
                 return;
             }
-            objClient.SetFileName(txtFileName.Text);
+            objClient.SetFileName(lbFileName.Text);
             objClient.SendFileToServer("", "");
             label1.Text=objClient.Status;           
         }
@@ -114,7 +136,7 @@ namespace FT_Client
         private void btnReceive_Click(object sender, EventArgs e)
         {
             
-           // objClient.ReceiveFileFromServer(txtFileName.Text);
+           // objClient.ReceiveFileFromServer(lbFileName.Text);
 
         }
         /// <summary>
@@ -142,7 +164,7 @@ namespace FT_Client
             op.Multiselect = true;
             if(op.ShowDialog()==DialogResult.OK)
             {
-                //txtFileName.Text = op.FileName;
+                //lbFileName.Text = op.FileName;
                 foreach (string file in op.FileNames)
                 {
                     lbFiles.Items.Add(file);
@@ -218,22 +240,37 @@ namespace FT_Client
         {
             if (lbFiles.Items.Count <= 0)
             {
-                MessageBox.Show("Please! Select Files before ZipFiles!");
+                MessageBox.Show("Vui lòng chọn files trước khi sử dụng chức năng ZipFiles!");
                 return;
             }
             else
             {
+                if (CheckInfoStudent() == 1) //check MASV of student 
+                {
+                    MessageBox.Show("Vui lòng điền Mã sinh viên!");
+                    label1.Text = "Vui lòng điền MaSV trước khi GỬI FILE!";
+                    txtMaSV.Focus();
+                    return;
+                }
+                if (CheckInfoStudent() == 2) //check name of student 
+                {
+                    MessageBox.Show("Vui lòng điền Họ Tên Sinh Viên");
+                    label1.Text = "Vui lòng điền Họ Tên Sinh Viên trước khi GỬI FILE!";
+                    txtHoTen.Focus();
+                    return;
+                }
+
                 files = new string[lbFiles.Items.Count];
                 for (int index = 0; index < lbFiles.Items.Count; index++)
                 {
                     files[index] = lbFiles.Items[index].ToString();
-                }
+                }               
                 CheckOuputZipFolder();
                 isZipSuccess = ziptool.Zip(outputZipFiles, files);
                 if (isZipSuccess)
                 {
                     label1.Text = "Zip Files is Successfull! File: " + outputZipFiles + " is Ready to send!";
-                    txtFileName.Text = outputZipFiles;
+                    lbFileName.Text = outputZipFiles;
                 }
                 else
                 {
