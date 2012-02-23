@@ -147,15 +147,31 @@ namespace ServerSockets.Synchronous.UsingByteArray
                 clientSock = receiveSock.Accept();
                 SyncSocketServerMulClient serObj = new SyncSocketServerMulClient(SyncSocketServerMulClient.receivePort, SyncSocketServerMulClient.sendPort, SyncSocketServerMulClient.bufferSize, this.outPath);
                 MessagePool += ipEndReceive.Address.ToString() + " connected";
-                clientItemList.Add(new ClientItem(ipEndReceive.Address.Address.ToString(), ipEndReceive.Address.ToString(), "08520625", "Song Vu", 1));
+                clientItemList.Add(new ClientItem(ipEndReceive.Address.Address.ToString(), ipEndReceive.Address.ToString(), "08520625", "Song Vu", 1));               
                 Thread newClient = new Thread(serObj.ReadDataFromClient);
+
+                //// test function get name computer client 
+                string fullip = clientSock.RemoteEndPoint.ToString();
+                string a = ":";
+                string[] ip = fullip.Split(':');
+                if(ip[0]!=null || ip[0].Length>0)
+                MessageBox.Show(getHost(ip[0]));
+                /// end test
+                 
                 newClient.Start(clientSock);
             }
             receiveSock.Close();
         }
+        public string getHost(string ip)
+        {
+            IPHostEntry IpEntry = Dns.GetHostByAddress(ip);
+            return IpEntry.HostName.ToString();
+        }
 
         private void ReadDataFromClient(object clientObject)
         {
+
+
             Socket clientSock = null;
             BinaryWriter bWriter=null;
             string fileName = "";
