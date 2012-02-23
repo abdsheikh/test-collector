@@ -147,17 +147,39 @@ namespace ServerSockets.Synchronous.UsingByteArray
                 clientSock = receiveSock.Accept();
                 SyncSocketServerMulClient serObj = new SyncSocketServerMulClient(SyncSocketServerMulClient.receivePort, SyncSocketServerMulClient.sendPort, SyncSocketServerMulClient.bufferSize, this.outPath);
                 MessagePool += ipEndReceive.Address.ToString() + " connected";
-                clientItemList.Add(new ClientItem(ipEndReceive.Address.Address.ToString(), ipEndReceive.Address.ToString(), "08520625", "Song Vu", 1));               
-                Thread newClient = new Thread(serObj.ReadDataFromClient);
+                clientItemList.Add(new ClientItem(ipEndReceive.Address.Address.ToString(), ipEndReceive.Address.ToString(), "08520625", "Song Vu", 1));
 
+
+                //Nhận thông tin từ client khi vừa tạo kết nối
+                NetworkStream getInfo = new NetworkStream(clientSock);
+                StringBuilder myCompleteMessage = new StringBuilder();
+                if (getInfo.CanRead)
+                {
+                    byte[] myReadBuffer = new byte[1024];
+                   
+                    int numberOfBytesRead = 0;
+
+                    // Incoming message may be larger than the buffer size.
+                    do
+                    {
+                        numberOfBytesRead = getInfo.Read(myReadBuffer, 0, myReadBuffer.Length);
+                        myCompleteMessage.AppendFormat("{0}", Encoding.ASCII.GetString(myReadBuffer, 0, numberOfBytesRead));
+                    } while (getInfo.DataAvailable);                                 
+                }
+                MessageBox.Show(myCompleteMessage.ToString());
+                // kết thúc nhận thông tin         
+                     
                 //// test function get name computer client 
+                /*
                 string fullip = clientSock.RemoteEndPoint.ToString();
                 string a = ":";
                 string[] ip = fullip.Split(':');
                 if(ip[0]!=null || ip[0].Length>0)
-                MessageBox.Show(getHost(ip[0]));
+                MessageBox.Show(getHost(ip[0])); 
+                */
                 /// end test
-                 
+                /// 
+                Thread newClient = new Thread(serObj.ReadDataFromClient);
                 newClient.Start(clientSock);
             }
             receiveSock.Close();

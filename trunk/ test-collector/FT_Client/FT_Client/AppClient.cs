@@ -54,9 +54,8 @@ namespace FT_Client
         {
             int lannop = checkNumBox(numBox.Value.ToString());
 
-            ConvertTiengVietKoDau tv = new ConvertTiengVietKoDau();
-            nameStudent=tv.Convert(nameStudent);
-            idClient = tv.Convert(idClient);
+            ConvertTVKoDau();
+
             outputFolderZipFiles = Directory.GetCurrentDirectory() + "\\zipfiles";
             outputZipFiles = outputFolderZipFiles + "\\" + idClient+"_"+nameStudent +"_"+"So"+lannop+ ".zip";
             if (!Directory.Exists(outputFolderZipFiles))
@@ -68,22 +67,15 @@ namespace FT_Client
                 { 
                 }
         }
-        //check info of student
-        public int CheckInfoStudent()
+
+        private static void ConvertTVKoDau()
         {
-            if(txtMaSV.Text=="") //masv is not set.
-            {
-                return 1;
-            }
-           
-            idClient = txtMaSV.Text;
-            if(txtHoTen.Text=="")
-            {
-                return 2;
-            }
-            nameStudent = txtHoTen.Text;          
-            return 0;
+            ConvertTiengVietKoDau tv = new ConvertTiengVietKoDau();
+            nameStudent = tv.Convert(nameStudent);
+            idClient = tv.Convert(idClient);
         }
+        //check info of student
+        
         void objClient_FileReceiveCompleted()
         {
             MessageBox.Show("File receive done");
@@ -109,13 +101,18 @@ namespace FT_Client
 
         private void btnSend_Click(object sender, EventArgs e)
         {
+            if(CheckInfoStudent()>0)
+            {
+                return;
+            }
+
             if (isZipSuccess)
             {
                 lbFileName.Text = outputZipFiles;
             }
             if (outputZipFiles == "")
             {
-                MessageBox.Show("Vui lòng chọn Files trước khi gửi!");
+                MessageBox.Show("Vui lòng Zip Files trước khi gửi!");
                 return;
             }
             if(!File.Exists(lbFileName.Text))
@@ -138,26 +135,7 @@ namespace FT_Client
             
            // objClient.ReceiveFileFromServer(lbFileName.Text);
 
-        }
-        /// <summary>
-        /// Select folder for output path
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        /*
-        private void button1_Click(object sender, EventArgs e)
-        {
-            FolderBrowserDialog fbd = new FolderBrowserDialog();
-            if(fbd.ShowDialog()!=DialogResult.OK)
-            {
-                MessageBox.Show("Your Cancel Setting Oup put file! System'll use default!");
-            }
-            else
-            {
-                lbOutPutPathFolder.Text = fbd.SelectedPath;
-            }
-        }
-        */
+        }        
         private void btFileToSend_Click(object sender, EventArgs e)
         {
             OpenFileDialog op = new OpenFileDialog();
@@ -171,12 +149,24 @@ namespace FT_Client
                 }
             }
         }
-
+        public string getNameClient()
+        {
+            string ClientName="";
+            ClientName = System.Environment.MachineName;
+            return ClientName;
+        }
         private void button3_Click(object sender, EventArgs e)
         {
+            if (CheckInfoStudent() >0)
+            {
+                return;
+            }
+            string clientInfo = "";
+            ConvertTVKoDau();
+            clientInfo = idClient + "_" + nameStudent + "_" + getNameClient();
             try
             {
-                label1.Text = objClient.ConnectToServer();
+                label1.Text = objClient.ConnectToServer(clientInfo);
             }
             catch (System.Exception ex)
             {
@@ -235,7 +225,27 @@ namespace FT_Client
         {
             ZipFilesToSend(); 
         }
+        public int CheckInfoStudent()
+        {
+            if (txtMaSV.Text == "") //masv is not set.
+            {
+                MessageBox.Show("Vui lòng điền Mã sinh viên!");
+                label1.Text = "Vui lòng điền MaSV trước khi GỬI FILE!";
+                txtMaSV.Focus();
+                return 1;
+            }
 
+            idClient = txtMaSV.Text;
+            if (txtHoTen.Text == "")
+            {
+                MessageBox.Show("Vui lòng điền Họ Tên Sinh Viên");
+                label1.Text = "Vui lòng điền Họ Tên Sinh Viên trước khi GỬI FILE!";
+                txtHoTen.Focus();
+                return 2;
+            }
+            nameStudent = txtHoTen.Text;
+            return 0;
+        }
         private void ZipFilesToSend()
         {
             if (lbFiles.Items.Count <= 0)
@@ -245,20 +255,7 @@ namespace FT_Client
             }
             else
             {
-                if (CheckInfoStudent() == 1) //check MASV of student 
-                {
-                    MessageBox.Show("Vui lòng điền Mã sinh viên!");
-                    label1.Text = "Vui lòng điền MaSV trước khi GỬI FILE!";
-                    txtMaSV.Focus();
-                    return;
-                }
-                if (CheckInfoStudent() == 2) //check name of student 
-                {
-                    MessageBox.Show("Vui lòng điền Họ Tên Sinh Viên");
-                    label1.Text = "Vui lòng điền Họ Tên Sinh Viên trước khi GỬI FILE!";
-                    txtHoTen.Focus();
-                    return;
-                }
+                CheckInfoStudent();
 
                 files = new string[lbFiles.Items.Count];
                 for (int index = 0; index < lbFiles.Items.Count; index++)

@@ -46,7 +46,7 @@ namespace ClientSockets.Synchronous.UsingByteArray // SyncScoketClient_ByteArr_D
         {
             fileNameWithPath = fileName;
         }
-        public string ConnectToServer()
+        public string ConnectToServer(string clientInfo)
         {          
             IPAddress[] serverIp = Dns.GetHostAddresses(SynchronusClient_ByteArr.ipAddress);
             IPEndPoint ipEnd = new IPEndPoint(serverIp[0], SynchronusClient_ByteArr.portSend);
@@ -54,6 +54,11 @@ namespace ClientSockets.Synchronous.UsingByteArray // SyncScoketClient_ByteArr_D
             try
             {
                 server.Connect(ipEnd);
+                string sInfo = clientInfo;
+                byte[] req = Encoding.ASCII.GetBytes(sInfo);
+                NetworkStream studentInfo = new NetworkStream(server);
+                studentInfo.Write(req, 0, req.Length);
+                studentInfo.Close();
             }
             catch (System.Exception ex)
             {                
