@@ -22,6 +22,8 @@ namespace FT_Server_Win
             clientData = Extension.CreateDataTableWithHeader();
             gridViewClientList.DataSource = clientData;
             socketControl = new ServerSocketControl();
+            socketControl.OutputPath = @"D:\save";
+            socketControl.SaveConfiguration();
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -45,10 +47,10 @@ namespace FT_Server_Win
             {
                 Thread.Sleep(2000);
                 List<ClientItem> list = socketControl.m_ServerSocketObject.clientItemList;
-                txtMessage.Text += socketControl.m_ServerSocketObject.MessagePool;
                 foreach (ClientItem item in list)
                 {
-                    clientData.Rows.Add(1, item.ComputerName, item.IPAdress, item.StudentID, item.StudentName, item.Status);
+                    if (clientData.Rows.Find(item.StudentID) == null)
+                        clientData.Rows.Add(clientData.Rows.Count + 1, item.ComputerName, item.IPAdress, item.StudentID, item.StudentName, item.Status);
                 }
                 gridViewClientList.DataSource = clientData;
             }
@@ -57,6 +59,24 @@ namespace FT_Server_Win
         private void ngắtKếtNốiToolStripMenuItem_Click(object sender, EventArgs e)
         {
             socketControl.m_ServerSocketObject.StopServer();
+        }
+
+        private void ServerUI_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (socketControl.m_ServerSocketObject.isRunning())
+                socketControl.m_ServerSocketObject.StopServer();
+        }
+
+        public void ShowMessage()
+        {
+            MessageBox.Show("Hello!");
+        }
+
+        private void càiĐặtKếtNốiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SettingForm form = new SettingForm(socketControl);
+            form.ShowDialog();
+            MessageBox.Show(socketControl.SendPort.ToString());
         }
 
         

@@ -62,7 +62,6 @@ namespace FT_Server_Win
             m_SendPort = 8081;
             m_ReceivedPort = 8080;
             m_MaxClient = 111;
-
         }
 
         private void ServerSocketControl_Load(object sender, EventArgs e)
@@ -92,23 +91,9 @@ namespace FT_Server_Win
                 m_ServerSocketObject.StopServer();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            FolderBrowserDialog fbd = new FolderBrowserDialog();
-            if (fbd.ShowDialog() != DialogResult.OK)
-            {               
-                MessageBox.Show("Cancel! Using Default Output Path!");
-            }
-            else
-            {
-                m_OutputPath = fbd.SelectedPath;                
-            }
-        }
-
-        public void SetConfiguration()
+        public void SaveConfiguration()
         {
             m_ServerSocketObject.SettingServer(m_ReceivedPort, m_SendPort, m_MaxClient, m_OutputPath);
-
         }
 
         #endregion

@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServerUI));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.hệThốngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bậtKếtNốiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ngắtKếtNốiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.càiĐặtKếtNốiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,8 +41,6 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtMessage = new System.Windows.Forms.TextBox();
-            this.bậtKếtNốiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ngắtKếtNốiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewClientList)).BeginInit();
@@ -64,10 +64,23 @@
             this.hệThốngToolStripMenuItem.Name = "hệThốngToolStripMenuItem";
             resources.ApplyResources(this.hệThốngToolStripMenuItem, "hệThốngToolStripMenuItem");
             // 
+            // bậtKếtNốiToolStripMenuItem
+            // 
+            this.bậtKếtNốiToolStripMenuItem.Name = "bậtKếtNốiToolStripMenuItem";
+            resources.ApplyResources(this.bậtKếtNốiToolStripMenuItem, "bậtKếtNốiToolStripMenuItem");
+            this.bậtKếtNốiToolStripMenuItem.Click += new System.EventHandler(this.bậtKếtNốiToolStripMenuItem_Click);
+            // 
+            // ngắtKếtNốiToolStripMenuItem
+            // 
+            this.ngắtKếtNốiToolStripMenuItem.Name = "ngắtKếtNốiToolStripMenuItem";
+            resources.ApplyResources(this.ngắtKếtNốiToolStripMenuItem, "ngắtKếtNốiToolStripMenuItem");
+            this.ngắtKếtNốiToolStripMenuItem.Click += new System.EventHandler(this.ngắtKếtNốiToolStripMenuItem_Click);
+            // 
             // càiĐặtKếtNốiToolStripMenuItem
             // 
             this.càiĐặtKếtNốiToolStripMenuItem.Name = "càiĐặtKếtNốiToolStripMenuItem";
             resources.ApplyResources(this.càiĐặtKếtNốiToolStripMenuItem, "càiĐặtKếtNốiToolStripMenuItem");
+            this.càiĐặtKếtNốiToolStripMenuItem.Click += new System.EventHandler(this.càiĐặtKếtNốiToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -111,18 +124,6 @@
             resources.ApplyResources(this.txtMessage, "txtMessage");
             this.txtMessage.Name = "txtMessage";
             // 
-            // bậtKếtNốiToolStripMenuItem
-            // 
-            this.bậtKếtNốiToolStripMenuItem.Name = "bậtKếtNốiToolStripMenuItem";
-            resources.ApplyResources(this.bậtKếtNốiToolStripMenuItem, "bậtKếtNốiToolStripMenuItem");
-            this.bậtKếtNốiToolStripMenuItem.Click += new System.EventHandler(this.bậtKếtNốiToolStripMenuItem_Click);
-            // 
-            // ngắtKếtNốiToolStripMenuItem
-            // 
-            this.ngắtKếtNốiToolStripMenuItem.Name = "ngắtKếtNốiToolStripMenuItem";
-            resources.ApplyResources(this.ngắtKếtNốiToolStripMenuItem, "ngắtKếtNốiToolStripMenuItem");
-            this.ngắtKếtNốiToolStripMenuItem.Click += new System.EventHandler(this.ngắtKếtNốiToolStripMenuItem_Click);
-            // 
             // ServerUI
             // 
             resources.ApplyResources(this, "$this");
@@ -136,6 +137,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ServerUI";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ServerUI_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);

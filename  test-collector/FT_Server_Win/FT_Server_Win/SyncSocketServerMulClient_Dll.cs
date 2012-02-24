@@ -18,10 +18,10 @@ namespace ServerSockets.Synchronous.UsingByteArray
     /// </summary>
     public class SyncSocketServerMulClient
     {
-        public static bool isServerRunning=false;
-        public static int receivePort,sendPort, maxClientReceived, bufferSize;
-        public string outPath ;
-        public static string status="",presentOperation = "";
+        public static bool isServerRunning = false;
+        public static int receivePort, sendPort, maxClientReceived, bufferSize;
+        public string outPath;
+        public static string status = "", presentOperation = "";
         public string currentStatus = "";
         public List<ClientItem> clientItemList;
         public string MessagePool;
@@ -74,7 +74,7 @@ namespace ServerSockets.Synchronous.UsingByteArray
             StartSendServer();
         }
 
-        public void SettingServer(int receivePort,int sendPort,int maxClient, string outPutPath)
+        public void SettingServer(int receivePort, int sendPort, int maxClient, string outPutPath)
         {
             SyncSocketServerMulClient.receivePort = receivePort;
             SyncSocketServerMulClient.sendPort = sendPort;
@@ -107,7 +107,7 @@ namespace ServerSockets.Synchronous.UsingByteArray
             // send END message to client and stop the server
             try
             {
-                
+
                 IPAddress[] ipAddress = Dns.GetHostAddresses("localhost");
                 IPEndPoint ipEnd = new IPEndPoint(ipAddress[0], SyncSocketServerMulClient.receivePort);
                 Socket clientSock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
@@ -131,7 +131,7 @@ namespace ServerSockets.Synchronous.UsingByteArray
             currentStatus = "Server Stoped!!!";
         }
 
-        Socket receiveSock,sendSock;
+        Socket receiveSock, sendSock;
         IPEndPoint ipEndReceive, ipEndSend;
         private void StartReceiveServerThread()
         {
@@ -147,40 +147,36 @@ namespace ServerSockets.Synchronous.UsingByteArray
                 clientSock = receiveSock.Accept();
                 SyncSocketServerMulClient serObj = new SyncSocketServerMulClient(SyncSocketServerMulClient.receivePort, SyncSocketServerMulClient.sendPort, SyncSocketServerMulClient.bufferSize, this.outPath);
                 MessagePool += ipEndReceive.Address.ToString() + " connected";
-                clientItemList.Add(new ClientItem(ipEndReceive.Address.Address.ToString(), ipEndReceive.Address.ToString(), "08520625", "Song Vu", 1));
+                
 
 
                 //Nhận thông tin từ client khi vừa tạo kết nối
-                NetworkStream getInfo = new NetworkStream(clientSock);
-                StringBuilder myCompleteMessage = new StringBuilder();
-                if (getInfo.CanRead)
+                try
                 {
-                    byte[] myReadBuffer = new byte[1024];
-                   
-                    int numberOfBytesRead = 0;
-
-                    // Incoming message may be larger than the buffer size.
-                    do
+                    int index = 0;
+                    string[] clientInformation = GetInformationFromHeader(GetHeader(clientSock));
+                    if (clientInformation != null)
                     {
-                        numberOfBytesRead = getInfo.Read(myReadBuffer, 0, myReadBuffer.Length);
-                        myCompleteMessage.AppendFormat("{0}", Encoding.ASCII.GetString(myReadBuffer, 0, numberOfBytesRead));
-                    } while (getInfo.DataAvailable);                                 
+                        ClientItem newItem = new ClientItem(clientInformation[2], ipEndReceive.Address.ToString(), clientInformation[0], clientInformation[1], Extension.CONNECTED);
+                        if (!clientItemList.Contains(newItem))
+                        {
+                            clientItemList.Add(newItem);
+                            index = clientItemList.Count - 1;
+                        }
+                        else
+                            index = clientItemList.IndexOf(newItem);
+
+                        ClientObject clientObject = new ClientObject();
+                        clientObject.clientSocket = clientSock;
+                        clientObject.clientInformation = clientItemList[index];
+
+                        Thread newClient = new Thread(serObj.ReadDataFromClient);
+                        newClient.Start(clientObject);
+                    }
                 }
-                MessageBox.Show(myCompleteMessage.ToString());
-                // kết thúc nhận thông tin         
-                     
-                //// test function get name computer client 
-                /*
-                string fullip = clientSock.RemoteEndPoint.ToString();
-                string a = ":";
-                string[] ip = fullip.Split(':');
-                if(ip[0]!=null || ip[0].Length>0)
-                MessageBox.Show(getHost(ip[0])); 
-                */
-                /// end test
-                /// 
-                Thread newClient = new Thread(serObj.ReadDataFromClient);
-                newClient.Start(clientSock);
+                catch (Exception ex)
+                {
+                }
             }
             receiveSock.Close();
         }
@@ -192,16 +188,16 @@ namespace ServerSockets.Synchronous.UsingByteArray
 
         private void ReadDataFromClient(object clientObject)
         {
-
+            ClientObject client = (ClientObject)clientObject;
 
             Socket clientSock = null;
-            BinaryWriter bWriter=null;
+            BinaryWriter bWriter = null;
             string fileName = "";
             try
             {
                 SyncSocketServerMulClient.status = "";
                 SyncSocketServerMulClient.presentOperation = "";
-                clientSock = (Socket)clientObject;
+                clientSock = client.clientSocket;
                 bool flag = true;
                 //Console.WriteLine("New connection estublished. Socket {0}", clientSock.GetHashCode());
                 int totalDataLen, receivedLen, fileNameLen, fileContentStartIndex;
@@ -238,6 +234,7 @@ namespace ServerSockets.Synchronous.UsingByteArray
                 bWriter.Write(data, 0, len);
                 while (true)
                 {
+                    client.clientInformation.Status = Extension.SENDING;
                     if (receivedLen < totalDataLen)
                     {
                         //READ & SAVE REMINING DATA
@@ -252,6 +249,7 @@ namespace ServerSockets.Synchronous.UsingByteArray
                         //NO MORE DATA CLOSE CONNECTION AFTER ACK OF CLIENT
                         bWriter.Close();
                         Console.WriteLine("Client data sending completed.\n\n");
+                        client.clientInformation.Status = Extension.SENT;
 
                         //currentStatus =presentOperation = "Data Decompressing";
                         currentStatus = presentOperation = "Data Receiving Completed";
@@ -261,6 +259,7 @@ namespace ServerSockets.Synchronous.UsingByteArray
                         clientInfoData = Encoding.ASCII.GetBytes("SUCCESS");
                         clientSock.Send(clientInfoData);
                         clientSock.Close();
+                        client.clientInformation.Status = Extension.DISCONNECTED;
                         return;
                     }
                 }
@@ -269,7 +268,7 @@ namespace ServerSockets.Synchronous.UsingByteArray
             #region SOCKET EXCEPTION
             catch (SocketException ex)
             {
-                if(bWriter!=null)
+                if (bWriter != null)
                     bWriter.Close();
 
                 if (File.Exists(outPath + fileName))
@@ -428,13 +427,13 @@ namespace ServerSockets.Synchronous.UsingByteArray
         }
         private void SendDataToClient(object clientObject)
         {
-            Socket clientSocket=(Socket)clientObject;
+            Socket clientSocket = (Socket)clientObject;
             string fileNameWithPath = "";
             BinaryReader bReader = null;
             try
             {
                 status = "";
-                
+
 
                 byte[] clientData = new byte[1024];
                 int clientDataLen = clientSocket.Receive(clientData);
@@ -458,15 +457,15 @@ namespace ServerSockets.Synchronous.UsingByteArray
                 int clientIdLen, fileNameLen;
                 string clientId, fileName;
                 clientIdLen = BitConverter.ToInt32(clientData, 0);
-                fileNameLen= BitConverter.ToInt32(clientData, 4);
+                fileNameLen = BitConverter.ToInt32(clientData, 4);
 
-                
+
                 clientId = Encoding.ASCII.GetString(clientData, 8, clientIdLen);
-                fileName = Encoding.ASCII.GetString(clientData, 8+clientIdLen, fileNameLen);
+                fileName = Encoding.ASCII.GetString(clientData, 8 + clientIdLen, fileNameLen);
 
                 string copiedFileName = clientId + "." + fileName;//ONE COPY OF TARGET FILE WILL BE CREATED AND START
                 //RECEIVING FROM THERE, AFTER RECEIVE COMPLETION THIS FILE WILL BE DELETED BY CLIENT SOCKET THREAD
-                
+
                 //GET FILE PATH BASED ON CLIENT ID HERE
                 fileNameWithPath = this.outPath;
 
@@ -478,7 +477,7 @@ namespace ServerSockets.Synchronous.UsingByteArray
                 //MAKE ONE COPY OF REQUESTED FILE FOR CURRENT CLIENT
                 if (File.Exists(fileNameWithPath + copiedFileName))
                     File.Delete(fileNameWithPath + copiedFileName);
-                File.Copy(fileNameWithPath +fileName, fileNameWithPath +copiedFileName);
+                File.Copy(fileNameWithPath + fileName, fileNameWithPath + copiedFileName);
                 fileNameWithPath += copiedFileName;
 
                 //GET FILE PATH BASED ON CLIENT ID HERE
@@ -508,7 +507,7 @@ namespace ServerSockets.Synchronous.UsingByteArray
 
                     //SEND FIRST PACKET TO SERVER
                     clientSocket.Send(data);
-                    
+
                     int totalSentDataSlot = 1;
 
                     int totalDataSize = (int)bReader.BaseStream.Length;
@@ -670,7 +669,7 @@ namespace ServerSockets.Synchronous.UsingByteArray
                 }
             #endregion
             }
-            catch(IOException ex)
+            catch (IOException ex)
             {
                 status = ex.Message;
                 if (bReader != null)
@@ -678,9 +677,9 @@ namespace ServerSockets.Synchronous.UsingByteArray
                 if (File.Exists(fileNameWithPath))
                     File.Delete(fileNameWithPath);
             }
-                
-                return;
-            }
+
+            return;
+        }
         private void StopSendServer()
         {
             SyncSocketServerMulClient.isServerRunning = false;
@@ -714,11 +713,37 @@ namespace ServerSockets.Synchronous.UsingByteArray
         }
         #endregion
 
-        
+
         public void StopServer()
         {
             StopReceiveServer();
             StopSendServer();
+        }
+
+        public string GetHeader(Socket clientSock)
+        {
+            NetworkStream getInfo = new NetworkStream(clientSock);
+            StringBuilder myCompleteMessage = new StringBuilder();
+            if (getInfo.CanRead)
+            {
+                byte[] myReadBuffer = new byte[1024];
+
+                int numberOfBytesRead = 0;
+
+                // Incoming message may be larger than the buffer size.
+                do
+                {
+                    numberOfBytesRead = getInfo.Read(myReadBuffer, 0, myReadBuffer.Length);
+                    myCompleteMessage.AppendFormat("{0}", Encoding.ASCII.GetString(myReadBuffer, 0, numberOfBytesRead));
+                } while (getInfo.DataAvailable);
+            }
+            return myCompleteMessage.ToString();
+        }
+
+        public string[] GetInformationFromHeader(string headerString)
+        {
+            string[] stringArray = headerString.Split('_');
+            return stringArray;
         }
     }
 
