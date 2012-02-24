@@ -70,9 +70,9 @@ namespace FT_Client
 
         private static void ConvertTVKoDau()
         {
-            ConvertTiengVietKoDau tv = new ConvertTiengVietKoDau();
-            nameStudent = tv.Convert(nameStudent);
-            idClient = tv.Convert(idClient);
+            //ConvertTiengVietKoDau tv = new ConvertTiengVietKoDau();
+            //nameStudent = tv.Convert(nameStudent);
+            //idClient = tv.Convert(idClient);
         }
         //check info of student
         

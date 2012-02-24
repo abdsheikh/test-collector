@@ -179,6 +179,19 @@
   <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="gridViewClientList.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="gridViewClientList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 16</value>
+  </data>
+  <data name="gridViewClientList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>755, 483</value>
+  </data>
+  <data name="gridViewClientList.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
   <data name="&gt;&gt;gridViewClientList.Name" xml:space="preserve">
     <value>gridViewClientList</value>
   </data>
@@ -214,31 +227,6 @@
   </data>
   <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
     <value>3</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="gridViewClientList.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="gridViewClientList.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 16</value>
-  </data>
-  <data name="gridViewClientList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>755, 483</value>
-  </data>
-  <data name="gridViewClientList.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;gridViewClientList.Name" xml:space="preserve">
-    <value>gridViewClientList</value>
-  </data>
-  <data name="&gt;&gt;gridViewClientList.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gridViewClientList.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;gridViewClientList.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <metadata name="statusStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>132, 17</value>
@@ -336,6 +324,18 @@
   <data name="&gt;&gt;hệThốngToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;bậtKếtNốiToolStripMenuItem.Name" xml:space="preserve">
+    <value>bậtKếtNốiToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;bậtKếtNốiToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ngắtKếtNốiToolStripMenuItem.Name" xml:space="preserve">
+    <value>ngắtKếtNốiToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;ngắtKếtNốiToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;càiĐặtKếtNốiToolStripMenuItem.Name" xml:space="preserve">
     <value>càiĐặtKếtNốiToolStripMenuItem</value>
   </data>
@@ -352,18 +352,6 @@
     <value>thoátToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;thoátToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;bậtKếtNốiToolStripMenuItem.Name" xml:space="preserve">
-    <value>bậtKếtNốiToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;bậtKếtNốiToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ngắtKếtNốiToolStripMenuItem.Name" xml:space="preserve">
-    <value>ngắtKếtNốiToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;ngắtKếtNốiToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

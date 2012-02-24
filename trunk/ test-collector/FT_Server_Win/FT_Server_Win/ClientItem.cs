@@ -20,7 +20,7 @@ namespace FT_Server_Win
             ComputerName = computerName;
             IPAdress = iPAdress;
             StudentID = studentID;
-            studentName = studentName;
+            StudentName = studentName;
             Status = 1;
         }
     }
