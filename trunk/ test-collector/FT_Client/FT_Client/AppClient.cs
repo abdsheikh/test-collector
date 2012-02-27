@@ -12,9 +12,15 @@ namespace FT_Client
 {
     public partial class AppClient : Form
     {
+        //
+        public static string pathFolderToSaveSetting = Directory.GetCurrentDirectory();
+        public static string fileNameToSaveSetting = "config.ini";
+        public static string FullPathFileToSaveSetting = pathFolderToSaveSetting + @"\" + fileNameToSaveSetting;
+        private static ReadWriteToFile rwSetting = new ReadWriteToFile();
+        //
         //public static Student sinhvien;
-
-        SynchronusClient_ByteArr objClient = new SynchronusClient_ByteArr("1","127.0.0.1",@"C:\Users\THIENSUHACK\Desktop\rc2");
+        SynchronusClient_ByteArr objClient = new SynchronusClient_ByteArr("1","127.0.0.1",@"C:\");
+        
         public static string idClient="";
         public static string nameStudent = "Khong Ten";
         public static string outputFolderZipFiles;
@@ -70,9 +76,9 @@ namespace FT_Client
 
         private static void ConvertTVKoDau()
         {
-            //ConvertTiengVietKoDau tv = new ConvertTiengVietKoDau();
-            //nameStudent = tv.Convert(nameStudent);
-            //idClient = tv.Convert(idClient);
+            ConvertTiengVietKoDau tv = new ConvertTiengVietKoDau();
+            nameStudent = tv.Convert(nameStudent);
+            idClient = tv.Convert(idClient);
         }
         //check info of student
         
@@ -88,17 +94,44 @@ namespace FT_Client
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            portSend = 8080;
+
+            LoadConfig();
+            portSend = Convert.ToInt32(txtSendPort.Text);
             portReceive = 8081;
-           // txtRecievedPort.Text = "8081";
-            txtSendPort.Text = "8080";
-           // lbOutPutPathFolder.Text = @"C:\";
+            //txtSendPort.Text = "8080";
+            string ipserver = txtIp1.Text + "." + txtIp2.Text + "." + txtIp3.Text + "." + txtIp4.Text;
+            objClient.SetIpAddress(ipserver);
+            objClient.SetSendPort(portSend);
 
             this.AllowDrop = true;
             this.DragEnter += Form1_DragEnter;
             this.DragDrop += Form1_DragDrop;
         }
+        public bool LoadConfig()
+        {
+            try
+            {
+                string[] config = rwSetting.ReadFromFile(FullPathFileToSaveSetting);
+                string[] ipserver = config[0].Split('.');
+                txtIp1.Text = ipserver[0];
+                txtIp2.Text = ipserver[1];
+                txtIp3.Text = ipserver[2];
+                txtIp4.Text = ipserver[3];
+                txtSendPort.Text = config[1];
+                return true;
+            }
+            catch (System.Exception ex)
+            {
+                txtIp1.Text = "127";
+                txtIp2.Text = "0";
+                txtIp3.Text = "0";
+                txtIp4.Text = "0";
+                txtSendPort.Text = "8080";
+                return false;
+            }
+            
 
+        }
         private void btnSend_Click(object sender, EventArgs e)
         {
             if(CheckInfoStudent()>0)
@@ -174,18 +207,53 @@ namespace FT_Client
             }
             
         }
-
+        public void SaveSetting(string pathfile,string[] a)
+        {      
+            rwSetting.WriteToFile(pathfile, a);
+        }
+        public bool checkIpServer(string s1,string s2, string s3,string s4)
+        {
+            if(s1==null || s1=="" || s2==null || s2=="" || s3==null || s3=="" || s4==null || s4=="" )
+            {
+                return false;
+            }
+            return true;
+        }
+        public bool checkPortNumber(string portnumber)
+        {
+            if(portnumber==null || portnumber=="")
+            {
+                return false;
+            }
+            return true;
+        }
         private void button2_Click(object sender, EventArgs e)
         {
+            if(!checkPortNumber(txtSendPort.Text))
+            {
+                MessageBox.Show("Vui Lòng điền đầy đủ thông tin Port!");
+                txtSendPort.Focus();
+                return;
+            }
+            if(!checkIpServer(txtIp1.Text,txtIp2.Text,txtIp3.Text,txtIp4.Text))
+            {
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin IP để kết nối đến Server!");
+                txtIp1.Focus();
+                return;
+            }
             try
             {
                 portSend = Convert.ToInt32(txtSendPort.Text);
-                //portReceive = Convert.ToInt32("");
                 string ipad = txtIp1.Text+"."+txtIp2.Text+"."+ txtIp3.Text +"."+ txtIp4.Text;               
-                //MessageBox.Show(ipad);
-              //  outPathDefault = lbOutPutPathFolder.Text;
                 objClient.SettingClient("2", ipad, portSend, portReceive, outPathDefault);
+                string[] setting=new string[2];
+                setting[0] = ipad;
+                setting[1] = portSend.ToString();
+
+                SaveSetting(FullPathFileToSaveSetting, setting);
+
                 label1.Text = "Setting Successfully!";
+                MessageBox.Show("Thiết lập thành công!");
             }
             catch (System.Exception ex)
             {
@@ -291,6 +359,36 @@ namespace FT_Client
         private void zipFilesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ZipFilesToSend();
+        }
+
+        private void txtSendPort_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txtIp1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txtIp2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txtIp3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txtIp4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
         }    
         
     }

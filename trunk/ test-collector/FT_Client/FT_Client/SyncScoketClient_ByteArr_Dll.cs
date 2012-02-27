@@ -114,6 +114,14 @@ namespace ClientSockets.Synchronous.UsingByteArray // SyncScoketClient_ByteArr_D
             SynchronusClient_ByteArr.portReceive = 8081;
             this.bufferSize = 10 * 1024;
         }
+        public void SetIpAddress(string ipAddress)
+        {
+            SynchronusClient_ByteArr.ipAddress = ipAddress;
+        }
+        public void SetSendPort(int sendPort)
+        {
+            SynchronusClient_ByteArr.portSend = sendPort;
+        }
         Thread startFileTransferThread, startFileReceiveThread;
         public string SendFileToServer( string senderId, string receiverId)
         {

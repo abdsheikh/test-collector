@@ -1,9 +1,115 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.IO;
 
 namespace FT_Client
 {
+    class ReadWriteToFile
+    {
+        private FileStream fStream;
+        private StreamReader rdFile;
+
+        public StreamReader RdFile
+        {
+            get { return rdFile; }
+            set { rdFile = value; }
+        }
+        private StreamWriter wrFile;
+
+        public StreamWriter WrFile
+        {
+            get { return wrFile; }
+            set { wrFile = value; }
+        }
+        public ReadWriteToFile()
+        {
+            //  rdFile = new StreamReader;
+            //wrFile = new StreamWriter;
+        }
+        public int CheckPathFile(string pathFile)
+        {
+            if (!File.Exists(pathFile))
+            {
+                try
+                {
+                    FileStream f=File.Create(pathFile);
+                    f.Close();
+                    return 1;
+                }
+                catch (System.Exception ex)
+                {
+                    return 0;
+                }
+            }
+            else
+            {
+                return 1;
+            }
+        }
+        public bool WriteToFile(string pathFile, string[] a)
+        {
+            if (CheckPathFile(pathFile) == 1)
+            {
+                fStream = new FileStream(pathFile, FileMode.Create);
+                wrFile = new StreamWriter(fStream);                
+            }
+            else
+            {
+                wrFile = File.CreateText(pathFile);
+            }
+            try
+            {
+                foreach (string temp in a)
+                {
+                    wrFile.WriteLine(temp);
+                }
+            }
+            catch (System.Exception ex)
+            {
+
+            }
+            finally
+            {
+                wrFile.Close();
+            }
+            return true;
+        }
+        public string[] ReadFromFile(string pathFile)
+        {
+            string[] temp = new string[5];
+
+            fStream = new FileStream(pathFile, FileMode.OpenOrCreate);
+            rdFile = new StreamReader(fStream);
+            string a;
+            int i = 0;
+            do
+            {
+                a = rdFile.ReadLine();
+                temp[i] = a;
+                i++;
+                if (i >= 5) break;
+            } while (a != null);
+            rdFile.Close();
+            return temp;
+        }
+        public bool CheckPathFolder(string pathFolder)
+        {
+            if (!Directory.Exists(pathFolder))
+            {
+                try
+                {
+                    Directory.CreateDirectory(pathFolder);
+                    return true;
+                }
+                catch (System.Exception ex)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
     public class ConvertTiengVietKoDau
     {
         public string Convert(string text)
