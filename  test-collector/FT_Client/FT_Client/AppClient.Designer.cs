@@ -32,6 +32,7 @@
             this.btnSend = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.gbClientSetting = new System.Windows.Forms.GroupBox();
+            this.lbFileName = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.btFileToSend = new System.Windows.Forms.Button();
             this.btZipFiles = new System.Windows.Forms.Button();
@@ -54,7 +55,10 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tabInfoSv = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lbNumber = new System.Windows.Forms.Label();
+            this.numBox = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
             this.txtNgaySinh = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -69,22 +73,18 @@
             this.hệThốngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tHoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.numBox = new System.Windows.Forms.NumericUpDown();
-            this.lbNumber = new System.Windows.Forms.Label();
-            this.lbFileName = new System.Windows.Forms.Label();
             this.gbClientSetting.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabInfoSv.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numBox)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numBox)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSend
@@ -120,6 +120,15 @@
             this.gbClientSetting.TabIndex = 4;
             this.gbClientSetting.TabStop = false;
             this.gbClientSetting.Text = "Gửi File";
+            // 
+            // lbFileName
+            // 
+            this.lbFileName.AutoSize = true;
+            this.lbFileName.Location = new System.Drawing.Point(175, 296);
+            this.lbFileName.Name = "lbFileName";
+            this.lbFileName.Size = new System.Drawing.Size(90, 13);
+            this.lbFileName.TabIndex = 17;
+            this.lbFileName.Text = "File name to send";
             // 
             // label9
             // 
@@ -201,10 +210,12 @@
             // txtIp4
             // 
             this.txtIp4.Location = new System.Drawing.Point(251, 80);
+            this.txtIp4.MaxLength = 3;
             this.txtIp4.Name = "txtIp4";
             this.txtIp4.Size = new System.Drawing.Size(39, 20);
-            this.txtIp4.TabIndex = 12;
+            this.txtIp4.TabIndex = 9;
             this.txtIp4.Text = "1";
+            this.txtIp4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIp4_KeyPress);
             // 
             // button2
             // 
@@ -219,34 +230,42 @@
             // txtIp3
             // 
             this.txtIp3.Location = new System.Drawing.Point(206, 80);
+            this.txtIp3.MaxLength = 3;
             this.txtIp3.Name = "txtIp3";
             this.txtIp3.Size = new System.Drawing.Size(39, 20);
             this.txtIp3.TabIndex = 8;
             this.txtIp3.Text = "0";
+            this.txtIp3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIp3_KeyPress);
             // 
             // txtIp2
             // 
             this.txtIp2.Location = new System.Drawing.Point(157, 80);
+            this.txtIp2.MaxLength = 3;
             this.txtIp2.Name = "txtIp2";
             this.txtIp2.Size = new System.Drawing.Size(43, 20);
             this.txtIp2.TabIndex = 7;
             this.txtIp2.Text = "0";
+            this.txtIp2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIp2_KeyPress);
             // 
             // txtIp1
             // 
             this.txtIp1.Location = new System.Drawing.Point(105, 80);
+            this.txtIp1.MaxLength = 3;
             this.txtIp1.Name = "txtIp1";
             this.txtIp1.Size = new System.Drawing.Size(45, 20);
             this.txtIp1.TabIndex = 6;
             this.txtIp1.Text = "127";
+            this.txtIp1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIp1_KeyPress);
             // 
             // txtSendPort
             // 
             this.txtSendPort.Location = new System.Drawing.Point(105, 33);
+            this.txtSendPort.MaxLength = 6;
             this.txtSendPort.Name = "txtSendPort";
             this.txtSendPort.Size = new System.Drawing.Size(153, 20);
-            this.txtSendPort.TabIndex = 4;
+            this.txtSendPort.TabIndex = 5;
             this.txtSendPort.Text = "8080";
+            this.txtSendPort.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSendPort_KeyPress);
             // 
             // lbIpAdress
             // 
@@ -320,6 +339,16 @@
             this.tabPage1.Text = "Thông tin Sinh Viên";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::FT_Client.Properties.Resources.students;
+            this.pictureBox1.Location = new System.Drawing.Point(15, 222);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(289, 167);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.lbNumber);
@@ -336,6 +365,37 @@
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Thông tin";
+            // 
+            // lbNumber
+            // 
+            this.lbNumber.AutoSize = true;
+            this.lbNumber.Location = new System.Drawing.Point(17, 141);
+            this.lbNumber.Name = "lbNumber";
+            this.lbNumber.Size = new System.Drawing.Size(73, 13);
+            this.lbNumber.TabIndex = 7;
+            this.lbNumber.Text = "Lần Nộp Thứ:";
+            // 
+            // numBox
+            // 
+            this.numBox.Location = new System.Drawing.Point(115, 139);
+            this.numBox.Maximum = new decimal(new int[] {
+            111,
+            0,
+            0,
+            0});
+            this.numBox.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numBox.Name = "numBox";
+            this.numBox.Size = new System.Drawing.Size(47, 20);
+            this.numBox.TabIndex = 6;
+            this.numBox.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // label6
             // 
@@ -466,56 +526,6 @@
             this.groupBox4.TabIndex = 11;
             this.groupBox4.TabStop = false;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::FT_Client.Properties.Resources.students;
-            this.pictureBox1.Location = new System.Drawing.Point(15, 222);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(289, 167);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // numBox
-            // 
-            this.numBox.Location = new System.Drawing.Point(115, 139);
-            this.numBox.Maximum = new decimal(new int[] {
-            111,
-            0,
-            0,
-            0});
-            this.numBox.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numBox.Name = "numBox";
-            this.numBox.Size = new System.Drawing.Size(47, 20);
-            this.numBox.TabIndex = 6;
-            this.numBox.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // lbNumber
-            // 
-            this.lbNumber.AutoSize = true;
-            this.lbNumber.Location = new System.Drawing.Point(17, 141);
-            this.lbNumber.Name = "lbNumber";
-            this.lbNumber.Size = new System.Drawing.Size(73, 13);
-            this.lbNumber.TabIndex = 7;
-            this.lbNumber.Text = "Lần Nộp Thứ:";
-            // 
-            // lbFileName
-            // 
-            this.lbFileName.AutoSize = true;
-            this.lbFileName.Location = new System.Drawing.Point(175, 296);
-            this.lbFileName.Name = "lbFileName";
-            this.lbFileName.Size = new System.Drawing.Size(90, 13);
-            this.lbFileName.TabIndex = 17;
-            this.lbFileName.Text = "File name to send";
-            // 
             // AppClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -536,8 +546,10 @@
             this.groupBox1.PerformLayout();
             this.tabInfoSv.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numBox)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -545,8 +557,6 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
