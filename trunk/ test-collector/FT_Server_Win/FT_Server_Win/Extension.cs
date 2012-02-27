@@ -15,6 +15,14 @@ namespace FT_Server_Win
         public const int DISCONNECTED = 4;
         #endregion
 
+        #region Server Status Text
+        public const string SERVER_STARTED = "Đã bật kết nối!";
+        public const string SERVER_STOPPED = "Đã tắt kết nối!";
+        public const string SERVER_IP = "Địa chỉ IP: ";
+        public const string SERVER_PORT = "Cổng: ";
+        public const string SERVER_NAME = "Tên máy: ";
+        #endregion
+
         public static DataTable CreateDataTableWithHeader()
         {
             DataTable dataTableResult = new DataTable();
@@ -31,11 +39,45 @@ namespace FT_Server_Win
 
             return dataTableResult;
         }
+
+        public static string GetMessage(int status)
+        {
+            string message = String.Empty;
+            switch (status)
+            {
+                case CONNECTED:
+                    message = "Connected";
+                    break;
+                case SENDING:
+                    message = "Sending...";
+                    break;
+                case SENT:
+                    message = "Sent";
+                    break;
+                case DISCONNECTED:
+                    message = "Disconnected";
+                    break;
+            }
+            return message;
+        }
+
+        public static string getPortString(int port)
+        {
+            return SERVER_PORT + port.ToString();
+        }
+
+        public static string getIPAdressString(string IPAdress)
+        {
+            return SERVER_IP + IPAdress;
+        }
+
     }
 
     public struct ClientObject
     {
         public Socket clientSocket;
-        public ClientItem clientInformation;
+        public ClientItem informationItem;
     }
+
+
 }

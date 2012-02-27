@@ -20,11 +20,13 @@ namespace ServerSockets.Synchronous.UsingByteArray
     {
         public static bool isServerRunning = false;
         public static int receivePort, sendPort, maxClientReceived, bufferSize;
+        public static string ipAdress;
         public string outPath;
         public static string status = "", presentOperation = "";
         public string currentStatus = "";
         public List<ClientItem> clientItemList;
         public string MessagePool;
+
 
         #region Constructor
         public SyncSocketServerMulClient(int receivePort, int sendPort, int maxClient, string outPutPath)
@@ -146,10 +148,8 @@ namespace ServerSockets.Synchronous.UsingByteArray
                 Socket clientSock;
                 clientSock = receiveSock.Accept();
                 SyncSocketServerMulClient serObj = new SyncSocketServerMulClient(SyncSocketServerMulClient.receivePort, SyncSocketServerMulClient.sendPort, SyncSocketServerMulClient.bufferSize, this.outPath);
-                MessagePool += ipEndReceive.Address.ToString() + " connected";
+                MessagePool += clientSock.RemoteEndPoint.AddressFamily.ToString() + " connected";
                 
-
-
                 //Nhận thông tin từ client khi vừa tạo kết nối
                 try
                 {
@@ -168,7 +168,7 @@ namespace ServerSockets.Synchronous.UsingByteArray
 
                         ClientObject clientObject = new ClientObject();
                         clientObject.clientSocket = clientSock;
-                        clientObject.clientInformation = clientItemList[index];
+                        clientObject.informationItem = clientItemList[index];
 
                         Thread newClient = new Thread(serObj.ReadDataFromClient);
                         newClient.Start(clientObject);
@@ -234,7 +234,7 @@ namespace ServerSockets.Synchronous.UsingByteArray
                 bWriter.Write(data, 0, len);
                 while (true)
                 {
-                    client.clientInformation.Status = Extension.SENDING;
+                    client.informationItem.Status = Extension.SENDING;
                     if (receivedLen < totalDataLen)
                     {
                         //READ & SAVE REMINING DATA
@@ -249,7 +249,7 @@ namespace ServerSockets.Synchronous.UsingByteArray
                         //NO MORE DATA CLOSE CONNECTION AFTER ACK OF CLIENT
                         bWriter.Close();
                         Console.WriteLine("Client data sending completed.\n\n");
-                        client.clientInformation.Status = Extension.SENT;
+                        client.informationItem.Status = Extension.SENT;
 
                         //currentStatus =presentOperation = "Data Decompressing";
                         currentStatus = presentOperation = "Data Receiving Completed";
@@ -259,7 +259,7 @@ namespace ServerSockets.Synchronous.UsingByteArray
                         clientInfoData = Encoding.ASCII.GetBytes("SUCCESS");
                         clientSock.Send(clientInfoData);
                         clientSock.Close();
-                        client.clientInformation.Status = Extension.DISCONNECTED;
+                        client.informationItem.Status = Extension.DISCONNECTED;
                         return;
                     }
                 }

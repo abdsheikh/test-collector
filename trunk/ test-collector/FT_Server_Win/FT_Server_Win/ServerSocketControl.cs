@@ -6,6 +6,7 @@ using System.Data;
 using System.Text;
 using System.Windows.Forms;
 using ServerSockets.Synchronous.UsingByteArray;
+using System.Net;
 
 namespace FT_Server_Win
 {
@@ -94,6 +95,16 @@ namespace FT_Server_Win
         public void SaveConfiguration()
         {
             m_ServerSocketObject.SettingServer(m_ReceivedPort, m_SendPort, m_MaxClient, m_OutputPath);
+        }
+
+        public string getComputerName()
+        {
+            return Dns.GetHostName();
+        }
+
+        public string getIPAdress()
+        {
+            return SyncSocketServerMulClient.ipAdress;
         }
 
         #endregion
