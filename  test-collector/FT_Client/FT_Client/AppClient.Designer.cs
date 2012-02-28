@@ -42,14 +42,6 @@
             this.zipFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteAllFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtIp4 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.txtIp3 = new System.Windows.Forms.TextBox();
-            this.txtIp2 = new System.Windows.Forms.TextBox();
-            this.txtIp1 = new System.Windows.Forms.TextBox();
-            this.txtSendPort = new System.Windows.Forms.TextBox();
-            this.lbIpAdress = new System.Windows.Forms.Label();
-            this.lbSendPort = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -65,13 +57,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtHoTen = new System.Windows.Forms.TextBox();
             this.txtMaSV = new System.Windows.Forms.TextBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.hệThốngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tHoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ConnectSettingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ThoatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.gbClientSetting.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -81,8 +70,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numBox)).BeginInit();
-            this.tabPage2.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
@@ -207,84 +194,6 @@
             this.deleteFileToolStripMenuItem.Text = "Delete file";
             this.deleteFileToolStripMenuItem.Click += new System.EventHandler(this.deleteFileToolStripMenuItem_Click);
             // 
-            // txtIp4
-            // 
-            this.txtIp4.Location = new System.Drawing.Point(251, 80);
-            this.txtIp4.MaxLength = 3;
-            this.txtIp4.Name = "txtIp4";
-            this.txtIp4.Size = new System.Drawing.Size(39, 20);
-            this.txtIp4.TabIndex = 9;
-            this.txtIp4.Text = "1";
-            this.txtIp4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIp4_KeyPress);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(201, 135);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(89, 32);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Thiết Lập>>";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // txtIp3
-            // 
-            this.txtIp3.Location = new System.Drawing.Point(206, 80);
-            this.txtIp3.MaxLength = 3;
-            this.txtIp3.Name = "txtIp3";
-            this.txtIp3.Size = new System.Drawing.Size(39, 20);
-            this.txtIp3.TabIndex = 8;
-            this.txtIp3.Text = "0";
-            this.txtIp3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIp3_KeyPress);
-            // 
-            // txtIp2
-            // 
-            this.txtIp2.Location = new System.Drawing.Point(157, 80);
-            this.txtIp2.MaxLength = 3;
-            this.txtIp2.Name = "txtIp2";
-            this.txtIp2.Size = new System.Drawing.Size(43, 20);
-            this.txtIp2.TabIndex = 7;
-            this.txtIp2.Text = "0";
-            this.txtIp2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIp2_KeyPress);
-            // 
-            // txtIp1
-            // 
-            this.txtIp1.Location = new System.Drawing.Point(105, 80);
-            this.txtIp1.MaxLength = 3;
-            this.txtIp1.Name = "txtIp1";
-            this.txtIp1.Size = new System.Drawing.Size(45, 20);
-            this.txtIp1.TabIndex = 6;
-            this.txtIp1.Text = "127";
-            this.txtIp1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIp1_KeyPress);
-            // 
-            // txtSendPort
-            // 
-            this.txtSendPort.Location = new System.Drawing.Point(105, 33);
-            this.txtSendPort.MaxLength = 6;
-            this.txtSendPort.Name = "txtSendPort";
-            this.txtSendPort.Size = new System.Drawing.Size(153, 20);
-            this.txtSendPort.TabIndex = 5;
-            this.txtSendPort.Text = "8080";
-            this.txtSendPort.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSendPort_KeyPress);
-            // 
-            // lbIpAdress
-            // 
-            this.lbIpAdress.AutoSize = true;
-            this.lbIpAdress.Location = new System.Drawing.Point(10, 83);
-            this.lbIpAdress.Name = "lbIpAdress";
-            this.lbIpAdress.Size = new System.Drawing.Size(89, 13);
-            this.lbIpAdress.TabIndex = 2;
-            this.lbIpAdress.Text = "Server IP Adress:";
-            // 
-            // lbSendPort
-            // 
-            this.lbSendPort.AutoSize = true;
-            this.lbSendPort.Location = new System.Drawing.Point(25, 36);
-            this.lbSendPort.Name = "lbSendPort";
-            this.lbSendPort.Size = new System.Drawing.Size(57, 13);
-            this.lbSendPort.TabIndex = 0;
-            this.lbSendPort.Text = "Send Port:";
-            // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(70, 16);
@@ -320,11 +229,10 @@
             // tabInfoSv
             // 
             this.tabInfoSv.Controls.Add(this.tabPage1);
-            this.tabInfoSv.Controls.Add(this.tabPage2);
             this.tabInfoSv.Location = new System.Drawing.Point(10, 21);
             this.tabInfoSv.Name = "tabInfoSv";
             this.tabInfoSv.SelectedIndex = 0;
-            this.tabInfoSv.Size = new System.Drawing.Size(329, 426);
+            this.tabInfoSv.Size = new System.Drawing.Size(329, 434);
             this.tabInfoSv.TabIndex = 9;
             // 
             // tabPage1
@@ -334,7 +242,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(321, 400);
+            this.tabPage1.Size = new System.Drawing.Size(321, 408);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Thông tin Sinh Viên";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -445,84 +353,45 @@
             this.txtMaSV.Size = new System.Drawing.Size(178, 20);
             this.txtMaSV.TabIndex = 0;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.label8);
-            this.tabPage2.Controls.Add(this.label7);
-            this.tabPage2.Controls.Add(this.groupBox2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(321, 400);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Cài đặt kết nối";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(40, 44);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(237, 13);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "Vui  lòng kiểm tra các thông số kết nối và thử lại!";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(78, 18);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(175, 13);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "Nếu không thể kết nối đến Server! ";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.lbSendPort);
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.txtIp4);
-            this.groupBox2.Controls.Add(this.lbIpAdress);
-            this.groupBox2.Controls.Add(this.txtSendPort);
-            this.groupBox2.Controls.Add(this.txtIp1);
-            this.groupBox2.Controls.Add(this.txtIp2);
-            this.groupBox2.Controls.Add(this.txtIp3);
-            this.groupBox2.Location = new System.Drawing.Point(12, 73);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(296, 193);
-            this.groupBox2.TabIndex = 0;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
-            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.hệThốngToolStripMenuItem});
+            this.MenuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(913, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(932, 24);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // hệThốngToolStripMenuItem
+            // MenuToolStripMenuItem
             // 
-            this.hệThốngToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tHoátToolStripMenuItem});
-            this.hệThốngToolStripMenuItem.Name = "hệThốngToolStripMenuItem";
-            this.hệThốngToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
-            this.hệThốngToolStripMenuItem.Text = "Hệ Thống";
+            this.MenuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ConnectSettingToolStripMenuItem,
+            this.ThoatToolStripMenuItem});
+            this.MenuToolStripMenuItem.Name = "MenuToolStripMenuItem";
+            this.MenuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.MenuToolStripMenuItem.Text = "Menu";
             // 
-            // tHoátToolStripMenuItem
+            // ConnectSettingToolStripMenuItem
             // 
-            this.tHoátToolStripMenuItem.Name = "tHoátToolStripMenuItem";
-            this.tHoátToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
-            this.tHoátToolStripMenuItem.Text = "Thoát";
+            this.ConnectSettingToolStripMenuItem.Name = "ConnectSettingToolStripMenuItem";
+            this.ConnectSettingToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.ConnectSettingToolStripMenuItem.Text = "Cài Đặt Kết Nối";
+            this.ConnectSettingToolStripMenuItem.Click += new System.EventHandler(this.ConnectSettingToolStripMenuItem_Click);
+            // 
+            // ThoatToolStripMenuItem
+            // 
+            this.ThoatToolStripMenuItem.Name = "ThoatToolStripMenuItem";
+            this.ThoatToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.ThoatToolStripMenuItem.Text = "Thoát";
+            this.ThoatToolStripMenuItem.Click += new System.EventHandler(this.ThoatToolStripMenuItem_Click);
             // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.tabInfoSv);
             this.groupBox4.Location = new System.Drawing.Point(12, 29);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(350, 457);
+            this.groupBox4.Size = new System.Drawing.Size(350, 463);
             this.groupBox4.TabIndex = 11;
             this.groupBox4.TabStop = false;
             // 
@@ -530,14 +399,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(913, 491);
+            this.ClientSize = new System.Drawing.Size(932, 503);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gbClientSetting);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "AppClient";
-            this.Text = "Client Application";
+            this.Text = "Nộp Bài Qua LAN-CLient";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.gbClientSetting.ResumeLayout(false);
             this.gbClientSetting.PerformLayout();
@@ -550,10 +420,6 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numBox)).EndInit();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -567,14 +433,6 @@
         private System.Windows.Forms.Button btnSend;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox gbClientSetting;
-        private System.Windows.Forms.Label lbSendPort;
-        private System.Windows.Forms.Label lbIpAdress;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox txtIp3;
-        private System.Windows.Forms.TextBox txtIp2;
-        private System.Windows.Forms.TextBox txtIp1;
-        private System.Windows.Forms.TextBox txtSendPort;
-        private System.Windows.Forms.TextBox txtIp4;
         private System.Windows.Forms.Button btFileToSend;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label2;
@@ -584,7 +442,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TabControl tabInfoSv;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox txtMaSV;
         private System.Windows.Forms.TextBox txtHoTen;
@@ -592,12 +449,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtNgaySinh;
-        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem hệThốngToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tHoátToolStripMenuItem;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ToolStripMenuItem MenuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ThoatToolStripMenuItem;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem zipFilesToolStripMenuItem;
@@ -608,6 +462,7 @@
         private System.Windows.Forms.NumericUpDown numBox;
         private System.Windows.Forms.Label lbNumber;
         private System.Windows.Forms.Label lbFileName;
+        private System.Windows.Forms.ToolStripMenuItem ConnectSettingToolStripMenuItem;
     }
 }
 
