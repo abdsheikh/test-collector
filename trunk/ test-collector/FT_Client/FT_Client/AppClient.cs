@@ -7,18 +7,18 @@ using System.Text;
 using System.Windows.Forms;
 using ClientSockets.Synchronous.UsingByteArray;
 using System.IO;
+using System.Net;
 
 namespace FT_Client
 {
     public partial class AppClient : Form
     {
+        
         //
         public static string pathFolderToSaveSetting = Directory.GetCurrentDirectory();
         public static string fileNameToSaveSetting = "config.ini";
         public static string FullPathFileToSaveSetting = pathFolderToSaveSetting + @"\" + fileNameToSaveSetting;
         private static ReadWriteToFile rwSetting = new ReadWriteToFile();
-        //
-        //public static Student sinhvien;
         SynchronusClient_ByteArr objClient = new SynchronusClient_ByteArr("1","127.0.0.1",@"C:\");
         
         public static string idClient="";
@@ -26,7 +26,7 @@ namespace FT_Client
         public static string outputFolderZipFiles;
         public static string outputZipFiles = "";
 
-        public static int portSend, portReceive;
+        public static int portSend=8080, portReceive;
         public static string ipAddress, outPathDefault = @"C:\";
 
         string[] files;
@@ -92,15 +92,11 @@ namespace FT_Client
             MessageBox.Show("File send done!!!Socket'll be Closed! Please, Connect to server again to send file");
         }
 
+        public static string ipServer="127.0.0.1";
         private void Form1_Load(object sender, EventArgs e)
         {
-
-            LoadConfig();
-            portSend = Convert.ToInt32(txtSendPort.Text);
-            portReceive = 8081;
-            //txtSendPort.Text = "8080";
-            string ipserver = txtIp1.Text + "." + txtIp2.Text + "." + txtIp3.Text + "." + txtIp4.Text;
-            objClient.SetIpAddress(ipserver);
+            LoadConfig();                       
+            objClient.SetIpAddress(ipServer);
             objClient.SetSendPort(portSend);
 
             this.AllowDrop = true;
@@ -113,25 +109,32 @@ namespace FT_Client
             {
                 string[] config = rwSetting.ReadFromFile(FullPathFileToSaveSetting);
                 string[] ipserver = config[0].Split('.');
-                txtIp1.Text = ipserver[0];
-                txtIp2.Text = ipserver[1];
-                txtIp3.Text = ipserver[2];
-                txtIp4.Text = ipserver[3];
-                txtSendPort.Text = config[1];
+                ipServer = ipserver[0] + "." + ipserver[1] + "." + ipserver[2] + "." + ipserver[3];
+                portSend = Convert.ToInt32(config[1]);
                 return true;
             }
             catch (System.Exception ex)
-            {
-                txtIp1.Text = "127";
-                txtIp2.Text = "0";
-                txtIp3.Text = "0";
-                txtIp4.Text = "0";
-                txtSendPort.Text = "8080";
+            {                
                 return false;
-            }
-            
-
+            }           
         }
+        public void SettingToSendServer(IPAddress ipad, int port) //delegate method between form 1 and form 2
+        {
+            objClient.SetIpAddress(ipad.ToString());
+            objClient.SetSendPort(port);
+            string[] setting = new string[2];
+            setting[0] = ipad.ToString();
+            setting[1] = port.ToString();
+            SaveSetting(FullPathFileToSaveSetting, setting);
+            MessageBox.Show("Thiết lập thành công Send Port:" + port + " - Ip Server:" + ipad.ToString(), "Thông Báo!");
+        }
+        public void SetFlagMainForm(int temp) //delegate method to set flag (flag: 1-> ConnectSetting Form is ready, 2-> not)
+        {
+            formFlag = temp;
+        }
+
+
+
         private void btnSend_Click(object sender, EventArgs e)
         {
             if(CheckInfoStudent()>0)
@@ -139,16 +142,13 @@ namespace FT_Client
                 return;
             }
 
-            if (isZipSuccess)
-            {
-                lbFileName.Text = outputZipFiles;
-            }
+           
             if (outputZipFiles == "")
             {
                 MessageBox.Show("Vui lòng Zip Files trước khi gửi!");
                 return;
             }
-            if(!File.Exists(lbFileName.Text))
+            if(!File.Exists(outputZipFiles))
             {
                 MessageBox.Show("File ko tồn tại!");
                 return;
@@ -158,16 +158,13 @@ namespace FT_Client
                 MessageBox.Show("Please! Connect To Server before sending file!!!");
                 return;
             }
-            objClient.SetFileName(lbFileName.Text);
+            objClient.SetFileName(outputZipFiles);
             objClient.SendFileToServer("", "");
             label1.Text=objClient.Status;           
         }
 
         private void btnReceive_Click(object sender, EventArgs e)
-        {
-            
-           // objClient.ReceiveFileFromServer(lbFileName.Text);
-
+        {                    
         }        
         private void btFileToSend_Click(object sender, EventArgs e)
         {
@@ -197,6 +194,8 @@ namespace FT_Client
             string clientInfo = "";
             ConvertTVKoDau();
             clientInfo = idClient + "_" + nameStudent + "_" + getNameClient();
+            label1.Text = "Đang kết nối đến Server. Vui lòng đợi giây lát!";
+            label1.Refresh();
             try
             {
                 label1.Text = objClient.ConnectToServer(clientInfo);
@@ -229,13 +228,13 @@ namespace FT_Client
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            if(!checkPortNumber(txtSendPort.Text))
+            /*if(!checkPortNumber(txtSendPort.Text))
             {
                 MessageBox.Show("Vui Lòng điền đầy đủ thông tin Port!");
                 txtSendPort.Focus();
                 return;
             }
-            if(!checkIpServer(txtIp1.Text,txtIp2.Text,txtIp3.Text,txtIp4.Text))
+            if (!checkIpServer(txtIp1.Text, txtIp2.Text, txtIp3.Text, txtIp4.Text))
             {
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin IP để kết nối đến Server!");
                 txtIp1.Focus();
@@ -254,11 +253,13 @@ namespace FT_Client
 
                 label1.Text = "Setting Successfully!";
                 MessageBox.Show("Thiết lập thành công!");
+                
             }
             catch (System.Exception ex)
             {
             	
             }
+             * */
         }
         private void Form1_DragEnter(object sender, DragEventArgs e)
         {
@@ -324,7 +325,6 @@ namespace FT_Client
             else
             {
                 CheckInfoStudent();
-
                 files = new string[lbFiles.Items.Count];
                 for (int index = 0; index < lbFiles.Items.Count; index++)
                 {
@@ -334,8 +334,8 @@ namespace FT_Client
                 isZipSuccess = ziptool.Zip(outputZipFiles, files);
                 if (isZipSuccess)
                 {
-                    label1.Text = "Zip Files is Successfull! File: " + outputZipFiles + " is Ready to send!";
-                    lbFileName.Text = outputZipFiles;
+                    label1.Text = "Zip Files is Successfull! File: " + Path.GetFileName(outputZipFiles) + " is Ready to send!";
+                    lbFileName.Text = Path.GetFileName(outputZipFiles);
                 }
                 else
                 {
@@ -389,7 +389,29 @@ namespace FT_Client
         {
             if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
                 e.Handled = true;
-        }    
+        }
+        
+        public static int formFlag = 0;
+        private void ConnectSettingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (formFlag == 0)
+            {
+                ConnectSetting settingform = new ConnectSetting();               
+                settingform.MySettingServer = new ConnectSetting.SettingServer(SettingToSendServer);
+                settingform.MySetFlagForm = new ConnectSetting.SetFlagForm(SetFlagMainForm);
+                settingform.Show();
+                formFlag = 1;
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private void ThoatToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }         
         
     }
 }

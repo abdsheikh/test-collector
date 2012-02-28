@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
@@ -63,7 +63,7 @@ namespace ClientSockets.Synchronous.UsingByteArray // SyncScoketClient_ByteArr_D
             catch (System.Exception ex)
             {                
                 //MessageBox.Show("Not Connect To Server:" + server.Connected);
-                status = "Not Connect To Server!";
+                status = "Không thể kết nối đến Server! Vui lòng kiểm tra lại cấu hình!";
                 return status;
             }
             return "Connected";
