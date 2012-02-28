@@ -36,31 +36,46 @@
             this.càiĐặtKếtNốiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nghiệpVụToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.gridViewClientList = new System.Windows.Forms.DataGridView();
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.statusText = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.serverIPAddress = new System.Windows.Forms.ToolStripStatusLabel();
-            this.listenningPort = new System.Windows.Forms.ToolStripStatusLabel();
-            this.serverName = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnViewFolder = new System.Windows.Forms.Button();
             this.btnSelectFolder = new System.Windows.Forms.Button();
             this.lblSaveFolder = new System.Windows.Forms.Label();
             this.folderBrowser = new System.Windows.Forms.FolderBrowserDialog();
+            this.thiếtLậpThôngTinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sentCount = new System.Windows.Forms.Label();
+            this.serverName = new System.Windows.Forms.Label();
+            this.serverIPAddress = new System.Windows.Forms.Label();
+            this.listenningPort = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.connectCount = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewClientList)).BeginInit();
             this.statusBar.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.hệThốngToolStripMenuItem});
+            this.hệThốngToolStripMenuItem,
+            this.nghiệpVụToolStripMenuItem});
             resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.Name = "menuStrip1";
             // 
@@ -104,6 +119,13 @@
             resources.ApplyResources(this.thoátToolStripMenuItem, "thoátToolStripMenuItem");
             this.thoátToolStripMenuItem.Click += new System.EventHandler(this.thoátToolStripMenuItem_Click);
             // 
+            // nghiệpVụToolStripMenuItem
+            // 
+            this.nghiệpVụToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.thiếtLậpThôngTinToolStripMenuItem});
+            this.nghiệpVụToolStripMenuItem.Name = "nghiệpVụToolStripMenuItem";
+            resources.ApplyResources(this.nghiệpVụToolStripMenuItem, "nghiệpVụToolStripMenuItem");
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.gridViewClientList);
@@ -131,10 +153,7 @@
             // 
             this.statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusText,
-            this.toolStripStatusLabel2,
-            this.serverName,
-            this.serverIPAddress,
-            this.listenningPort});
+            this.toolStripStatusLabel2});
             resources.ApplyResources(this.statusBar, "statusBar");
             this.statusBar.Name = "statusBar";
             // 
@@ -148,26 +167,65 @@
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
             resources.ApplyResources(this.toolStripStatusLabel2, "toolStripStatusLabel2");
             // 
-            // serverIPAddress
-            // 
-            this.serverIPAddress.Name = "serverIPAddress";
-            resources.ApplyResources(this.serverIPAddress, "serverIPAddress");
-            // 
-            // listenningPort
-            // 
-            this.listenningPort.Name = "listenningPort";
-            resources.ApplyResources(this.listenningPort, "listenningPort");
-            // 
-            // serverName
-            // 
-            this.serverName.Name = "serverName";
-            resources.ApplyResources(this.serverName, "serverName");
-            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.connectCount);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.listenningPort);
+            this.groupBox2.Controls.Add(this.serverIPAddress);
+            this.groupBox2.Controls.Add(this.serverName);
+            this.groupBox2.Controls.Add(this.sentCount);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.label1);
             resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
+            // 
+            // label8
+            // 
+            resources.ApplyResources(this.label8, "label8");
+            this.label8.Name = "label8";
+            // 
+            // label7
+            // 
+            resources.ApplyResources(this.label7, "label7");
+            this.label7.Name = "label7";
+            // 
+            // label4
+            // 
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.Name = "label4";
+            // 
+            // label5
+            // 
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.Name = "label5";
+            // 
+            // label6
+            // 
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.Name = "label6";
+            // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.Name = "label3";
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
             // 
             // groupBox3
             // 
@@ -197,6 +255,41 @@
             resources.ApplyResources(this.lblSaveFolder, "lblSaveFolder");
             this.lblSaveFolder.Name = "lblSaveFolder";
             // 
+            // thiếtLậpThôngTinToolStripMenuItem
+            // 
+            this.thiếtLậpThôngTinToolStripMenuItem.Name = "thiếtLậpThôngTinToolStripMenuItem";
+            resources.ApplyResources(this.thiếtLậpThôngTinToolStripMenuItem, "thiếtLậpThôngTinToolStripMenuItem");
+            // 
+            // sentCount
+            // 
+            resources.ApplyResources(this.sentCount, "sentCount");
+            this.sentCount.Name = "sentCount";
+            // 
+            // serverName
+            // 
+            resources.ApplyResources(this.serverName, "serverName");
+            this.serverName.Name = "serverName";
+            // 
+            // serverIPAddress
+            // 
+            resources.ApplyResources(this.serverIPAddress, "serverIPAddress");
+            this.serverIPAddress.Name = "serverIPAddress";
+            // 
+            // listenningPort
+            // 
+            resources.ApplyResources(this.listenningPort, "listenningPort");
+            this.listenningPort.Name = "listenningPort";
+            // 
+            // label9
+            // 
+            resources.ApplyResources(this.label9, "label9");
+            this.label9.Name = "label9";
+            // 
+            // connectCount
+            // 
+            resources.ApplyResources(this.connectCount, "connectCount");
+            this.connectCount.Name = "connectCount";
+            // 
             // ServerUI
             // 
             resources.ApplyResources(this, "$this");
@@ -217,6 +310,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridViewClientList)).EndInit();
             this.statusBar.ResumeLayout(false);
             this.statusBar.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
@@ -239,13 +334,26 @@
         private System.Windows.Forms.ToolStripMenuItem ngắtKếtNốiToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel statusText;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
-        private System.Windows.Forms.ToolStripStatusLabel serverIPAddress;
-        private System.Windows.Forms.ToolStripStatusLabel listenningPort;
-        private System.Windows.Forms.ToolStripStatusLabel serverName;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnViewFolder;
         private System.Windows.Forms.Button btnSelectFolder;
         private System.Windows.Forms.Label lblSaveFolder;
         private System.Windows.Forms.FolderBrowserDialog folderBrowser;
+        private System.Windows.Forms.ToolStripMenuItem nghiệpVụToolStripMenuItem;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripMenuItem thiếtLậpThôngTinToolStripMenuItem;
+        private System.Windows.Forms.Label sentCount;
+        private System.Windows.Forms.Label serverName;
+        private System.Windows.Forms.Label listenningPort;
+        private System.Windows.Forms.Label serverIPAddress;
+        private System.Windows.Forms.Label connectCount;
+        private System.Windows.Forms.Label label9;
     }
 }

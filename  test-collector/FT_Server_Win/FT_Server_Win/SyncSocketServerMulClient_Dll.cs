@@ -157,7 +157,7 @@ namespace ServerSockets.Synchronous.UsingByteArray
                     string[] clientInformation = GetInformationFromHeader(GetHeader(clientSock));
                     if (clientInformation != null)
                     {
-                        ClientItem newItem = new ClientItem(clientInformation[2], ipEndReceive.Address.ToString(), clientInformation[0], clientInformation[1], Extension.CONNECTED);
+                        ClientItem newItem = new ClientItem(clientInformation[2], clientSock.LocalEndPoint.ToString(), clientInformation[0], clientInformation[1], Extension.CONNECTED);
                         if (!clientItemList.Contains(newItem))
                         {
                             clientItemList.Add(newItem);

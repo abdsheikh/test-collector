@@ -53,6 +53,7 @@ namespace FT_Server_Win
                 Thread.Sleep(2000);
                 List<ClientItem> list = socketControl.m_ServerSocketObject.clientItemList;
                 DataRow row;
+                int count = 0;
                 foreach (ClientItem item in list)
                 {
                     row = clientData.Rows.Find(item.StudentID);
@@ -60,9 +61,12 @@ namespace FT_Server_Win
                         clientData.Rows.Add(clientData.Rows.Count + 1, item.ComputerName, item.IPAdress, item.StudentID, item.StudentName, Extension.GetMessage(item.Status));
                     else
                         row[5] = Extension.GetMessage(item.Status);
-                        
+                    if (item.Status == Extension.DISCONNECTED)
+                        count++;
                 }
                 gridViewClientList.DataSource = clientData;
+                sentCount.Text = count.ToString();
+                connectCount.Text = list.Count.ToString();
             }
         }
 
@@ -122,12 +126,9 @@ namespace FT_Server_Win
 
         private void RefreshStatus()
         {
-            serverIPAddress.Text = "Địa chỉ IP: " + socketControl.getIPAdress() + "|";
-            serverName.Text = "Tên máy chủ: " + socketControl.m_ServerSocketObject.getHostName() + "|";
-            listenningPort.Text = "Cổng nhận dữ liệu: " + socketControl.SendPort.ToString() + "|";
+            serverIPAddress.Text = socketControl.getIPAdress();
+            serverName.Text = socketControl.m_ServerSocketObject.getHostName();
+            listenningPort.Text = socketControl.SendPort.ToString();
         }
-
-
-        
     }
 }
