@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.Net;
 using System.IO;
 using System.Threading;
+using System.Diagnostics;
 
 namespace FT_Client
 {
@@ -102,8 +103,11 @@ namespace FT_Client
 
         private void FindIpInLan(ListView lview1)
         {
-            IPAddress[] Adresses2 = processingIp.GetAllUnicastAddresses_New();
+           // IPAddress[] Adresses2 = processingIp.GetAllUnicastAddresses_New();
             int i = 1;
+            lview1.Items.Clear();
+            lview1.Refresh();
+            /*
             foreach (IPAddress Adres in Adresses2)
             {
                 string hostname = processingIp.GetHostNameFromIpAdress(Adres);
@@ -113,6 +117,33 @@ namespace FT_Client
                 item1.SubItems.Add(Adres.ToString());
                 lview1.Items.Add(item1);
             }
+            */
+            Process netUtility = new Process();
+            netUtility.StartInfo.FileName = "net.exe";
+            netUtility.StartInfo.CreateNoWindow = true;
+            netUtility.StartInfo.Arguments = "view";
+            netUtility.StartInfo.RedirectStandardOutput = true;
+            netUtility.StartInfo.UseShellExecute = false;
+            netUtility.StartInfo.RedirectStandardError = true;
+            netUtility.Start();
+            StreamReader streamReader = new StreamReader(netUtility.StandardOutput.BaseStream, netUtility.StandardOutput.CurrentEncoding);
+            string line = "";
+            while ((line = streamReader.ReadLine()) != null)
+            {
+                if (line.StartsWith("\\"))
+                {
+                    //listBox1.Items.Add(line.Substring(2).Substring(0, line.Substring(2).IndexOf(" ")).ToUpper());
+                    string hostname = line.Substring(2).Substring(0, line.Substring(2).IndexOf(" ")).ToUpper();
+                    string ip = processingIp.GetIpFromHostName(hostname); 
+                    ListViewItem item1 = new ListViewItem((i++).ToString(), 0);
+                    item1.SubItems.Add(hostname);
+                    item1.SubItems.Add(ip);
+                    lview1.Items.Add(item1);                 
+                }
+            }
+            streamReader.Close();
+            netUtility.WaitForExit(1000); 
+
         }
 
         private void listView1_Click(object sender, EventArgs e)

@@ -338,5 +338,16 @@ namespace FT_Client
                 return hostname;
             }
         }
+        public string GetIpFromHostName(string hostname)
+        {
+            try
+            {
+                return Dns.GetHostByName(hostname).AddressList[0].ToString();
+            }
+            catch (System.Exception ex)
+            {
+                return "UnIdentified";
+            }
+        }
     }
 }
