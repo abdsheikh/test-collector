@@ -46,16 +46,16 @@ namespace FT_Server_Win
             switch (status)
             {
                 case CONNECTED:
-                    message = "Connected";
+                    message = "Đã kết nối";
                     break;
                 case SENDING:
-                    message = "Sending...";
+                    message = "Đang gửi file...";
                     break;
                 case SENT:
-                    message = "Sent";
+                    message = "Đã gửi";
                     break;
                 case DISCONNECTED:
-                    message = "Disconnected";
+                    message = "Gửi hoàn tất. Đã đóng kết nối!";
                     break;
             }
             return message;

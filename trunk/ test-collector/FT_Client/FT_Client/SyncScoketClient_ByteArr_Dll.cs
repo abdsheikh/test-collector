@@ -162,10 +162,9 @@ namespace ClientSockets.Synchronous.UsingByteArray // SyncScoketClient_ByteArr_D
 
             return newFileName;
         }
+
         private void SendFileToServerByThread(object fileNameWithPathObj)
         {                    
-           
-
             BinaryReader bReader = null;
             string newFileName = "";
             try
