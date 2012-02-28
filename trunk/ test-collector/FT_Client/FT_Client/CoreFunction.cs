@@ -5,6 +5,7 @@ using System.IO;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
+using System.Windows.Forms;
 
 namespace FT_Client
 {
@@ -347,6 +348,48 @@ namespace FT_Client
             catch (System.Exception ex)
             {
                 return "UnIdentified";
+            }
+        }        
+    }
+    class Utilities_CLient
+    {
+        public Utilities_CLient()
+        {
+
+        }
+        public int CheckBirthday(DateTimePicker birthday)
+        {
+            DateTime now = new DateTime();
+            DateTime bday = birthday.Value.Date;            
+            //DateTime temp=now.date
+            return DateTime.Compare(now, bday);            
+        }
+
+        public bool checkFileType(string pathfile)
+        {
+            try
+            {
+                string e = Path.GetExtension(pathfile);
+                if (e == ".docx" || e == ".doc" || e == ".pdf" || e == ".txt" || e == ".rar" || e == ".zip" || e == ".xls" || e == ".xlsx" || e == ".jpg" || e == ".gif" || e == ".png")
+                    return true;
+                else return false;
+            }
+            catch (System.Exception ex)
+            {
+                return false;
+            }
+        }
+        public bool CheckFileSize(string pathfile,long fileSize) //check file size (kb)
+        {
+            try
+            {
+                FileInfo f = new FileInfo(pathfile);
+                if ((f.Length / 1024) > fileSize) return false;
+                else return true;
+            }
+            catch (System.Exception ex)
+            {
+            	return false;
             }
         }
     }

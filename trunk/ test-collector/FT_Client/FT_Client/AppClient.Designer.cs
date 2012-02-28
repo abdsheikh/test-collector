@@ -49,10 +49,10 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.bdayStudent = new System.Windows.Forms.DateTimePicker();
             this.lbNumber = new System.Windows.Forms.Label();
             this.numBox = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtNgaySinh = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtHoTen = new System.Windows.Forms.TextBox();
@@ -80,7 +80,7 @@
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(97, 37);
             this.btnSend.TabIndex = 0;
-            this.btnSend.Text = "Send File";
+            this.btnSend.Text = "Gửi File";
             this.btnSend.UseVisualStyleBackColor = true;
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
@@ -89,9 +89,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(78, 68);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 13);
+            this.label1.Size = new System.Drawing.Size(85, 13);
             this.label1.TabIndex = 3;
-            this.label1.Text = "client info...";
+            this.label1.Text = "thông tin client...";
             // 
             // gbClientSetting
             // 
@@ -113,9 +113,9 @@
             this.lbFileName.AutoSize = true;
             this.lbFileName.Location = new System.Drawing.Point(175, 296);
             this.lbFileName.Name = "lbFileName";
-            this.lbFileName.Size = new System.Drawing.Size(90, 13);
+            this.lbFileName.Size = new System.Drawing.Size(108, 13);
             this.lbFileName.TabIndex = 17;
-            this.lbFileName.Text = "File name to send";
+            this.lbFileName.Text = "Tên File nén để gửi...";
             // 
             // label9
             // 
@@ -142,18 +142,20 @@
             this.btZipFiles.Name = "btZipFiles";
             this.btZipFiles.Size = new System.Drawing.Size(84, 32);
             this.btZipFiles.TabIndex = 15;
-            this.btZipFiles.Text = "ZipFiles";
+            this.btZipFiles.Text = "Nén Files";
             this.btZipFiles.UseVisualStyleBackColor = true;
             this.btZipFiles.Click += new System.EventHandler(this.btZipFiles_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 25);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(19, 18);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(167, 13);
+            this.label2.Size = new System.Drawing.Size(455, 15);
             this.label2.TabIndex = 14;
-            this.label2.Text = "Kéo thả các file vào khu vực này!";
+            this.label2.Text = "Kéo thả các file vào khu vực này! ( .doc, .docx, .rar, .zip, .txt, .xls, .xlsx, ." +
+    "jpg, .png, .gif)";
             // 
             // lbFiles
             // 
@@ -198,9 +200,9 @@
             // 
             this.button3.Location = new System.Drawing.Point(70, 16);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(113, 39);
+            this.button3.Size = new System.Drawing.Size(93, 39);
             this.button3.TabIndex = 6;
-            this.button3.Text = "Connect To Server";
+            this.button3.Text = "Kết Nối Server";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -209,9 +211,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(17, 67);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 13);
+            this.label3.Size = new System.Drawing.Size(61, 13);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Status: ";
+            this.label3.Text = "Trạng thái: ";
             // 
             // groupBox1
             // 
@@ -259,10 +261,10 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.bdayStudent);
             this.groupBox3.Controls.Add(this.lbNumber);
             this.groupBox3.Controls.Add(this.numBox);
             this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.txtNgaySinh);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.txtHoTen);
@@ -273,6 +275,16 @@
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Thông tin";
+            // 
+            // bdayStudent
+            // 
+            this.bdayStudent.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.bdayStudent.Location = new System.Drawing.Point(82, 109);
+            this.bdayStudent.MinDate = new System.DateTime(1899, 1, 1, 0, 0, 0, 0);
+            this.bdayStudent.Name = "bdayStudent";
+            this.bdayStudent.Size = new System.Drawing.Size(179, 20);
+            this.bdayStudent.TabIndex = 8;
+            this.bdayStudent.Leave += new System.EventHandler(this.bdayStudent_Leave);
             // 
             // lbNumber
             // 
@@ -313,13 +325,6 @@
             this.label6.Size = new System.Drawing.Size(59, 13);
             this.label6.TabIndex = 5;
             this.label6.Text = "Ngày Sinh:";
-            // 
-            // txtNgaySinh
-            // 
-            this.txtNgaySinh.Location = new System.Drawing.Point(83, 103);
-            this.txtNgaySinh.Name = "txtNgaySinh";
-            this.txtNgaySinh.Size = new System.Drawing.Size(178, 20);
-            this.txtNgaySinh.TabIndex = 4;
             // 
             // label5
             // 
@@ -369,8 +374,8 @@
             this.ConnectSettingToolStripMenuItem,
             this.ThoatToolStripMenuItem});
             this.MenuToolStripMenuItem.Name = "MenuToolStripMenuItem";
-            this.MenuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
-            this.MenuToolStripMenuItem.Text = "Menu";
+            this.MenuToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.MenuToolStripMenuItem.Text = "Hệ Thống";
             // 
             // ConnectSettingToolStripMenuItem
             // 
@@ -448,7 +453,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtNgaySinh;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem MenuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ThoatToolStripMenuItem;
@@ -463,6 +467,7 @@
         private System.Windows.Forms.Label lbNumber;
         private System.Windows.Forms.Label lbFileName;
         private System.Windows.Forms.ToolStripMenuItem ConnectSettingToolStripMenuItem;
+        private System.Windows.Forms.DateTimePicker bdayStudent;
     }
 }
 

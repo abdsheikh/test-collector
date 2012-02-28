@@ -32,6 +32,9 @@ namespace FT_Client
         string[] files;
         Ziplb ziptool = new Ziplb();
         bool isZipSuccess = false;
+
+
+        int maxFileSize = 10240; //max zip file to send is 10000Kb ~10Mb
         public AppClient()
         {
                        InitializeComponent();
@@ -93,8 +96,15 @@ namespace FT_Client
         }
 
         public static string ipServer="127.0.0.1";
+        public void FormatDateTimePicker(DateTimePicker dt)
+        {
+            dt.Format = DateTimePickerFormat.Custom;
+            dt.CustomFormat = "dd/MM/yyyy";
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
+
+            FormatDateTimePicker(bdayStudent);
             LoadConfig();                       
             objClient.SetIpAddress(ipServer);
             objClient.SetSendPort(portSend);
@@ -126,7 +136,7 @@ namespace FT_Client
             setting[0] = ipad.ToString();
             setting[1] = port.ToString();
             SaveSetting(FullPathFileToSaveSetting, setting);
-            MessageBox.Show("Thiết lập thành công Send Port:" + port + " - Ip Server:" + ipad.ToString(), "Thông Báo!");
+            MessageBox.Show("Thiết lập thành công Port gửi :" + port + " - Với Ip Server :" + ipad.ToString(), "Thông Báo!");
         }
         public void SetFlagMainForm(int temp) //delegate method to set flag (flag: 1-> ConnectSetting Form is ready, 2-> not)
         {
@@ -134,15 +144,13 @@ namespace FT_Client
         }
 
 
-
+        Utilities_CLient uClient = new Utilities_CLient();
         private void btnSend_Click(object sender, EventArgs e)
         {
             if(CheckInfoStudent()>0)
             {
                 return;
-            }
-
-           
+            }           
             if (outputZipFiles == "")
             {
                 MessageBox.Show("Vui lòng Zip Files trước khi gửi!");
@@ -150,12 +158,18 @@ namespace FT_Client
             }
             if(!File.Exists(outputZipFiles))
             {
-                MessageBox.Show("File ko tồn tại!");
+                MessageBox.Show("File không tồn tại!");
+                return;
+            }
+            
+            if(!uClient.CheckFileSize(outputZipFiles,maxFileSize))
+            {
+                MessageBox.Show("Kích thước FILE Zip không được lớn hơn : " + maxFileSize+" Kb", "Cảnh báo!");
                 return;
             }
             if (objClient.checkConnectToServer() == false)
             {
-                MessageBox.Show("Please! Connect To Server before sending file!!!");
+                MessageBox.Show("Vui lòng Kết Nối Server trước khi Gửi FILE !!!");
                 return;
             }
             objClient.SetFileName(outputZipFiles);
@@ -168,6 +182,8 @@ namespace FT_Client
         }        
         private void btFileToSend_Click(object sender, EventArgs e)
         {
+            Utilities_CLient uClient = new Utilities_CLient();
+            lbFiles.Items.Clear();
             OpenFileDialog op = new OpenFileDialog();
             op.Multiselect = true;
             if(op.ShowDialog()==DialogResult.OK)
@@ -175,6 +191,7 @@ namespace FT_Client
                 //lbFileName.Text = op.FileName;
                 foreach (string file in op.FileNames)
                 {
+                    if(uClient.checkFileType(file))
                     lbFiles.Items.Add(file);
                 }
             }
@@ -187,13 +204,15 @@ namespace FT_Client
         }
         private void button3_Click(object sender, EventArgs e)
         {
-            if (CheckInfoStudent() >0)
+            string birthday = bdayStudent.Value.Date.ToShortDateString();
+            if (CheckInfoStudent() > 0)
             {
                 return;
             }
             string clientInfo = "";
             ConvertTVKoDau();
-            clientInfo = idClient + "_" + nameStudent + "_" + getNameClient();
+            clientInfo = idClient + "_" + nameStudent + "_" + birthday + "_" + getNameClient();
+
             label1.Text = "Đang kết nối đến Server. Vui lòng đợi giây lát!";
             label1.Refresh();
             try
@@ -202,7 +221,8 @@ namespace FT_Client
             }
             catch (System.Exception ex)
             {
-                MessageBox.Show("Your Setting NOT OK!");                
+                MessageBox.Show("Vui lòng kiểm tra lại các thông số kết nối!", "Lỗi!!!");
+                return;
             }
             
         }
@@ -275,6 +295,7 @@ namespace FT_Client
 
         private void Form1_DragDrop(object sender, DragEventArgs e)
         {
+            Utilities_CLient uCLient = new Utilities_CLient();
             lbFiles.Items.Clear();
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
             {
@@ -284,6 +305,7 @@ namespace FT_Client
                     // Code to read the contents of the text file
                     if (File.Exists(fileLoc))
                     {
+                        if(uCLient.checkFileType(fileLoc))
                         lbFiles.Items.Add(fileLoc);
                     }
                 }
@@ -292,7 +314,7 @@ namespace FT_Client
 
         private void btZipFiles_Click(object sender, EventArgs e)
         {
-            ZipFilesToSend(); 
+            ZipFilesToSend();
         }
         public int CheckInfoStudent()
         {
@@ -324,7 +346,7 @@ namespace FT_Client
             }
             else
             {
-                CheckInfoStudent();
+                if(CheckInfoStudent()!=0) return;
                 files = new string[lbFiles.Items.Count];
                 for (int index = 0; index < lbFiles.Items.Count; index++)
                 {
@@ -334,12 +356,12 @@ namespace FT_Client
                 isZipSuccess = ziptool.Zip(outputZipFiles, files);
                 if (isZipSuccess)
                 {
-                    label1.Text = "Zip Files is Successfull! File: " + Path.GetFileName(outputZipFiles) + " is Ready to send!";
+                    label1.Text = "Nén FILE thành công! File: " + Path.GetFileName(outputZipFiles) + " sẵn sàng để Gửi!";
                     lbFileName.Text = Path.GetFileName(outputZipFiles);
                 }
                 else
                 {
-                    label1.Text = "Zip Files is Fail !";
+                    label1.Text = "Nén FILE thất bại!";
                 }
             }
         }
@@ -411,6 +433,15 @@ namespace FT_Client
         private void ThoatToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }     
+
+        private void bdayStudent_Leave(object sender, EventArgs e)
+        {
+            if (bdayStudent.Value.Date.Year > (DateTime.Now.Year-1))
+            {
+                MessageBox.Show("Năm sinh không được lớn hơn năm :"+(DateTime.Now.Year-1));            
+                bdayStudent.Focus();
+            }
         }         
         
     }
