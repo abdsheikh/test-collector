@@ -114,20 +114,27 @@
             // 
             // gridViewClientList
             // 
+            this.gridViewClientList.AllowUserToAddRows = false;
+            this.gridViewClientList.AllowUserToDeleteRows = false;
+            this.gridViewClientList.AllowUserToResizeColumns = false;
+            this.gridViewClientList.AllowUserToResizeRows = false;
+            this.gridViewClientList.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.gridViewClientList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             resources.ApplyResources(this.gridViewClientList, "gridViewClientList");
+            this.gridViewClientList.GridColor = System.Drawing.SystemColors.Control;
             this.gridViewClientList.Name = "gridViewClientList";
-            this.gridViewClientList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.gridViewClientList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.gridViewClientList.RowHeadersVisible = false;
+            this.gridViewClientList.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.gridViewClientList_DataBindingComplete);
             // 
             // statusBar
             // 
             this.statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusText,
             this.toolStripStatusLabel2,
+            this.serverName,
             this.serverIPAddress,
-            this.listenningPort,
-            this.serverName});
+            this.listenningPort});
             resources.ApplyResources(this.statusBar, "statusBar");
             this.statusBar.Name = "statusBar";
             // 

@@ -180,10 +180,28 @@ namespace ServerSockets.Synchronous.UsingByteArray
             }
             receiveSock.Close();
         }
-        public string getHost(string ip)
+
+        public string getHostName()
         {
-            IPHostEntry IpEntry = Dns.GetHostByAddress(ip);
-            return IpEntry.HostName.ToString();
+            string strHostName = System.Net.Dns.GetHostName();
+            return strHostName;
+        }
+
+        public string getLocalIPAdress(string hostname)
+        {
+            {
+                IPHostEntry ipEntry = System.Net.Dns.GetHostEntry(getHostName());
+
+                IPAddress[] addr = ipEntry.AddressList;
+
+                IPAddress ipResult = addr[0];
+
+                foreach (IPAddress ip in addr)
+                    if (!IPAddress.IsLoopback(ip) && ip.AddressFamily != AddressFamily.InterNetworkV6)
+                        ipResult = ip;
+                return ipResult.ToString();
+
+            }
         }
 
         private void ReadDataFromClient(object clientObject)

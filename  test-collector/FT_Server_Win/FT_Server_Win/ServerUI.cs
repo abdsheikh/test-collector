@@ -26,7 +26,7 @@ namespace FT_Server_Win
             socketControl.OutputPath = @"D:\save";
             socketControl.SaveConfiguration();
 
-            serverIPAddress.Text = socketControl.getIPAdress();
+            RefreshStatus();
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -42,7 +42,7 @@ namespace FT_Server_Win
                 Thread thread = new Thread(new ThreadStart(CheckMessage));
                 thread.Start();
                 statusText.Text = Extension.SERVER_STARTED;
-                serverIPAddress.Text = socketControl.getIPAdress();
+                RefreshStatus();
             }
         }
 
@@ -82,7 +82,8 @@ namespace FT_Server_Win
         {
             SettingForm form = new SettingForm(socketControl);
             form.ShowDialog();
-            MessageBox.Show(socketControl.SendPort.ToString());
+            RefreshStatus();
+
         }
 
         private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
@@ -105,6 +106,25 @@ namespace FT_Server_Win
             System.Diagnostics.Process prc = new System.Diagnostics.Process();
             prc.StartInfo.FileName = myPath;
             prc.Start();
+        }
+
+        private void gridViewClientList_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            if (gridViewClientList.ColumnCount > 3)
+            {
+                gridViewClientList.Columns[0].Width = 40;
+                gridViewClientList.Columns[1].Width = 150;
+                gridViewClientList.Columns[2].Width = 150;
+                gridViewClientList.Columns[3].Width = 150;
+                gridViewClientList.Columns[4].Width = 150;
+            }
+        }
+
+        private void RefreshStatus()
+        {
+            serverIPAddress.Text = "Địa chỉ IP: " + socketControl.getIPAdress() + "|";
+            serverName.Text = "Tên máy chủ: " + socketControl.m_ServerSocketObject.getHostName() + "|";
+            listenningPort.Text = "Cổng nhận dữ liệu: " + socketControl.SendPort.ToString() + "|";
         }
 
 

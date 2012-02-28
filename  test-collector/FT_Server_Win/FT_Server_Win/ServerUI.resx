@@ -153,28 +153,28 @@
     <value>Hệ thống</value>
   </data>
   <data name="bậtKếtNốiToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="bậtKếtNốiToolStripMenuItem.Text" xml:space="preserve">
     <value>Bật kết nối</value>
   </data>
   <data name="ngắtKếtNốiToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="ngắtKếtNốiToolStripMenuItem.Text" xml:space="preserve">
     <value>Ngắt kết nối</value>
   </data>
   <data name="càiĐặtKếtNốiToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="càiĐặtKếtNốiToolStripMenuItem.Text" xml:space="preserve">
     <value>Cài đặt kết nối</value>
   </data>
   <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 6</value>
+    <value>149, 6</value>
   </data>
   <data name="thoátToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="thoátToolStripMenuItem.Text" xml:space="preserve">
     <value>Thoát</value>
@@ -243,6 +243,33 @@
   <metadata name="statusBar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>132, 3</value>
   </metadata>
+  <data name="statusText.Size" type="System.Drawing.Size, System.Drawing">
+    <value>10, 17</value>
+  </data>
+  <data name="statusText.Text" xml:space="preserve">
+    <value>|</value>
+  </data>
+  <data name="toolStripStatusLabel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 17</value>
+  </data>
+  <data name="serverName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>10, 17</value>
+  </data>
+  <data name="serverName.Text" xml:space="preserve">
+    <value>|</value>
+  </data>
+  <data name="serverIPAddress.Size" type="System.Drawing.Size, System.Drawing">
+    <value>10, 17</value>
+  </data>
+  <data name="serverIPAddress.Text" xml:space="preserve">
+    <value>|</value>
+  </data>
+  <data name="listenningPort.Size" type="System.Drawing.Size, System.Drawing">
+    <value>10, 17</value>
+  </data>
+  <data name="listenningPort.Text" xml:space="preserve">
+    <value>|</value>
+  </data>
   <data name="statusBar.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 663</value>
   </data>
@@ -267,33 +294,6 @@
   <data name="&gt;&gt;statusBar.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="statusText.Size" type="System.Drawing.Size, System.Drawing">
-    <value>10, 17</value>
-  </data>
-  <data name="statusText.Text" xml:space="preserve">
-    <value>|</value>
-  </data>
-  <data name="toolStripStatusLabel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>0, 17</value>
-  </data>
-  <data name="serverIPAddress.Size" type="System.Drawing.Size, System.Drawing">
-    <value>10, 17</value>
-  </data>
-  <data name="serverIPAddress.Text" xml:space="preserve">
-    <value>|</value>
-  </data>
-  <data name="listenningPort.Size" type="System.Drawing.Size, System.Drawing">
-    <value>10, 17</value>
-  </data>
-  <data name="listenningPort.Text" xml:space="preserve">
-    <value>|</value>
-  </data>
-  <data name="serverName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>10, 17</value>
-  </data>
-  <data name="serverName.Text" xml:space="preserve">
-    <value>|</value>
-  </data>
   <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
     <value>779, 27</value>
   </data>
@@ -317,6 +317,66 @@
   </data>
   <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="&gt;&gt;btnViewFolder.Name" xml:space="preserve">
+    <value>btnViewFolder</value>
+  </data>
+  <data name="&gt;&gt;btnViewFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnViewFolder.Parent" xml:space="preserve">
+    <value>groupBox3</value>
+  </data>
+  <data name="&gt;&gt;btnViewFolder.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;btnSelectFolder.Name" xml:space="preserve">
+    <value>btnSelectFolder</value>
+  </data>
+  <data name="&gt;&gt;btnSelectFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSelectFolder.Parent" xml:space="preserve">
+    <value>groupBox3</value>
+  </data>
+  <data name="&gt;&gt;btnSelectFolder.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;lblSaveFolder.Name" xml:space="preserve">
+    <value>lblSaveFolder</value>
+  </data>
+  <data name="&gt;&gt;lblSaveFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblSaveFolder.Parent" xml:space="preserve">
+    <value>groupBox3</value>
+  </data>
+  <data name="&gt;&gt;lblSaveFolder.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 535</value>
+  </data>
+  <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>992, 114</value>
+  </data>
+  <data name="groupBox3.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="groupBox3.Text" xml:space="preserve">
+    <value>Thư mục lưu</value>
+  </data>
+  <data name="&gt;&gt;groupBox3.Name" xml:space="preserve">
+    <value>groupBox3</value>
+  </data>
+  <data name="&gt;&gt;groupBox3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox3.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;groupBox3.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="btnViewFolder.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -395,30 +455,6 @@
   </data>
   <data name="&gt;&gt;lblSaveFolder.ZOrder" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 535</value>
-  </data>
-  <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>992, 114</value>
-  </data>
-  <data name="groupBox3.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="groupBox3.Text" xml:space="preserve">
-    <value>Thư mục lưu</value>
-  </data>
-  <data name="&gt;&gt;groupBox3.Name" xml:space="preserve">
-    <value>groupBox3</value>
-  </data>
-  <data name="&gt;&gt;groupBox3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox3.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;groupBox3.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <metadata name="folderBrowser.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>132, 3</value>

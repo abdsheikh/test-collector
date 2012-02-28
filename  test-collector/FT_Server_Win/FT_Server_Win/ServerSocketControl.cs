@@ -104,7 +104,7 @@ namespace FT_Server_Win
 
         public string getIPAdress()
         {
-            return SyncSocketServerMulClient.ipAdress;
+            return m_ServerSocketObject.getLocalIPAdress(getComputerName());
         }
 
         #endregion
