@@ -37,32 +37,28 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nghiệpVụToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thiếtLậpThôngTinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.gridViewClientList = new System.Windows.Forms.DataGridView();
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.statusText = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.connectCount = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.sentCount = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnViewFolder = new System.Windows.Forms.Button();
             this.btnSelectFolder = new System.Windows.Forms.Button();
             this.lblSaveFolder = new System.Windows.Forms.Label();
             this.folderBrowser = new System.Windows.Forms.FolderBrowserDialog();
-            this.thiếtLậpThôngTinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sentCount = new System.Windows.Forms.Label();
-            this.serverName = new System.Windows.Forms.Label();
-            this.serverIPAddress = new System.Windows.Forms.Label();
-            this.listenningPort = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.connectCount = new System.Windows.Forms.Label();
+            this.xuấtDanhSáchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewClientList)).BeginInit();
@@ -122,9 +118,16 @@
             // nghiệpVụToolStripMenuItem
             // 
             this.nghiệpVụToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.thiếtLậpThôngTinToolStripMenuItem});
+            this.thiếtLậpThôngTinToolStripMenuItem,
+            this.xuấtDanhSáchToolStripMenuItem});
             this.nghiệpVụToolStripMenuItem.Name = "nghiệpVụToolStripMenuItem";
             resources.ApplyResources(this.nghiệpVụToolStripMenuItem, "nghiệpVụToolStripMenuItem");
+            this.nghiệpVụToolStripMenuItem.Click += new System.EventHandler(this.nghiệpVụToolStripMenuItem_Click);
+            // 
+            // thiếtLậpThôngTinToolStripMenuItem
+            // 
+            this.thiếtLậpThôngTinToolStripMenuItem.Name = "thiếtLậpThôngTinToolStripMenuItem";
+            resources.ApplyResources(this.thiếtLậpThôngTinToolStripMenuItem, "thiếtLậpThôngTinToolStripMenuItem");
             // 
             // groupBox1
             // 
@@ -147,6 +150,7 @@
             this.gridViewClientList.Name = "gridViewClientList";
             this.gridViewClientList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.gridViewClientList.RowHeadersVisible = false;
+            this.gridViewClientList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridViewClientList.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.gridViewClientList_DataBindingComplete);
             // 
             // statusBar
@@ -171,21 +175,30 @@
             // 
             this.groupBox2.Controls.Add(this.connectCount);
             this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.listenningPort);
-            this.groupBox2.Controls.Add(this.serverIPAddress);
-            this.groupBox2.Controls.Add(this.serverName);
             this.groupBox2.Controls.Add(this.sentCount);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.label1);
             resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
+            // 
+            // connectCount
+            // 
+            resources.ApplyResources(this.connectCount, "connectCount");
+            this.connectCount.Name = "connectCount";
+            // 
+            // label9
+            // 
+            resources.ApplyResources(this.label9, "label9");
+            this.label9.Name = "label9";
+            // 
+            // sentCount
+            // 
+            resources.ApplyResources(this.sentCount, "sentCount");
+            this.sentCount.Name = "sentCount";
             // 
             // label8
             // 
@@ -211,21 +224,6 @@
             // 
             resources.ApplyResources(this.label6, "label6");
             this.label6.Name = "label6";
-            // 
-            // label3
-            // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.Name = "label3";
-            // 
-            // label2
-            // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.Name = "label2";
-            // 
-            // label1
-            // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
             // 
             // groupBox3
             // 
@@ -255,40 +253,11 @@
             resources.ApplyResources(this.lblSaveFolder, "lblSaveFolder");
             this.lblSaveFolder.Name = "lblSaveFolder";
             // 
-            // thiếtLậpThôngTinToolStripMenuItem
+            // xuấtDanhSáchToolStripMenuItem
             // 
-            this.thiếtLậpThôngTinToolStripMenuItem.Name = "thiếtLậpThôngTinToolStripMenuItem";
-            resources.ApplyResources(this.thiếtLậpThôngTinToolStripMenuItem, "thiếtLậpThôngTinToolStripMenuItem");
-            // 
-            // sentCount
-            // 
-            resources.ApplyResources(this.sentCount, "sentCount");
-            this.sentCount.Name = "sentCount";
-            // 
-            // serverName
-            // 
-            resources.ApplyResources(this.serverName, "serverName");
-            this.serverName.Name = "serverName";
-            // 
-            // serverIPAddress
-            // 
-            resources.ApplyResources(this.serverIPAddress, "serverIPAddress");
-            this.serverIPAddress.Name = "serverIPAddress";
-            // 
-            // listenningPort
-            // 
-            resources.ApplyResources(this.listenningPort, "listenningPort");
-            this.listenningPort.Name = "listenningPort";
-            // 
-            // label9
-            // 
-            resources.ApplyResources(this.label9, "label9");
-            this.label9.Name = "label9";
-            // 
-            // connectCount
-            // 
-            resources.ApplyResources(this.connectCount, "connectCount");
-            this.connectCount.Name = "connectCount";
+            this.xuấtDanhSáchToolStripMenuItem.Name = "xuấtDanhSáchToolStripMenuItem";
+            resources.ApplyResources(this.xuấtDanhSáchToolStripMenuItem, "xuấtDanhSáchToolStripMenuItem");
+            this.xuấtDanhSáchToolStripMenuItem.Click += new System.EventHandler(this.xuấtDanhSáchToolStripMenuItem_Click);
             // 
             // ServerUI
             // 
@@ -345,15 +314,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem thiếtLậpThôngTinToolStripMenuItem;
         private System.Windows.Forms.Label sentCount;
-        private System.Windows.Forms.Label serverName;
-        private System.Windows.Forms.Label listenningPort;
-        private System.Windows.Forms.Label serverIPAddress;
         private System.Windows.Forms.Label connectCount;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ToolStripMenuItem xuấtDanhSáchToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
