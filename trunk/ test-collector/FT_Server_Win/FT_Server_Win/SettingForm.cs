@@ -20,6 +20,7 @@ namespace FT_Server_Win
         {
             InitializeComponent();
             socketControl = socket;
+            RefreshStatus();
         }
 
         private void grpSetting_Enter(object sender, EventArgs e)
@@ -32,6 +33,13 @@ namespace FT_Server_Win
             socketControl.SendPort = (int)(sendPort.Value);
             socketControl.SaveConfiguration();
             this.Close();
+        }
+
+        private void RefreshStatus()
+        {
+            serverIPAddress.Text = socketControl.getIPAdress();
+            serverName.Text = socketControl.m_ServerSocketObject.getHostName();
+            listenningPort.Text = socketControl.SendPort.ToString();
         }
     }
 }

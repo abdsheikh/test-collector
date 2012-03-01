@@ -23,6 +23,12 @@ namespace FT_Server_Win
         public const string SERVER_NAME = "Tên máy: ";
         #endregion
 
+        #region Client Information Fields
+        public const int COMPUTERNAME = 3;
+        public const int STUDENTNAME = 1;
+        public const int STUDENTID = 0;
+        public const int BIRTHDAY = 2;
+        #endregion
         public static DataTable CreateDataTableWithHeader()
         {
             DataTable dataTableResult = new DataTable();
@@ -59,6 +65,22 @@ namespace FT_Server_Win
                     break;
             }
             return message;
+        }
+
+        public static int GetStatusCode(String message)
+        {
+            if (message == "Đã kết nối")
+                return CONNECTED;
+            else
+                if (message == "Đã gửi")
+                    return SENT;
+                else
+                    if (message == "Đang gửi file...")
+                        return SENDING;
+                    else
+                        if (message == "Gửi hoàn tất. Đã đóng kết nối!")
+                            return DISCONNECTED;
+                        else return -1;
         }
 
         public static string getPortString(int port)
