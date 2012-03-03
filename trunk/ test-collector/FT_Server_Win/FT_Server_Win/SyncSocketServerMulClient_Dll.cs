@@ -426,22 +426,28 @@ namespace ServerSockets.Synchronous.UsingByteArray
         }
         private void StartSendServerThread()
         {
-            ipEndSend = new IPEndPoint(IPAddress.Any, SyncSocketServerMulClient.sendPort);
-            sendSock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
-            sendSock.Bind(ipEndSend);
-            SyncSocketServerMulClient.isServerRunning = true;
-            sendSock.Listen(maxClientReceived);
-            Console.WriteLine("Waiting for new client connection");
-            while (SyncSocketServerMulClient.isServerRunning)
+            try
             {
-                Socket clientSock;
-                clientSock = sendSock.Accept();
+                ipEndSend = new IPEndPoint(IPAddress.Any, SyncSocketServerMulClient.sendPort);
+                sendSock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
+                sendSock.Bind(ipEndSend);
+                SyncSocketServerMulClient.isServerRunning = true;
+                sendSock.Listen(maxClientReceived);
+                Console.WriteLine("Waiting for new client connection");
+                while (SyncSocketServerMulClient.isServerRunning)
+                {
+                    Socket clientSock;
+                    clientSock = sendSock.Accept();
 
-                SyncSocketServerMulClient serObj = new SyncSocketServerMulClient(SyncSocketServerMulClient.receivePort, SyncSocketServerMulClient.sendPort, SyncSocketServerMulClient.bufferSize, this.outPath);
-                Thread newClient = new Thread(serObj.SendDataToClient);
-                newClient.Start(clientSock);
+                    SyncSocketServerMulClient serObj = new SyncSocketServerMulClient(SyncSocketServerMulClient.receivePort, SyncSocketServerMulClient.sendPort, SyncSocketServerMulClient.bufferSize, this.outPath);
+                    Thread newClient = new Thread(serObj.SendDataToClient);
+                    newClient.Start(clientSock);
+                }
             }
-            sendSock.Close();
+            catch (Exception exception)
+            {
+                sendSock.Close();
+            }
         }
         private void SendDataToClient(object clientObject)
         {
@@ -476,7 +482,6 @@ namespace ServerSockets.Synchronous.UsingByteArray
                 string clientId, fileName;
                 clientIdLen = BitConverter.ToInt32(clientData, 0);
                 fileNameLen = BitConverter.ToInt32(clientData, 4);
-
 
                 clientId = Encoding.ASCII.GetString(clientData, 8, clientIdLen);
                 fileName = Encoding.ASCII.GetString(clientData, 8 + clientIdLen, fileNameLen);

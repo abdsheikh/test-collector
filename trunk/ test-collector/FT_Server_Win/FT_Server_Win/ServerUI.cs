@@ -16,10 +16,25 @@ namespace FT_Server_Win
         private DataRow[] m_ClientList;
         DataTable clientData;
         ServerSocketControl socketControl;
+        bool isSelectedFolder = false;
+
+        #region Class Information
+        private string m_Subject = String.Empty;
+        private DateTime m_Date = DateTime.Now;
+        private int m_StudentSum = 1;
+        #endregion
 
         public ServerUI()
         {
             InitializeComponent();
+
+            //Init
+            //gridViewClientList.Anchor = AnchorStyles.Left;
+            //toolStrip1.Dock = DockStyle.Top;
+            //gridViewClientList.Dock = DockStyle.Left;
+            //rightPanel.Dock = DockStyle.Left;
+
+
             CheckForIllegalCrossThreadCalls = false;
             clientData = Extension.CreateDataTableWithHeader();
             gridViewClientList.DataSource = clientData;
@@ -27,7 +42,6 @@ namespace FT_Server_Win
             socketControl.OutputPath = @"D:\save";
             socketControl.SaveConfiguration();
 
-            //RefreshStatus();
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -37,6 +51,11 @@ namespace FT_Server_Win
 
         private void bậtKếtNốiToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (isSelectedFolder == false)
+            {
+                MessageBox.Show("Chưa chọn thư mục lưu bài làm. Nhấn \"Chọn thư mục\" ở bên dưới!","Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
             if (!socketControl.m_ServerSocketObject.isRunning())
             {
                 socketControl.m_ServerSocketObject.StartServer();
@@ -57,7 +76,7 @@ namespace FT_Server_Win
                 int count = 0;
                 foreach (ClientItem item in list)
                 {
-                    row = clientData.Rows.Find(item.StudentID);
+                    row = clientData.Rows.Find(item.IPAdress.ToString());
                     if (row == null)
                     {
                         clientData.Rows.Add(clientData.Rows.Count + 1, item.ComputerName, item.IPAdress, item.StudentID, item.StudentName, Extension.GetMessage(item.Status));
@@ -89,7 +108,7 @@ namespace FT_Server_Win
                     }
                 }
                 sentCount.Text = count.ToString();
-                connectCount.Text = list.Count.ToString();
+                connectCount.Text = clientData.Rows.Count.ToString();
             }
         }
 
@@ -127,6 +146,7 @@ namespace FT_Server_Win
 
                 socketControl.OutputPath = folderBrowser.SelectedPath;
                 socketControl.SaveConfiguration();
+                isSelectedFolder = true;
             }
         }
 
@@ -179,7 +199,7 @@ namespace FT_Server_Win
 
             //Trình Bày Tiêu Đề
             int row = 1;
-            string[] tieude = { "STT", "MSSV", "Họ và tên"};
+            string[] tieude = { "STT", "MSSV", "Họ và tên","Ngày sinh","Tình trạng nộp bài"};
             exSheet.Cells[row, 1] = "Danh sách Thi";
             //if (t == 0)
             {
@@ -187,11 +207,7 @@ namespace FT_Server_Win
                 exSheet.Cells[row, 1] = "Môn: ";
                 exSheet.Cells[row, 2] = "TÊN MÔN HỌC";
             }
-            row++;
-            //exSheet.Cells[row, 1] = "Học Kỳ: ";
-            //exSheet.Cells[row, 2] = BCTKMDSHK.Text;
-
-            row++;
+            row += 2;
             for (int i = 0; i < tieude.Length; i++)
                 exSheet.Cells[row, i + 1] = tieude[i];
 
@@ -236,6 +252,68 @@ namespace FT_Server_Win
             {
                 GC.Collect();
             }
+        }
+
+        private void splitter1_SplitterMoved(object sender, SplitterEventArgs e)
+        {
+
+        }
+
+        private void gridViewClientList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        public void setClassInformation(string subject, DateTime date, int sumOfStudent)
+        {
+            lblSubject.Text = m_Subject = subject;
+            m_Date = date;
+            m_StudentSum = sumOfStudent;
+            lblDate.Text = m_Date.ToShortDateString();
+            lblStudentSum.Text = m_StudentSum.ToString();
+        }
+
+        private void thiếtLậpThôngTinToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InformationSetup form = new InformationSetup(setClassInformation);
+            form.ShowDialog();
+        }
+
+        private void gridViewClientList_MouseClick(object sender, MouseEventArgs e)
+        {
+            
+        }
+
+        private void gridViewClientList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Right && gridViewClientList.SelectedRows.Count == 1)
+            {
+                gridViewClientList.ContextMenuStrip = rowContextMenu;
+            }
+            else
+            {
+                gridViewClientList.ContextMenuStrip = null;
+            }
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
