@@ -176,6 +176,30 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1330791859_Windows.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1330792173_user-home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1330792413_old-edit-find.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1330792440_preferences-desktop-display.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\server-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1330792440_preferences-desktop-display1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\server-stopped.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\server-running.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

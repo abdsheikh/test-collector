@@ -50,7 +50,7 @@
             this.lblStudentSum = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.lblSubject = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.imgServer = new System.Windows.Forms.PictureBox();
             this.connectCount = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.sentCount = new System.Windows.Forms.Label();
@@ -71,7 +71,7 @@
             this.rowContextMenu.SuspendLayout();
             this.statusBar.SuspendLayout();
             this.rightPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgServer)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -199,7 +199,7 @@
             this.rightPanel.Controls.Add(this.lblStudentSum);
             this.rightPanel.Controls.Add(this.lblDate);
             this.rightPanel.Controls.Add(this.lblSubject);
-            this.rightPanel.Controls.Add(this.pictureBox1);
+            this.rightPanel.Controls.Add(this.imgServer);
             this.rightPanel.Controls.Add(this.connectCount);
             this.rightPanel.Controls.Add(this.label9);
             this.rightPanel.Controls.Add(this.sentCount);
@@ -228,11 +228,12 @@
             resources.ApplyResources(this.lblSubject, "lblSubject");
             this.lblSubject.Name = "lblSubject";
             // 
-            // pictureBox1
+            // imgServer
             // 
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.TabStop = false;
+            resources.ApplyResources(this.imgServer, "imgServer");
+            this.imgServer.Image = global::FT_Server_Win.Properties.Resources.running;
+            this.imgServer.Name = "imgServer";
+            this.imgServer.TabStop = false;
             // 
             // connectCount
             // 
@@ -287,6 +288,7 @@
             // btnViewFolder
             // 
             resources.ApplyResources(this.btnViewFolder, "btnViewFolder");
+            this.btnViewFolder.Image = global::FT_Server_Win.Properties.Resources._1330792413_old_edit_find;
             this.btnViewFolder.Name = "btnViewFolder";
             this.btnViewFolder.UseVisualStyleBackColor = true;
             this.btnViewFolder.Click += new System.EventHandler(this.btnViewFolder_Click);
@@ -294,6 +296,7 @@
             // btnSelectFolder
             // 
             resources.ApplyResources(this.btnSelectFolder, "btnSelectFolder");
+            this.btnSelectFolder.Image = global::FT_Server_Win.Properties.Resources._1330792173_user_home;
             this.btnSelectFolder.Name = "btnSelectFolder";
             this.btnSelectFolder.UseVisualStyleBackColor = true;
             this.btnSelectFolder.Click += new System.EventHandler(this.btnSelectFolder_Click);
@@ -332,7 +335,7 @@
             this.statusBar.PerformLayout();
             this.rightPanel.ResumeLayout(false);
             this.rightPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgServer)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
@@ -372,7 +375,7 @@
         private System.Windows.Forms.ToolStripMenuItem xuấtDanhSáchToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox imgServer;
         private System.Windows.Forms.ContextMenuStrip rowContextMenu;
         private System.Windows.Forms.ToolStripMenuItem xemBàiLàmToolStripMenuItem;
         private System.Windows.Forms.Label lblDate;

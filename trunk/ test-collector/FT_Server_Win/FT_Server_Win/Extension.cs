@@ -38,6 +38,7 @@ namespace FT_Server_Win
             dataTableResult.Columns.Add("Mã số sinh viên", typeof(string));
             dataTableResult.Columns.Add("Họ tên sinh viên", typeof(string));
             dataTableResult.Columns.Add("Trạng thái", typeof(string));
+            dataTableResult.Columns.Add("Lần nộp", typeof(int));
 
             DataColumn[] primaryKey = new DataColumn[1];
             primaryKey[0] = dataTableResult.Columns[2];

@@ -42,6 +42,15 @@ namespace FT_Server_Win
             socketControl.OutputPath = @"D:\save";
             socketControl.SaveConfiguration();
 
+            if (socketControl.m_ServerSocketObject.isRunning())
+            {
+                imgServer.Image = Properties.Resources.running;
+            }
+            else
+            {
+                imgServer.Image = Properties.Resources.stopped;
+            }
+
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -63,6 +72,11 @@ namespace FT_Server_Win
                 thread.Start();
                 statusText.Text = Extension.SERVER_STARTED;
                 //RefreshStatus();
+            }
+
+            if (socketControl.m_ServerSocketObject.isRunning())
+            {
+                imgServer.Image = FT_Server_Win.Properties.Resources.running;
             }
         }
 
@@ -114,8 +128,10 @@ namespace FT_Server_Win
 
         private void ngắtKếtNốiToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
             socketControl.m_ServerSocketObject.StopServer();
             statusText.Text = Extension.SERVER_STOPPED;
+            imgServer.Image = Properties.Resources.stopped;
         }
 
         private void ServerUI_FormClosing(object sender, FormClosingEventArgs e)
