@@ -244,7 +244,7 @@
     <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="xemBàiLàmToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>140, 22</value>
   </data>
   <data name="xemBàiLàmToolStripMenuItem.Text" xml:space="preserve">
     <value>Xem bài làm</value>
@@ -284,174 +284,6 @@
   </data>
   <data name="toolStripStatusLabel2.Size" type="System.Drawing.Size, System.Drawing">
     <value>0, 17</value>
-  </data>
-  <data name="&gt;&gt;lblStudentSum.Name" xml:space="preserve">
-    <value>lblStudentSum</value>
-  </data>
-  <data name="&gt;&gt;lblStudentSum.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblStudentSum.Parent" xml:space="preserve">
-    <value>rightPanel</value>
-  </data>
-  <data name="&gt;&gt;lblStudentSum.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lblDate.Name" xml:space="preserve">
-    <value>lblDate</value>
-  </data>
-  <data name="&gt;&gt;lblDate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblDate.Parent" xml:space="preserve">
-    <value>rightPanel</value>
-  </data>
-  <data name="&gt;&gt;lblDate.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;lblSubject.Name" xml:space="preserve">
-    <value>lblSubject</value>
-  </data>
-  <data name="&gt;&gt;lblSubject.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblSubject.Parent" xml:space="preserve">
-    <value>rightPanel</value>
-  </data>
-  <data name="&gt;&gt;lblSubject.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;pictureBox1.Name" xml:space="preserve">
-    <value>pictureBox1</value>
-  </data>
-  <data name="&gt;&gt;pictureBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBox1.Parent" xml:space="preserve">
-    <value>rightPanel</value>
-  </data>
-  <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;connectCount.Name" xml:space="preserve">
-    <value>connectCount</value>
-  </data>
-  <data name="&gt;&gt;connectCount.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;connectCount.Parent" xml:space="preserve">
-    <value>rightPanel</value>
-  </data>
-  <data name="&gt;&gt;connectCount.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;label9.Name" xml:space="preserve">
-    <value>label9</value>
-  </data>
-  <data name="&gt;&gt;label9.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label9.Parent" xml:space="preserve">
-    <value>rightPanel</value>
-  </data>
-  <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;sentCount.Name" xml:space="preserve">
-    <value>sentCount</value>
-  </data>
-  <data name="&gt;&gt;sentCount.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;sentCount.Parent" xml:space="preserve">
-    <value>rightPanel</value>
-  </data>
-  <data name="&gt;&gt;sentCount.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;label8.Name" xml:space="preserve">
-    <value>label8</value>
-  </data>
-  <data name="&gt;&gt;label8.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label8.Parent" xml:space="preserve">
-    <value>rightPanel</value>
-  </data>
-  <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;label7.Name" xml:space="preserve">
-    <value>label7</value>
-  </data>
-  <data name="&gt;&gt;label7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
-    <value>rightPanel</value>
-  </data>
-  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;label4.Name" xml:space="preserve">
-    <value>label4</value>
-  </data>
-  <data name="&gt;&gt;label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
-    <value>rightPanel</value>
-  </data>
-  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;label5.Name" xml:space="preserve">
-    <value>label5</value>
-  </data>
-  <data name="&gt;&gt;label5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
-    <value>rightPanel</value>
-  </data>
-  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;label6.Name" xml:space="preserve">
-    <value>label6</value>
-  </data>
-  <data name="&gt;&gt;label6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
-    <value>rightPanel</value>
-  </data>
-  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="rightPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>812, 55</value>
-  </data>
-  <data name="rightPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>281, 491</value>
-  </data>
-  <data name="rightPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="rightPanel.Text" xml:space="preserve">
-    <value>Thông tin</value>
-  </data>
-  <data name="&gt;&gt;rightPanel.Name" xml:space="preserve">
-    <value>rightPanel</value>
-  </data>
-  <data name="&gt;&gt;rightPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rightPanel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;rightPanel.ZOrder" xml:space="preserve">
-    <value>5</value>
   </data>
   <data name="lblStudentSum.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -525,6 +357,9 @@
   <data name="lblSubject.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
   </data>
+  <data name="lblSubject.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="lblSubject.Location" type="System.Drawing.Point, System.Drawing">
     <value>141, 37</value>
   </data>
@@ -549,28 +384,34 @@
   <data name="&gt;&gt;lblSubject.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="pictureBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="imgServer.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left, Right</value>
   </data>
-  <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>96, 399</value>
+  <data name="imgServer.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>89, 86</value>
+  <data name="imgServer.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="pictureBox1.TabIndex" type="System.Int32, mscorlib">
+  <data name="imgServer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>76, 343</value>
+  </data>
+  <data name="imgServer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>129, 126</value>
+  </data>
+  <data name="imgServer.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
   </data>
-  <data name="&gt;&gt;pictureBox1.Name" xml:space="preserve">
-    <value>pictureBox1</value>
+  <data name="&gt;&gt;imgServer.Name" xml:space="preserve">
+    <value>imgServer</value>
   </data>
-  <data name="&gt;&gt;pictureBox1.Type" xml:space="preserve">
+  <data name="&gt;&gt;imgServer.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;pictureBox1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;imgServer.Parent" xml:space="preserve">
     <value>rightPanel</value>
   </data>
-  <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;imgServer.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
   <data name="connectCount.AutoSize" type="System.Boolean, mscorlib">
@@ -635,6 +476,9 @@
   </data>
   <data name="sentCount.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="sentCount.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="sentCount.Location" type="System.Drawing.Point, System.Drawing">
     <value>141, 155</value>
@@ -807,20 +651,29 @@
   <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
-  <data name="btnViewFolder.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="rightPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>812, 55</value>
   </data>
-  <data name="btnViewFolder.Location" type="System.Drawing.Point, System.Drawing">
-    <value>983, 30</value>
+  <data name="rightPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>281, 491</value>
   </data>
-  <data name="btnViewFolder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 67</value>
+  <data name="rightPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
-  <data name="btnViewFolder.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="rightPanel.Text" xml:space="preserve">
+    <value>Thông tin</value>
   </data>
-  <data name="btnViewFolder.Text" xml:space="preserve">
-    <value>Xem thư mục</value>
+  <data name="&gt;&gt;rightPanel.Name" xml:space="preserve">
+    <value>rightPanel</value>
+  </data>
+  <data name="&gt;&gt;rightPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rightPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;rightPanel.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <data name="&gt;&gt;btnViewFolder.Name" xml:space="preserve">
     <value>btnViewFolder</value>
@@ -834,18 +687,6 @@
   <data name="&gt;&gt;btnViewFolder.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="btnSelectFolder.Location" type="System.Drawing.Point, System.Drawing">
-    <value>847, 30</value>
-  </data>
-  <data name="btnSelectFolder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 67</value>
-  </data>
-  <data name="btnSelectFolder.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="btnSelectFolder.Text" xml:space="preserve">
-    <value>Chọn thư mục</value>
-  </data>
   <data name="&gt;&gt;btnSelectFolder.Name" xml:space="preserve">
     <value>btnSelectFolder</value>
   </data>
@@ -857,24 +698,6 @@
   </data>
   <data name="&gt;&gt;btnSelectFolder.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="lblSaveFolder.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblSaveFolder.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
-  </data>
-  <data name="lblSaveFolder.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 30</value>
-  </data>
-  <data name="lblSaveFolder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>404, 20</value>
-  </data>
-  <data name="lblSaveFolder.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="lblSaveFolder.Text" xml:space="preserve">
-    <value>Nhấn "Chọn thư mục" để xác định thư mục lưu file</value>
   </data>
   <data name="&gt;&gt;lblSaveFolder.Name" xml:space="preserve">
     <value>lblSaveFolder</value>
@@ -914,6 +737,114 @@
   </data>
   <data name="&gt;&gt;groupBox3.ZOrder" xml:space="preserve">
     <value>3</value>
+  </data>
+  <data name="btnViewFolder.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnViewFolder.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
+  </data>
+  <data name="btnViewFolder.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnViewFolder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>983, 18</value>
+  </data>
+  <data name="btnViewFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>104, 81</value>
+  </data>
+  <data name="btnViewFolder.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btnViewFolder.Text" xml:space="preserve">
+    <value>Xem thư mục</value>
+  </data>
+  <data name="btnViewFolder.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="btnViewFolder.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;btnViewFolder.Name" xml:space="preserve">
+    <value>btnViewFolder</value>
+  </data>
+  <data name="&gt;&gt;btnViewFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnViewFolder.Parent" xml:space="preserve">
+    <value>groupBox3</value>
+  </data>
+  <data name="&gt;&gt;btnViewFolder.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnSelectFolder.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
+  </data>
+  <data name="btnSelectFolder.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnSelectFolder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>847, 18</value>
+  </data>
+  <data name="btnSelectFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>104, 81</value>
+  </data>
+  <data name="btnSelectFolder.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="btnSelectFolder.Text" xml:space="preserve">
+    <value>Chọn thư mục</value>
+  </data>
+  <data name="btnSelectFolder.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="btnSelectFolder.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;btnSelectFolder.Name" xml:space="preserve">
+    <value>btnSelectFolder</value>
+  </data>
+  <data name="&gt;&gt;btnSelectFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSelectFolder.Parent" xml:space="preserve">
+    <value>groupBox3</value>
+  </data>
+  <data name="&gt;&gt;btnSelectFolder.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblSaveFolder.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblSaveFolder.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+  </data>
+  <data name="lblSaveFolder.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblSaveFolder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 30</value>
+  </data>
+  <data name="lblSaveFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>404, 20</value>
+  </data>
+  <data name="lblSaveFolder.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblSaveFolder.Text" xml:space="preserve">
+    <value>Nhấn "Chọn thư mục" để xác định thư mục lưu file</value>
+  </data>
+  <data name="&gt;&gt;lblSaveFolder.Name" xml:space="preserve">
+    <value>lblSaveFolder</value>
+  </data>
+  <data name="&gt;&gt;lblSaveFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblSaveFolder.Parent" xml:space="preserve">
+    <value>groupBox3</value>
+  </data>
+  <data name="&gt;&gt;lblSaveFolder.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <metadata name="folderBrowser.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>132, 3</value>
