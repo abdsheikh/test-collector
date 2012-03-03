@@ -40,7 +40,7 @@ namespace FT_Server_Win
             dataTableResult.Columns.Add("Trạng thái", typeof(string));
 
             DataColumn[] primaryKey = new DataColumn[1];
-            primaryKey[0] = dataTableResult.Columns[3];
+            primaryKey[0] = dataTableResult.Columns[2];
             dataTableResult.PrimaryKey = primaryKey;
 
             return dataTableResult;

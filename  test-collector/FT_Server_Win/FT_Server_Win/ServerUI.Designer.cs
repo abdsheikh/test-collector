@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServerUI));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.hệThốngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -38,12 +39,18 @@
             this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nghiệpVụToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thiếtLậpThôngTinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.xuấtDanhSáchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridViewClientList = new System.Windows.Forms.DataGridView();
+            this.rowContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.xemBàiLàmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.statusText = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rightPanel = new System.Windows.Forms.GroupBox();
+            this.lblStudentSum = new System.Windows.Forms.Label();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.lblSubject = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.connectCount = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.sentCount = new System.Windows.Forms.Label();
@@ -57,13 +64,14 @@
             this.btnSelectFolder = new System.Windows.Forms.Button();
             this.lblSaveFolder = new System.Windows.Forms.Label();
             this.folderBrowser = new System.Windows.Forms.FolderBrowserDialog();
-            this.xuấtDanhSáchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.menuStrip1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewClientList)).BeginInit();
+            this.rowContextMenu.SuspendLayout();
             this.statusBar.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.rightPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -128,14 +136,13 @@
             // 
             this.thiếtLậpThôngTinToolStripMenuItem.Name = "thiếtLậpThôngTinToolStripMenuItem";
             resources.ApplyResources(this.thiếtLậpThôngTinToolStripMenuItem, "thiếtLậpThôngTinToolStripMenuItem");
+            this.thiếtLậpThôngTinToolStripMenuItem.Click += new System.EventHandler(this.thiếtLậpThôngTinToolStripMenuItem_Click);
             // 
-            // groupBox1
+            // xuấtDanhSáchToolStripMenuItem
             // 
-            this.groupBox1.Controls.Add(this.gridViewClientList);
-            resources.ApplyResources(this.groupBox1, "groupBox1");
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            this.xuấtDanhSáchToolStripMenuItem.Name = "xuấtDanhSáchToolStripMenuItem";
+            resources.ApplyResources(this.xuấtDanhSáchToolStripMenuItem, "xuấtDanhSáchToolStripMenuItem");
+            this.xuấtDanhSáchToolStripMenuItem.Click += new System.EventHandler(this.xuấtDanhSáchToolStripMenuItem_Click);
             // 
             // gridViewClientList
             // 
@@ -145,13 +152,29 @@
             this.gridViewClientList.AllowUserToResizeRows = false;
             this.gridViewClientList.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.gridViewClientList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            resources.ApplyResources(this.gridViewClientList, "gridViewClientList");
             this.gridViewClientList.GridColor = System.Drawing.SystemColors.Control;
+            resources.ApplyResources(this.gridViewClientList, "gridViewClientList");
             this.gridViewClientList.Name = "gridViewClientList";
             this.gridViewClientList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.gridViewClientList.RowHeadersVisible = false;
             this.gridViewClientList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridViewClientList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewClientList_CellContentClick);
+            this.gridViewClientList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridViewClientList_CellMouseClick);
             this.gridViewClientList.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.gridViewClientList_DataBindingComplete);
+            this.gridViewClientList.MouseClick += new System.Windows.Forms.MouseEventHandler(this.gridViewClientList_MouseClick);
+            // 
+            // rowContextMenu
+            // 
+            this.rowContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.xemBàiLàmToolStripMenuItem});
+            this.rowContextMenu.Name = "contextMenuStrip1";
+            resources.ApplyResources(this.rowContextMenu, "rowContextMenu");
+            this.rowContextMenu.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
+            // 
+            // xemBàiLàmToolStripMenuItem
+            // 
+            this.xemBàiLàmToolStripMenuItem.Name = "xemBàiLàmToolStripMenuItem";
+            resources.ApplyResources(this.xemBàiLàmToolStripMenuItem, "xemBàiLàmToolStripMenuItem");
             // 
             // statusBar
             // 
@@ -171,19 +194,45 @@
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
             resources.ApplyResources(this.toolStripStatusLabel2, "toolStripStatusLabel2");
             // 
-            // groupBox2
+            // rightPanel
             // 
-            this.groupBox2.Controls.Add(this.connectCount);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.sentCount);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.label6);
-            resources.ApplyResources(this.groupBox2, "groupBox2");
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.TabStop = false;
+            this.rightPanel.Controls.Add(this.lblStudentSum);
+            this.rightPanel.Controls.Add(this.lblDate);
+            this.rightPanel.Controls.Add(this.lblSubject);
+            this.rightPanel.Controls.Add(this.pictureBox1);
+            this.rightPanel.Controls.Add(this.connectCount);
+            this.rightPanel.Controls.Add(this.label9);
+            this.rightPanel.Controls.Add(this.sentCount);
+            this.rightPanel.Controls.Add(this.label8);
+            this.rightPanel.Controls.Add(this.label7);
+            this.rightPanel.Controls.Add(this.label4);
+            this.rightPanel.Controls.Add(this.label5);
+            this.rightPanel.Controls.Add(this.label6);
+            resources.ApplyResources(this.rightPanel, "rightPanel");
+            this.rightPanel.Name = "rightPanel";
+            this.rightPanel.TabStop = false;
+            this.rightPanel.Enter += new System.EventHandler(this.groupBox2_Enter_1);
+            // 
+            // lblStudentSum
+            // 
+            resources.ApplyResources(this.lblStudentSum, "lblStudentSum");
+            this.lblStudentSum.Name = "lblStudentSum";
+            // 
+            // lblDate
+            // 
+            resources.ApplyResources(this.lblDate, "lblDate");
+            this.lblDate.Name = "lblDate";
+            // 
+            // lblSubject
+            // 
+            resources.ApplyResources(this.lblSubject, "lblSubject");
+            this.lblSubject.Name = "lblSubject";
+            // 
+            // pictureBox1
+            // 
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
             // 
             // connectCount
             // 
@@ -233,6 +282,7 @@
             resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.TabStop = false;
+            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // btnViewFolder
             // 
@@ -253,20 +303,21 @@
             resources.ApplyResources(this.lblSaveFolder, "lblSaveFolder");
             this.lblSaveFolder.Name = "lblSaveFolder";
             // 
-            // xuấtDanhSáchToolStripMenuItem
+            // toolStrip1
             // 
-            this.xuấtDanhSáchToolStripMenuItem.Name = "xuấtDanhSáchToolStripMenuItem";
-            resources.ApplyResources(this.xuấtDanhSáchToolStripMenuItem, "xuấtDanhSáchToolStripMenuItem");
-            this.xuấtDanhSáchToolStripMenuItem.Click += new System.EventHandler(this.xuấtDanhSáchToolStripMenuItem_Click);
+            resources.ApplyResources(this.toolStrip1, "toolStrip1");
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
             // ServerUI
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.gridViewClientList);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.statusBar);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.rightPanel);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
@@ -275,12 +326,13 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ServerUI_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridViewClientList)).EndInit();
+            this.rowContextMenu.ResumeLayout(false);
             this.statusBar.ResumeLayout(false);
             this.statusBar.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.rightPanel.ResumeLayout(false);
+            this.rightPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
@@ -295,9 +347,8 @@
         private System.Windows.Forms.ToolStripMenuItem càiĐặtKếtNốiToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem thoátToolStripMenuItem;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.StatusStrip statusBar;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox rightPanel;
         private System.Windows.Forms.DataGridView gridViewClientList;
         private System.Windows.Forms.ToolStripMenuItem bậtKếtNốiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ngắtKếtNốiToolStripMenuItem;
@@ -320,5 +371,12 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ToolStripMenuItem xuấtDanhSáchToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ContextMenuStrip rowContextMenu;
+        private System.Windows.Forms.ToolStripMenuItem xemBàiLàmToolStripMenuItem;
+        private System.Windows.Forms.Label lblDate;
+        private System.Windows.Forms.Label lblSubject;
+        private System.Windows.Forms.Label lblStudentSum;
     }
 }
