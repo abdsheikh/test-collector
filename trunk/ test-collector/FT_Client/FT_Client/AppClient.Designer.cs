@@ -29,13 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.btnSend = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.gbClientSetting = new System.Windows.Forms.GroupBox();
             this.lbFileName = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.btFileToSend = new System.Windows.Forms.Button();
-            this.btZipFiles = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.lbFiles = new System.Windows.Forms.ListBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -47,7 +45,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tabInfoSv = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.bdayStudent = new System.Windows.Forms.DateTimePicker();
             this.lbNumber = new System.Windows.Forms.Label();
@@ -62,32 +59,29 @@
             this.ConnectSettingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ThoatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnSend = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.gbClientSetting.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabInfoSv.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numBox)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnSend
-            // 
-            this.btnSend.Location = new System.Drawing.Point(359, 18);
-            this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(97, 37);
-            this.btnSend.TabIndex = 0;
-            this.btnSend.Text = "Gửi File";
-            this.btnSend.UseVisualStyleBackColor = true;
-            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(78, 68);
+            this.label1.Location = new System.Drawing.Point(79, 500);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(85, 13);
             this.label1.TabIndex = 3;
@@ -95,32 +89,34 @@
             // 
             // gbClientSetting
             // 
+            this.gbClientSetting.Controls.Add(this.pictureBox2);
+            this.gbClientSetting.Controls.Add(this.label7);
             this.gbClientSetting.Controls.Add(this.lbFileName);
             this.gbClientSetting.Controls.Add(this.label9);
             this.gbClientSetting.Controls.Add(this.btFileToSend);
-            this.gbClientSetting.Controls.Add(this.btZipFiles);
             this.gbClientSetting.Controls.Add(this.label2);
             this.gbClientSetting.Controls.Add(this.lbFiles);
+            this.gbClientSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbClientSetting.Location = new System.Drawing.Point(368, 29);
             this.gbClientSetting.Name = "gbClientSetting";
-            this.gbClientSetting.Size = new System.Drawing.Size(537, 359);
+            this.gbClientSetting.Size = new System.Drawing.Size(505, 341);
             this.gbClientSetting.TabIndex = 4;
             this.gbClientSetting.TabStop = false;
-            this.gbClientSetting.Text = "Gửi File";
+            this.gbClientSetting.Text = "Chọn Files";
             // 
             // lbFileName
             // 
             this.lbFileName.AutoSize = true;
-            this.lbFileName.Location = new System.Drawing.Point(175, 296);
+            this.lbFileName.Location = new System.Drawing.Point(229, 298);
             this.lbFileName.Name = "lbFileName";
-            this.lbFileName.Size = new System.Drawing.Size(108, 13);
+            this.lbFileName.Size = new System.Drawing.Size(16, 13);
             this.lbFileName.TabIndex = 17;
-            this.lbFileName.Text = "Tên File nén để gửi...";
+            this.lbFileName.Text = "...";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(16, 294);
+            this.label9.Location = new System.Drawing.Point(5, 294);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(45, 13);
             this.label9.TabIndex = 16;
@@ -128,23 +124,14 @@
             // 
             // btFileToSend
             // 
-            this.btFileToSend.Location = new System.Drawing.Point(70, 285);
+            this.btFileToSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btFileToSend.Location = new System.Drawing.Point(52, 285);
             this.btFileToSend.Name = "btFileToSend";
             this.btFileToSend.Size = new System.Drawing.Size(95, 36);
             this.btFileToSend.TabIndex = 5;
-            this.btFileToSend.Text = "Click vào đây để chọn";
+            this.btFileToSend.Text = "Chọn Files...";
             this.btFileToSend.UseVisualStyleBackColor = true;
             this.btFileToSend.Click += new System.EventHandler(this.btFileToSend_Click);
-            // 
-            // btZipFiles
-            // 
-            this.btZipFiles.Location = new System.Drawing.Point(443, 321);
-            this.btZipFiles.Name = "btZipFiles";
-            this.btZipFiles.Size = new System.Drawing.Size(84, 32);
-            this.btZipFiles.TabIndex = 15;
-            this.btZipFiles.Text = "Nén Files";
-            this.btZipFiles.UseVisualStyleBackColor = true;
-            this.btZipFiles.Click += new System.EventHandler(this.btZipFiles_Click);
             // 
             // label2
             // 
@@ -159,11 +146,12 @@
             // 
             // lbFiles
             // 
+            this.lbFiles.BackColor = System.Drawing.Color.White;
             this.lbFiles.ContextMenuStrip = this.contextMenuStrip1;
             this.lbFiles.FormattingEnabled = true;
             this.lbFiles.Location = new System.Drawing.Point(19, 41);
             this.lbFiles.Name = "lbFiles";
-            this.lbFiles.Size = new System.Drawing.Size(508, 225);
+            this.lbFiles.Size = new System.Drawing.Size(473, 225);
             this.lbFiles.TabIndex = 13;
             // 
             // contextMenuStrip1
@@ -198,18 +186,20 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(70, 16);
+            this.button3.BackgroundImage = global::FT_Client.Properties.Resources.connect;
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(70, 15);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(93, 39);
+            this.button3.Size = new System.Drawing.Size(77, 73);
             this.button3.TabIndex = 6;
-            this.button3.Text = "Kết Nối Server";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 67);
+            this.label3.Location = new System.Drawing.Point(18, 499);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 13);
             this.label3.TabIndex = 7;
@@ -217,13 +207,13 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.btnSend);
             this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(368, 397);
+            this.groupBox1.Location = new System.Drawing.Point(368, 376);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(537, 87);
+            this.groupBox1.Size = new System.Drawing.Size(505, 116);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Gửi File";
@@ -248,16 +238,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Thông tin Sinh Viên";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::FT_Client.Properties.Resources.students;
-            this.pictureBox1.Location = new System.Drawing.Point(15, 222);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(289, 167);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
             // 
             // groupBox3
             // 
@@ -364,7 +344,7 @@
             this.MenuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(932, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(885, 24);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -400,15 +380,77 @@
             this.groupBox4.TabIndex = 11;
             this.groupBox4.TabStop = false;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(151, 297);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(77, 13);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "Tên File gửi đi:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(395, 93);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(44, 13);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "Nộp bài";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::FT_Client.Properties.Resources.students;
+            this.pictureBox1.Location = new System.Drawing.Point(15, 222);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(289, 167);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnSend
+            // 
+            this.btnSend.BackgroundImage = global::FT_Client.Properties.Resources.submit;
+            this.btnSend.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSend.Location = new System.Drawing.Point(379, 19);
+            this.btnSend.Name = "btnSend";
+            this.btnSend.Size = new System.Drawing.Size(76, 71);
+            this.btnSend.TabIndex = 0;
+            this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(70, 92);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(76, 13);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "Kết Nối Server";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::FT_Client.Properties.Resources.drop_files;
+            this.pictureBox2.Location = new System.Drawing.Point(447, 266);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(45, 21);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 19;
+            this.pictureBox2.TabStop = false;
+            // 
             // AppClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(932, 503);
+            this.ClientSize = new System.Drawing.Size(885, 521);
             this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gbClientSetting);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "AppClient";
@@ -421,13 +463,14 @@
             this.groupBox1.PerformLayout();
             this.tabInfoSv.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numBox)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -442,7 +485,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListBox lbFiles;
-        private System.Windows.Forms.Button btZipFiles;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TabControl tabInfoSv;
@@ -468,6 +510,10 @@
         private System.Windows.Forms.Label lbFileName;
         private System.Windows.Forms.ToolStripMenuItem ConnectSettingToolStripMenuItem;
         private System.Windows.Forms.DateTimePicker bdayStudent;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 
