@@ -17,6 +17,7 @@ namespace FT_Server_Win
         DataTable clientData;
         ServerSocketControl socketControl;
         bool isSelectedFolder = false;
+        Clocker m_clock;
 
         #region Class Information
         private string m_Subject = String.Empty;
@@ -33,6 +34,9 @@ namespace FT_Server_Win
             //toolStrip1.Dock = DockStyle.Top;
             //gridViewClientList.Dock = DockStyle.Left;
             //rightPanel.Dock = DockStyle.Left;
+
+            InitFormSize();
+            
 
 
             CheckForIllegalCrossThreadCalls = false;
@@ -53,6 +57,31 @@ namespace FT_Server_Win
 
         }
 
+        private void InitFormSize()
+        {
+            //form
+            Size desktopSize = SystemInformation.WorkingArea.Size;
+            this.Width = desktopSize.Width;
+            this.Height = desktopSize.Height;
+            this.StartPosition = FormStartPosition.CenterScreen;
+            FixControlsSize(this.Width, this.Height);
+        }
+
+        private void FixControlsSize(int formWidth, int formHeight)
+        {
+            //dataGridView
+            gridViewClientList.Width = (int)(formWidth * 0.75f);
+            gridViewClientList.Height = (int)(formHeight * 0.70f);
+
+            //right bar
+            rightPanel.Left = gridViewClientList.Left + gridViewClientList.Width + 5;
+            rightPanel.Width = formWidth - gridViewClientList.Width;
+            rightPanel.Height = gridViewClientList.Height;
+
+            //bottom bar
+            bottomPanel.Height = (int)(formHeight * 0.15f);
+        }
+
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
@@ -65,12 +94,13 @@ namespace FT_Server_Win
                 MessageBox.Show("Chưa chọn thư mục lưu bài làm. Nhấn \"Chọn thư mục\" ở bên dưới!","Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return;
             }
-            if (!socketControl.m_ServerSocketObject.isRunning())
+            if (!socketControl.m_ServerSocketObject.isRunning()) 
             {
                 socketControl.m_ServerSocketObject.StartServer();
                 Thread thread = new Thread(new ThreadStart(CheckMessage));
                 thread.Start();
                 statusText.Text = Extension.SERVER_STARTED;
+                startedTimer.Enabled = true;
                 //RefreshStatus();
             }
 
@@ -78,6 +108,9 @@ namespace FT_Server_Win
             {
                 imgServer.Image = FT_Server_Win.Properties.Resources.running;
             }
+
+            m_clock = new Clocker();
+            lblStartedTime.Visible = true;
         }
 
         private void CheckMessage()
@@ -88,15 +121,26 @@ namespace FT_Server_Win
                 List<ClientItem> list = socketControl.m_ServerSocketObject.clientItemList;
                 DataRow row;
                 int count = 0;
+                int sentTimes;
                 foreach (ClientItem item in list)
                 {
                     row = clientData.Rows.Find(item.IPAdress.ToString());
                     if (row == null)
                     {
-                        clientData.Rows.Add(clientData.Rows.Count + 1, item.ComputerName, item.IPAdress, item.StudentID, item.StudentName, Extension.GetMessage(item.Status));
+                        clientData.Rows.Add(clientData.Rows.Count + 1, item.ComputerName, item.IPAdress, item.StudentID, item.StudentName, Extension.GetMessage(item.Status),item.SentTimes);
                     }
                     else
-                        row[5] = Extension.GetMessage(item.Status);
+                    {
+                        row[Extension.COLUMN_CLIENTSTATUS] = Extension.GetMessage(item.Status);
+                        row[Extension.COLUMN_STUDENTID] = item.StudentID;
+                        row[Extension.COLUMN_STUDENTNAME] = item.StudentName;
+                        row[Extension.COLUMN_SUBMITTIMES] = item.SentTimes;
+                        //if (item.Status == Extension.DISCONNECTED)
+                        //{
+                        //    sentTimes = Convert.ToInt32(row[6].ToString());
+                        //    row[6] = sentTimes + 1;
+                        //}
+                    }
                     if (item.Status == Extension.DISCONNECTED)
                         count++;
                 }
@@ -122,7 +166,8 @@ namespace FT_Server_Win
                     }
                 }
                 sentCount.Text = count.ToString();
-                connectCount.Text = clientData.Rows.Count.ToString();
+                //connectCount.Text = clientData.Rows.Count.ToString();
+                connectCount.Text = socketControl.m_ServerSocketObject.clientItemList.Count.ToString();
             }
         }
 
@@ -132,6 +177,7 @@ namespace FT_Server_Win
             socketControl.m_ServerSocketObject.StopServer();
             statusText.Text = Extension.SERVER_STOPPED;
             imgServer.Image = Properties.Resources.stopped;
+            startedTimer.Enabled = false;
         }
 
         private void ServerUI_FormClosing(object sender, FormClosingEventArgs e)
@@ -176,14 +222,16 @@ namespace FT_Server_Win
 
         private void gridViewClientList_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
+            int width = gridViewClientList.Width;
             if (gridViewClientList.ColumnCount > 3)
             {
-                gridViewClientList.Columns[0].Width = 40;
-                gridViewClientList.Columns[1].Width = 150;
-                gridViewClientList.Columns[2].Width = 150;
-                gridViewClientList.Columns[3].Width = 150;
-                gridViewClientList.Columns[4].Width = 150;
-                gridViewClientList.Columns[5].Width = 150;
+                gridViewClientList.Columns[0].Width = (int)(0.046f*width);
+                gridViewClientList.Columns[1].Width = (int)(0.15f*width);
+                gridViewClientList.Columns[2].Width = (int)(0.15f*width);
+                gridViewClientList.Columns[3].Width = (int)(0.15f*width);
+                gridViewClientList.Columns[4].Width = (int)(0.20f*width);
+                gridViewClientList.Columns[5].Width = (int)(0.15f * width);
+                gridViewClientList.Columns[6].Width = (int)(0.15f * width);
             }
         }
 
@@ -300,7 +348,7 @@ namespace FT_Server_Win
             lblSubject.Text = m_Subject = subject;
             m_Date = date;
             m_StudentSum = sumOfStudent;
-            lblDate.Text = m_Date.ToShortDateString();
+            lblDate.Text = String.Format("{0}/{1}/{2}", m_Date.Day, m_Date.Month, m_Date.Year);
             lblStudentSum.Text = m_StudentSum.ToString();
         }
 
@@ -330,6 +378,31 @@ namespace FT_Server_Win
         private void groupBox3_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void ServerUI_SizeChanged(object sender, EventArgs e)
+        {
+            FixControlsSize(this.Width, this.Height);
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void imgServer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblDate_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void startedTimer_Tick(object sender, EventArgs e)
+        {
+            m_clock.AddSecond();
+            lblStartedTime.Text = m_clock.GetTimeText();
         }
     }
 }

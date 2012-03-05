@@ -11,6 +11,7 @@ namespace FT_Server_Win
         public string StudentID;
         public string StudentName;
         public int Status;
+        public int SentTimes;
 
         public ClientItem()
         {}
@@ -22,6 +23,7 @@ namespace FT_Server_Win
             StudentID = studentID;
             StudentName = studentName;
             Status = 1;
+            SentTimes = 0;
         }
     }
 }
