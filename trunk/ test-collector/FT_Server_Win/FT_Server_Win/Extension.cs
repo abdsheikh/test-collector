@@ -29,6 +29,16 @@ namespace FT_Server_Win
         public const int STUDENTID = 0;
         public const int BIRTHDAY = 2;
         #endregion
+
+        #region COLUMN Index
+        public const int COLUMN_ITEMINDEX = 0;
+        public const int COLUMN_COMPUTERNAME = 1;
+        public const int COLUMN_IPADDRESS = 2;
+        public const int COLUMN_STUDENTID = 3;
+        public const int COLUMN_STUDENTNAME = 4;
+        public const int COLUMN_CLIENTSTATUS = 5;
+        public const int COLUMN_SUBMITTIMES = 6;
+        #endregion
         public static DataTable CreateDataTableWithHeader()
         {
             DataTable dataTableResult = new DataTable();
@@ -56,13 +66,13 @@ namespace FT_Server_Win
                     message = "Đã kết nối";
                     break;
                 case SENDING:
-                    message = "Đang gửi file...";
+                    message = "Đang gửi bài...";
                     break;
                 case SENT:
                     message = "Đã gửi";
                     break;
                 case DISCONNECTED:
-                    message = "Gửi hoàn tất. Đã đóng kết nối!";
+                    message = "Gửi hoàn tất";
                     break;
             }
             return message;
@@ -94,6 +104,16 @@ namespace FT_Server_Win
             return SERVER_IP + IPAdress;
         }
 
+        public static int GetIndex(List<ClientItem> currentList, string IPAdress)
+        {
+            foreach (ClientItem item in currentList)
+            {
+                if (item.IPAdress == IPAdress)
+                    return currentList.IndexOf(item);
+            }
+            return -1;
+        }
+
     }
 
     public struct ClientObject
@@ -103,4 +123,46 @@ namespace FT_Server_Win
     }
 
 
+    public class Clocker
+    {
+        private int m_Hours;
+        private int m_Minutes;
+        private int m_Seconds;
+
+        public Clocker()
+        {
+            m_Hours = 0;
+            m_Minutes = 0;
+            m_Seconds = 0;
+        }
+
+        public void AddSecond()
+        {
+            m_Seconds++;
+            if (m_Seconds >= 60)
+            {
+                m_Minutes++;
+                m_Seconds = 0;
+            }
+            if (m_Minutes >= 60)
+            {
+                m_Hours++;
+                m_Minutes = 0;
+            }
+        }
+
+        public String GetTimeText()
+        {
+            String second = m_Seconds.ToString();
+            if (m_Seconds < 10)
+                second = "0" + second;
+            String minute = m_Minutes.ToString();
+            if (m_Minutes < 10)
+                minute = "0" + minute;
+            String hour = m_Hours.ToString();
+            if (m_Hours < 10)
+                hour = "0" + hour;
+            return String.Format("{0}:{1}:{2}", hour, minute, second);
+        }
+    }
 }

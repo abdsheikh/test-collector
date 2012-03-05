@@ -47,32 +47,36 @@
             this.statusText = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.rightPanel = new System.Windows.Forms.GroupBox();
+            this.lblStartedTime = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
             this.lblStudentSum = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.lblSubject = new System.Windows.Forms.Label();
-            this.imgServer = new System.Windows.Forms.PictureBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.sentCount = new System.Windows.Forms.Label();
             this.connectCount = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.sentCount = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.imgServer = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.bottomPanel = new System.Windows.Forms.GroupBox();
             this.btnViewFolder = new System.Windows.Forms.Button();
             this.btnSelectFolder = new System.Windows.Forms.Button();
             this.lblSaveFolder = new System.Windows.Forms.Label();
             this.folderBrowser = new System.Windows.Forms.FolderBrowserDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.startedTimer = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewClientList)).BeginInit();
             this.rowContextMenu.SuspendLayout();
             this.statusBar.SuspendLayout();
             this.rightPanel.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgServer)).BeginInit();
-            this.groupBox3.SuspendLayout();
+            this.bottomPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -151,10 +155,14 @@
             this.gridViewClientList.AllowUserToResizeColumns = false;
             this.gridViewClientList.AllowUserToResizeRows = false;
             this.gridViewClientList.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.gridViewClientList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.gridViewClientList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.gridViewClientList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridViewClientList.GridColor = System.Drawing.SystemColors.Control;
             resources.ApplyResources(this.gridViewClientList, "gridViewClientList");
+            this.gridViewClientList.MultiSelect = false;
             this.gridViewClientList.Name = "gridViewClientList";
+            this.gridViewClientList.ReadOnly = true;
             this.gridViewClientList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.gridViewClientList.RowHeadersVisible = false;
             this.gridViewClientList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -196,44 +204,76 @@
             // 
             // rightPanel
             // 
-            this.rightPanel.Controls.Add(this.lblStudentSum);
-            this.rightPanel.Controls.Add(this.lblDate);
-            this.rightPanel.Controls.Add(this.lblSubject);
-            this.rightPanel.Controls.Add(this.imgServer);
-            this.rightPanel.Controls.Add(this.connectCount);
-            this.rightPanel.Controls.Add(this.label9);
-            this.rightPanel.Controls.Add(this.sentCount);
-            this.rightPanel.Controls.Add(this.label8);
-            this.rightPanel.Controls.Add(this.label7);
-            this.rightPanel.Controls.Add(this.label4);
-            this.rightPanel.Controls.Add(this.label5);
-            this.rightPanel.Controls.Add(this.label6);
             resources.ApplyResources(this.rightPanel, "rightPanel");
+            this.rightPanel.Controls.Add(this.lblStartedTime);
+            this.rightPanel.Controls.Add(this.panel1);
+            this.rightPanel.Controls.Add(this.imgServer);
+            this.rightPanel.Controls.Add(this.label4);
             this.rightPanel.Name = "rightPanel";
             this.rightPanel.TabStop = false;
             this.rightPanel.Enter += new System.EventHandler(this.groupBox2_Enter_1);
+            // 
+            // lblStartedTime
+            // 
+            resources.ApplyResources(this.lblStartedTime, "lblStartedTime");
+            this.lblStartedTime.Name = "lblStartedTime";
+            // 
+            // panel1
+            // 
+            resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.lblStudentSum);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.lblDate);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.lblSubject);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.sentCount);
+            this.panel1.Controls.Add(this.connectCount);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Name = "panel1";
+            // 
+            // label6
+            // 
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.Name = "label6";
             // 
             // lblStudentSum
             // 
             resources.ApplyResources(this.lblStudentSum, "lblStudentSum");
             this.lblStudentSum.Name = "lblStudentSum";
             // 
+            // label5
+            // 
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.Name = "label5";
+            // 
             // lblDate
             // 
             resources.ApplyResources(this.lblDate, "lblDate");
             this.lblDate.Name = "lblDate";
+            this.lblDate.TextChanged += new System.EventHandler(this.lblDate_TextChanged);
+            // 
+            // label7
+            // 
+            resources.ApplyResources(this.label7, "label7");
+            this.label7.Name = "label7";
             // 
             // lblSubject
             // 
             resources.ApplyResources(this.lblSubject, "lblSubject");
             this.lblSubject.Name = "lblSubject";
             // 
-            // imgServer
+            // label8
             // 
-            resources.ApplyResources(this.imgServer, "imgServer");
-            this.imgServer.Image = global::FT_Server_Win.Properties.Resources.running;
-            this.imgServer.Name = "imgServer";
-            this.imgServer.TabStop = false;
+            resources.ApplyResources(this.label8, "label8");
+            this.label8.Name = "label8";
+            // 
+            // sentCount
+            // 
+            resources.ApplyResources(this.sentCount, "sentCount");
+            this.sentCount.Name = "sentCount";
             // 
             // connectCount
             // 
@@ -245,45 +285,28 @@
             resources.ApplyResources(this.label9, "label9");
             this.label9.Name = "label9";
             // 
-            // sentCount
+            // imgServer
             // 
-            resources.ApplyResources(this.sentCount, "sentCount");
-            this.sentCount.Name = "sentCount";
-            // 
-            // label8
-            // 
-            resources.ApplyResources(this.label8, "label8");
-            this.label8.Name = "label8";
-            // 
-            // label7
-            // 
-            resources.ApplyResources(this.label7, "label7");
-            this.label7.Name = "label7";
+            resources.ApplyResources(this.imgServer, "imgServer");
+            this.imgServer.Image = global::FT_Server_Win.Properties.Resources.running;
+            this.imgServer.Name = "imgServer";
+            this.imgServer.TabStop = false;
+            this.imgServer.Click += new System.EventHandler(this.imgServer_Click);
             // 
             // label4
             // 
             resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
             // 
-            // label5
+            // bottomPanel
             // 
-            resources.ApplyResources(this.label5, "label5");
-            this.label5.Name = "label5";
-            // 
-            // label6
-            // 
-            resources.ApplyResources(this.label6, "label6");
-            this.label6.Name = "label6";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.btnViewFolder);
-            this.groupBox3.Controls.Add(this.btnSelectFolder);
-            this.groupBox3.Controls.Add(this.lblSaveFolder);
-            resources.ApplyResources(this.groupBox3, "groupBox3");
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
+            this.bottomPanel.Controls.Add(this.btnViewFolder);
+            this.bottomPanel.Controls.Add(this.btnSelectFolder);
+            this.bottomPanel.Controls.Add(this.lblSaveFolder);
+            resources.ApplyResources(this.bottomPanel, "bottomPanel");
+            this.bottomPanel.Name = "bottomPanel";
+            this.bottomPanel.TabStop = false;
+            this.bottomPanel.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // btnViewFolder
             // 
@@ -312,21 +335,28 @@
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
+            // startedTimer
+            // 
+            this.startedTimer.Interval = 1000;
+            this.startedTimer.Tick += new System.EventHandler(this.startedTimer_Tick);
+            // 
             // ServerUI
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.gridViewClientList);
-            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.bottomPanel);
             this.Controls.Add(this.statusBar);
             this.Controls.Add(this.rightPanel);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ServerUI";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ServerUI_FormClosing);
+            this.SizeChanged += new System.EventHandler(this.ServerUI_SizeChanged);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewClientList)).EndInit();
@@ -335,9 +365,11 @@
             this.statusBar.PerformLayout();
             this.rightPanel.ResumeLayout(false);
             this.rightPanel.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgServer)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.bottomPanel.ResumeLayout(false);
+            this.bottomPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -357,7 +389,7 @@
         private System.Windows.Forms.ToolStripMenuItem ngắtKếtNốiToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel statusText;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox bottomPanel;
         private System.Windows.Forms.Button btnViewFolder;
         private System.Windows.Forms.Button btnSelectFolder;
         private System.Windows.Forms.Label lblSaveFolder;
@@ -381,5 +413,8 @@
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label lblSubject;
         private System.Windows.Forms.Label lblStudentSum;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblStartedTime;
+        private System.Windows.Forms.Timer startedTimer;
     }
 }

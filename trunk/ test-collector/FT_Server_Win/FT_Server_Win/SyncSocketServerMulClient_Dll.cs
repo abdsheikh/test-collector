@@ -153,18 +153,23 @@ namespace ServerSockets.Synchronous.UsingByteArray
                 //Nhận thông tin từ client khi vừa tạo kết nối
                 try
                 {
-                    int index = 0;
+                    //int index = 0;
                     string[] clientInformation = GetInformationFromHeader(GetHeader(clientSock));
                     if (clientInformation != null)
                     {
-                        ClientItem newItem = new ClientItem(clientInformation[Extension.COMPUTERNAME], clientSock.LocalEndPoint.ToString(), clientInformation[Extension.STUDENTID], clientInformation[Extension.STUDENTNAME], Extension.CONNECTED);
-                        if (!clientItemList.Contains(newItem))
+                        string IPString = clientSock.RemoteEndPoint.ToString();
+                        ClientItem newItem = new ClientItem(clientInformation[Extension.COMPUTERNAME], IPString.Split(':')[0], clientInformation[Extension.STUDENTID], clientInformation[Extension.STUDENTNAME], Extension.CONNECTED);
+                        int index = Extension.GetIndex(clientItemList,newItem.IPAdress);
+                        if (index == -1)
                         {
                             clientItemList.Add(newItem);
                             index = clientItemList.Count - 1;
                         }
                         else
-                            index = clientItemList.IndexOf(newItem);
+                        {
+                            clientItemList[index].StudentID = newItem.StudentID;
+                            clientItemList[index].StudentName = newItem.StudentName;
+                        }
 
                         ClientObject clientObject = new ClientObject();
                         clientObject.clientSocket = clientSock;
@@ -278,6 +283,7 @@ namespace ServerSockets.Synchronous.UsingByteArray
                         clientSock.Send(clientInfoData);
                         clientSock.Close();
                         client.informationItem.Status = Extension.DISCONNECTED;
+                        client.informationItem.SentTimes++;
                         return;
                     }
                 }
