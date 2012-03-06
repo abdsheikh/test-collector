@@ -169,6 +169,7 @@ namespace ServerSockets.Synchronous.UsingByteArray
                         {
                             clientItemList[index].StudentID = newItem.StudentID;
                             clientItemList[index].StudentName = newItem.StudentName;
+                            clientItemList[index].Status = newItem.Status;
                         }
 
                         ClientObject clientObject = new ClientObject();

@@ -40,6 +40,13 @@ namespace FT_Server_Win
         public const int COLUMN_CLIENTSTATUS = 6;
         public const int COLUMN_SUBMITTIMES = 7;
         #endregion
+
+        #region constant strings
+        public const string STRING_CONNECTED = "Đã kết nối";
+        public const string STRING_SENDING = "Đang gửi bài...";
+        public const string STRING_SENT = "Đã gửi";
+        public const string STRING_DISCONNECTED = "Gửi hoàn tất";
+        #endregion
         public static DataTable CreateDataTableWithHeader()
         {
             DataTable dataTableResult = new DataTable();
@@ -65,16 +72,16 @@ namespace FT_Server_Win
             switch (status)
             {
                 case CONNECTED:
-                    message = "Đã kết nối";
+                    message = STRING_CONNECTED;
                     break;
                 case SENDING:
-                    message = "Đang gửi bài...";
+                    message = STRING_SENDING;
                     break;
                 case SENT:
-                    message = "Đã gửi";
+                    message = STRING_SENT;
                     break;
                 case DISCONNECTED:
-                    message = "Gửi hoàn tất";
+                    message = STRING_DISCONNECTED;
                     break;
             }
             return message;
@@ -82,16 +89,16 @@ namespace FT_Server_Win
 
         public static int GetStatusCode(String message)
         {
-            if (message == "Đã kết nối")
+            if (message == STRING_CONNECTED)
                 return CONNECTED;
             else
-                if (message == "Đã gửi")
+                if (message == STRING_SENT)
                     return SENT;
                 else
-                    if (message == "Đang gửi file...")
+                    if (message == STRING_SENDING)
                         return SENDING;
                     else
-                        if (message == "Gửi hoàn tất. Đã đóng kết nối!")
+                        if (message == STRING_DISCONNECTED)
                             return DISCONNECTED;
                         else return -1;
         }

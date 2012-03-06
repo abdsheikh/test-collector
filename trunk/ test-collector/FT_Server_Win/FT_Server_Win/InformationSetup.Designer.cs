@@ -75,11 +75,6 @@
             0,
             0,
             0});
-            this.numericUpDownStudentCount.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             this.numericUpDownStudentCount.Name = "numericUpDownStudentCount";
             this.numericUpDownStudentCount.Size = new System.Drawing.Size(72, 20);
             this.numericUpDownStudentCount.TabIndex = 11;

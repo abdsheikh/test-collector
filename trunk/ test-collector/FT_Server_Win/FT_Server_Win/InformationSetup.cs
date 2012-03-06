@@ -18,10 +18,13 @@ namespace FT_Server_Win
             InitializeComponent();
         }
 
-        public InformationSetup(setClassInformation setValue)
+        public InformationSetup(setClassInformation setValue, string subject, DateTime date, int sumOfStudent)
         {
             InitializeComponent();
             setValueFunction = setValue;
+            txtSubject.Text = subject;
+            dateTimeDate.Value = date;
+            numericUpDownStudentCount.Value = sumOfStudent;
         }
 
         private void button1_Click(object sender, EventArgs e)
