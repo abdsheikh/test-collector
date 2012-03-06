@@ -158,7 +158,7 @@ namespace ServerSockets.Synchronous.UsingByteArray
                     if (clientInformation != null)
                     {
                         string IPString = clientSock.RemoteEndPoint.ToString();
-                        ClientItem newItem = new ClientItem(clientInformation[Extension.COMPUTERNAME], IPString.Split(':')[0], clientInformation[Extension.STUDENTID], clientInformation[Extension.STUDENTNAME], Extension.CONNECTED);
+                        ClientItem newItem = new ClientItem(clientInformation[Extension.COMPUTERNAME], IPString.Split(':')[0], clientInformation[Extension.STUDENTID], clientInformation[Extension.STUDENTNAME],clientInformation[Extension.BIRTHDAY], Extension.CONNECTED);
                         int index = Extension.GetIndex(clientItemList,newItem.IPAdress);
                         if (index == -1)
                         {

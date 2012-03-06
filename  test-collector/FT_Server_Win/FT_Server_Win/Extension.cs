@@ -36,8 +36,9 @@ namespace FT_Server_Win
         public const int COLUMN_IPADDRESS = 2;
         public const int COLUMN_STUDENTID = 3;
         public const int COLUMN_STUDENTNAME = 4;
-        public const int COLUMN_CLIENTSTATUS = 5;
-        public const int COLUMN_SUBMITTIMES = 6;
+        public const int COLUMN_BIRTHDAY = 5;
+        public const int COLUMN_CLIENTSTATUS = 6;
+        public const int COLUMN_SUBMITTIMES = 7;
         #endregion
         public static DataTable CreateDataTableWithHeader()
         {
@@ -47,6 +48,7 @@ namespace FT_Server_Win
             dataTableResult.Columns.Add("Địa chỉ IP", typeof(string));
             dataTableResult.Columns.Add("Mã số sinh viên", typeof(string));
             dataTableResult.Columns.Add("Họ tên sinh viên", typeof(string));
+            dataTableResult.Columns.Add("Ngày sinh", typeof(string));
             dataTableResult.Columns.Add("Trạng thái", typeof(string));
             dataTableResult.Columns.Add("Lần nộp", typeof(int));
 

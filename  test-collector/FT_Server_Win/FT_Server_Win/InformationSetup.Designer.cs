@@ -110,10 +110,12 @@
             // dateTimeDate
             // 
             this.dateTimeDate.CustomFormat = "dd/mm/yyyy";
+            this.dateTimeDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimeDate.Location = new System.Drawing.Point(133, 77);
             this.dateTimeDate.Name = "dateTimeDate";
             this.dateTimeDate.Size = new System.Drawing.Size(200, 20);
             this.dateTimeDate.TabIndex = 8;
+            this.dateTimeDate.ValueChanged += new System.EventHandler(this.dateTimeDate_ValueChanged);
             // 
             // label1
             // 
