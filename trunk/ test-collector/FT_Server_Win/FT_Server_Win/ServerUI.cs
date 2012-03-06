@@ -127,7 +127,7 @@ namespace FT_Server_Win
                     row = clientData.Rows.Find(item.IPAdress.ToString());
                     if (row == null)
                     {
-                        clientData.Rows.Add(clientData.Rows.Count + 1, item.ComputerName, item.IPAdress, item.StudentID, item.StudentName, Extension.GetMessage(item.Status),item.SentTimes);
+                        clientData.Rows.Add(clientData.Rows.Count + 1, item.ComputerName, item.IPAdress, item.StudentID, item.StudentName, item.Birthday, Extension.GetMessage(item.Status),item.SentTimes);
                     }
                     else
                     {
@@ -135,11 +135,7 @@ namespace FT_Server_Win
                         row[Extension.COLUMN_STUDENTID] = item.StudentID;
                         row[Extension.COLUMN_STUDENTNAME] = item.StudentName;
                         row[Extension.COLUMN_SUBMITTIMES] = item.SentTimes;
-                        //if (item.Status == Extension.DISCONNECTED)
-                        //{
-                        //    sentTimes = Convert.ToInt32(row[6].ToString());
-                        //    row[6] = sentTimes + 1;
-                        //}
+                        
                     }
                     if (item.Status == Extension.DISCONNECTED)
                         count++;
@@ -225,13 +221,14 @@ namespace FT_Server_Win
             int width = gridViewClientList.Width;
             if (gridViewClientList.ColumnCount > 3)
             {
-                gridViewClientList.Columns[0].Width = (int)(0.046f*width);
-                gridViewClientList.Columns[1].Width = (int)(0.15f*width);
-                gridViewClientList.Columns[2].Width = (int)(0.15f*width);
-                gridViewClientList.Columns[3].Width = (int)(0.15f*width);
-                gridViewClientList.Columns[4].Width = (int)(0.20f*width);
-                gridViewClientList.Columns[5].Width = (int)(0.15f * width);
-                gridViewClientList.Columns[6].Width = (int)(0.15f * width);
+                gridViewClientList.Columns[Extension.COLUMN_ITEMINDEX].Width = (int)(0.046f*width);
+                gridViewClientList.Columns[Extension.COLUMN_COMPUTERNAME].Width = (int)(0.15f*width);
+                gridViewClientList.Columns[Extension.COLUMN_IPADDRESS].Width = (int)(0.14f*width);
+                gridViewClientList.Columns[Extension.COLUMN_STUDENTID].Width = (int)(0.14f*width);
+                gridViewClientList.Columns[Extension.COLUMN_STUDENTNAME].Width = (int)(0.15f*width);
+                gridViewClientList.Columns[Extension.COLUMN_BIRTHDAY].Width = (int)(0.11f * width);
+                gridViewClientList.Columns[Extension.COLUMN_CLIENTSTATUS].Width = (int)(0.18f * width);
+                gridViewClientList.Columns[Extension.COLUMN_SUBMITTIMES].Width = (int)(0.08f * width);
             }
         }
 
@@ -265,20 +262,37 @@ namespace FT_Server_Win
             int row = 1;
             string[] tieude = { "STT", "MSSV", "Họ và tên","Ngày sinh","Tình trạng nộp bài"};
             exSheet.Cells[row, 1] = "Danh sách Thi";
-            //if (t == 0)
-            {
-                row++;
-                exSheet.Cells[row, 1] = "Môn: ";
-                exSheet.Cells[row, 2] = "TÊN MÔN HỌC";
-            }
+            row++;
+            exSheet.Cells[row, 1] = "Môn thi: ";
+            exSheet.Cells[row, 2] = m_Subject;
+
+            row++;
+            exSheet.Cells[row, 1] = "Ngày thi: ";
+            exSheet.Cells[row, 2] = m_Date;
+
+            row++;
+            exSheet.Cells[row, 1] = "Tổng số thí sinh: ";
+            exSheet.Cells[row, 2] = m_StudentSum;
+
             row += 2;
             for (int i = 0; i < tieude.Length; i++)
                 exSheet.Cells[row, i + 1] = tieude[i];
 
 
             for (int i = 1; i <= gridViewClientList.RowCount; i++)
-                for (int j = 1; j <= gridViewClientList.ColumnCount; j++)
-                    exSheet.Cells[i + row, j] = gridViewClientList.Rows[i - 1].Cells[j - 1].Value;
+            //for (int j = 1; j <= gridViewClientList.ColumnCount; j++)
+            {
+                exSheet.Cells[i + row, 1] = gridViewClientList.Rows[i - 1].Cells[Extension.COLUMN_ITEMINDEX].Value;
+                exSheet.Cells[i + row, 2] = gridViewClientList.Rows[i - 1].Cells[Extension.COLUMN_STUDENTID].Value;
+                exSheet.Cells[i + row, 3] = gridViewClientList.Rows[i - 1].Cells[Extension.COLUMN_STUDENTNAME].Value;
+                exSheet.Cells[i + row, 4] = gridViewClientList.Rows[i - 1].Cells[Extension.COLUMN_BIRTHDAY].Value;
+                string submitStatus = "Chưa gửi";
+                int submitTimes =(int)gridViewClientList.Rows[i - 1].Cells[Extension.COLUMN_SUBMITTIMES].Value;
+                if (submitTimes > 0)
+                    submitStatus = "Đã gửi";
+                exSheet.Cells[i + row, 5] = submitStatus ;
+                //exSheet.Cells[i + row, j] = gridViewClientList.Rows[i - 1].Cells[j - 1].Value;
+            }
 
             if ((saveFileDialog1.ShowDialog() == DialogResult.OK) && (saveFileDialog1.FileName.Length != 0))
             {

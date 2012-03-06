@@ -32,6 +32,11 @@ namespace FT_Server_Win
             setValueFunction(subject, date, studentSum);
         }
 
+        private void dateTimeDate_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
         
     }
 }

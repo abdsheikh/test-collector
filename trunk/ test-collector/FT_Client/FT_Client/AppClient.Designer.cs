@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.gbClientSetting = new System.Windows.Forms.GroupBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.lbFileName = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.btFileToSend = new System.Windows.Forms.Button();
@@ -43,8 +45,12 @@
             this.button3 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btnSend = new System.Windows.Forms.Button();
             this.tabInfoSv = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.bdayStudent = new System.Windows.Forms.DateTimePicker();
             this.lbNumber = new System.Windows.Forms.Label();
@@ -59,23 +65,17 @@
             this.ConnectSettingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ThoatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnSend = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.gbClientSetting.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabInfoSv.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numBox)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -103,6 +103,24 @@
             this.gbClientSetting.TabIndex = 4;
             this.gbClientSetting.TabStop = false;
             this.gbClientSetting.Text = "Chọn Files";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(447, 266);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(45, 21);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 19;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(151, 297);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(77, 13);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "Tên File gửi đi:";
             // 
             // lbFileName
             // 
@@ -142,7 +160,7 @@
             this.label2.Size = new System.Drawing.Size(455, 15);
             this.label2.TabIndex = 14;
             this.label2.Text = "Kéo thả các file vào khu vực này! ( .doc, .docx, .rar, .zip, .txt, .xls, .xlsx, ." +
-    "jpg, .png, .gif)";
+                "jpg, .png, .gif)";
             // 
             // lbFiles
             // 
@@ -186,7 +204,6 @@
             // 
             // button3
             // 
-            this.button3.BackgroundImage = global::FT_Client.Properties.Resources.connect;
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Location = new System.Drawing.Point(70, 15);
@@ -218,6 +235,35 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Gửi File";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(70, 92);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(76, 13);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "Kết Nối Server";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(395, 93);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(44, 13);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "Nộp bài";
+            // 
+            // btnSend
+            // 
+            this.btnSend.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSend.Location = new System.Drawing.Point(379, 19);
+            this.btnSend.Name = "btnSend";
+            this.btnSend.Size = new System.Drawing.Size(76, 71);
+            this.btnSend.TabIndex = 0;
+            this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
+            // 
             // tabInfoSv
             // 
             this.tabInfoSv.Controls.Add(this.tabPage1);
@@ -239,6 +285,16 @@
             this.tabPage1.Text = "Thông tin Sinh Viên";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::FT_Client.Properties.Resources.students;
+            this.pictureBox1.Location = new System.Drawing.Point(15, 222);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(289, 167);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.bdayStudent);
@@ -258,7 +314,8 @@
             // 
             // bdayStudent
             // 
-            this.bdayStudent.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.bdayStudent.CustomFormat = "dd/mm/yyyy";
+            this.bdayStudent.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.bdayStudent.Location = new System.Drawing.Point(82, 109);
             this.bdayStudent.MinDate = new System.DateTime(1899, 1, 1, 0, 0, 0, 0);
             this.bdayStudent.Name = "bdayStudent";
@@ -380,65 +437,6 @@
             this.groupBox4.TabIndex = 11;
             this.groupBox4.TabStop = false;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(151, 297);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(77, 13);
-            this.label7.TabIndex = 18;
-            this.label7.Text = "Tên File gửi đi:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(395, 93);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(44, 13);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "Nộp bài";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::FT_Client.Properties.Resources.students;
-            this.pictureBox1.Location = new System.Drawing.Point(15, 222);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(289, 167);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btnSend
-            // 
-            this.btnSend.BackgroundImage = global::FT_Client.Properties.Resources.submit;
-            this.btnSend.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSend.Location = new System.Drawing.Point(379, 19);
-            this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(76, 71);
-            this.btnSend.TabIndex = 0;
-            this.btnSend.UseVisualStyleBackColor = true;
-            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(70, 92);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(76, 13);
-            this.label10.TabIndex = 9;
-            this.label10.Text = "Kết Nối Server";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::FT_Client.Properties.Resources.drop_files;
-            this.pictureBox2.Location = new System.Drawing.Point(447, 266);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(45, 21);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 19;
-            this.pictureBox2.TabStop = false;
-            // 
             // AppClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -458,19 +456,19 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.gbClientSetting.ResumeLayout(false);
             this.gbClientSetting.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabInfoSv.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numBox)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
