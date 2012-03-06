@@ -22,7 +22,7 @@ namespace FT_Server_Win
         #region Class Information
         private string m_Subject = String.Empty;
         private DateTime m_Date = DateTime.Now;
-        private int m_StudentSum = 1;
+        private int m_StudentSum = 0;
         #endregion
 
         public ServerUI()
@@ -144,17 +144,15 @@ namespace FT_Server_Win
                 int statusCode;
                 foreach (DataGridViewRow gridViewRow in gridViewClientList.Rows)
                 {
-                    statusCode = Extension.GetStatusCode(gridViewRow.Cells[5].Value.ToString());
+                    statusCode = Extension.GetStatusCode(gridViewRow.Cells[Extension.COLUMN_CLIENTSTATUS].Value.ToString());
                     switch (statusCode)
                     {
                         case Extension.CONNECTED:
-                            gridViewRow.DefaultCellStyle.BackColor = Color.Orange;
-                            break;
                         case Extension.SENDING:
-                            gridViewRow.DefaultCellStyle.BackColor = Color.YellowGreen;
+                            gridViewRow.DefaultCellStyle.BackColor = Color.Aqua;
                             break;
                         case Extension.DISCONNECTED:
-                            gridViewRow.DefaultCellStyle.BackColor = Color.Green;
+                            gridViewRow.DefaultCellStyle.BackColor = Color.Azure;
                             break;
                         default:
                             gridViewRow.DefaultCellStyle.BackColor = Color.Azure;
@@ -274,6 +272,14 @@ namespace FT_Server_Win
             exSheet.Cells[row, 1] = "Tổng số thí sinh: ";
             exSheet.Cells[row, 2] = m_StudentSum;
 
+            row++;
+            exSheet.Cells[row, 1] = "Số thí sinh sự thi: ";
+            exSheet.Cells[row, 2] = connectCount.Text;
+
+            row++;
+            exSheet.Cells[row, 1] = "Số thí sinh nộp bài: ";
+            exSheet.Cells[row, 2] = sentCount.Text;
+
             row += 2;
             for (int i = 0; i < tieude.Length; i++)
                 exSheet.Cells[row, i + 1] = tieude[i];
@@ -368,7 +374,7 @@ namespace FT_Server_Win
 
         private void thiếtLậpThôngTinToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            InformationSetup form = new InformationSetup(setClassInformation);
+            InformationSetup form = new InformationSetup(setClassInformation, m_Subject, m_Date, m_StudentSum);
             form.ShowDialog();
         }
 

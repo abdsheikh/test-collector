@@ -165,7 +165,10 @@
             this.gridViewClientList.ReadOnly = true;
             this.gridViewClientList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.gridViewClientList.RowHeadersVisible = false;
-            this.gridViewClientList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridViewClientList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.gridViewClientList.ShowCellErrors = false;
+            this.gridViewClientList.ShowCellToolTips = false;
+            this.gridViewClientList.ShowEditingIcon = false;
             this.gridViewClientList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewClientList_CellContentClick);
             this.gridViewClientList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridViewClientList_CellMouseClick);
             this.gridViewClientList.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.gridViewClientList_DataBindingComplete);
