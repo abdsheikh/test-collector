@@ -160,7 +160,7 @@
             this.label2.Size = new System.Drawing.Size(455, 15);
             this.label2.TabIndex = 14;
             this.label2.Text = "Kéo thả các file vào khu vực này! ( .doc, .docx, .rar, .zip, .txt, .xls, .xlsx, ." +
-                "jpg, .png, .gif)";
+    "jpg, .png, .gif)";
             // 
             // lbFiles
             // 
@@ -204,6 +204,7 @@
             // 
             // button3
             // 
+            this.button3.BackgroundImage = global::FT_Client.Properties.Resources.connect;
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Location = new System.Drawing.Point(70, 15);
@@ -255,6 +256,7 @@
             // 
             // btnSend
             // 
+            this.btnSend.BackgroundImage = global::FT_Client.Properties.Resources.submit;
             this.btnSend.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSend.Location = new System.Drawing.Point(379, 19);
