@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-using java.util;
-using java.util.zip;
-using java.io;
+using ICSharpCode.SharpZipLib.Checksums;
+using ICSharpCode.SharpZipLib.Zip;
 
 namespace FT_Client
 {
     class Ziplb
     {
+        /*
         public List<ZipEntry> GetZipFiles(ZipFile zipfil)
-        {
+        {            
             List<ZipEntry> lstZip = new List<ZipEntry>();
             Enumeration zipEnum = zipfil.entries();
             while (zipEnum.hasMoreElements())
@@ -21,6 +21,7 @@ namespace FT_Client
             }
             return lstZip;
         }
+        */
 
         public bool Zip(string zipFileName, string[] sourceFile)
         {
@@ -28,7 +29,8 @@ namespace FT_Client
             {
                 System.IO.File.Delete(zipFileName);
             }
-            try
+            /*
+             try
             {
                 FileOutputStream filOpStrm = new FileOutputStream(zipFileName);
                 ZipOutputStream zipOpStrm = new ZipOutputStream(filOpStrm);
@@ -52,6 +54,39 @@ namespace FT_Client
                 filIpStrm.close();
                 zipOpStrm.close();
                 filOpStrm.close();
+            }
+            catch (System.Exception ex)
+            {
+                return false;
+            }
+            return true;
+             * */
+            Crc32 crc32 = new Crc32();
+            ZipOutputStream stream = new ZipOutputStream(File.Create(zipFileName));
+            stream.SetLevel(7);
+
+            try
+            {
+                for (int i = 0; i < sourceFile.Length; i++)
+                {
+                    ZipEntry entry = new ZipEntry(Path.GetFileName(sourceFile[i]));
+                    entry.DateTime = DateTime.Now;
+
+                    using (FileStream fs = File.OpenRead(sourceFile[i]))
+                    {
+                        byte[] buffer = new byte[fs.Length];
+                        fs.Read(buffer, 0, buffer.Length);
+                        entry.Size = fs.Length;
+                        fs.Close();
+                        crc32.Reset();
+                        crc32.Update(buffer);
+                        entry.Crc = crc32.Value;
+                        stream.PutNextEntry(entry);
+                        stream.Write(buffer, 0, buffer.Length);
+                    }
+                }
+                stream.Finish();
+                stream.Close();
             }
             catch (System.Exception ex)
             {
