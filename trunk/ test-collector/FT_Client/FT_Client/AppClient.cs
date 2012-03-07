@@ -64,12 +64,11 @@ namespace FT_Client
         //Check if the /zipfiles folder is existed
         public void CheckOuputZipFolder()
         {
-            int lannop = checkNumBox(numBox.Value.ToString());
 
             ConvertTVKoDau();
 
             outputFolderZipFiles = Directory.GetCurrentDirectory() + "\\zipfiles";
-            outputZipFiles = outputFolderZipFiles + "\\" + idClient+"_"+nameStudent +"_"+"So"+lannop+ ".zip";
+            outputZipFiles = outputFolderZipFiles + "\\" + idClient+"_"+nameStudent +".zip";
             if (!Directory.Exists(outputFolderZipFiles))
                 try
                 {
@@ -465,5 +464,6 @@ namespace FT_Client
             ChangeStatusBackImageConnectServer();
         }
         #endregion 
+
     }
 }

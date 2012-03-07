@@ -60,8 +60,8 @@ namespace FT_Server_Win
             InitializeComponent();
             m_ServerSocketObject = new SyncSocketServerMulClient();
             m_OutputPath=@"C:\";
-            m_SendPort = 8081;
-            m_ReceivedPort = 8080;
+            m_SendPort = 8080;
+            m_ReceivedPort = 8081;
             m_MaxClient = 111;
         }
 
