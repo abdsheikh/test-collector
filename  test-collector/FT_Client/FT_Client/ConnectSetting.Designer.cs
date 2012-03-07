@@ -42,9 +42,9 @@
             this.clTenMay = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clIpAdress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btFindIpLan = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lbSettingInfo = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -111,7 +111,7 @@
             this.txtSendPort.Name = "txtSendPort";
             this.txtSendPort.Size = new System.Drawing.Size(153, 20);
             this.txtSendPort.TabIndex = 5;
-            this.txtSendPort.Text = "8080";
+            this.txtSendPort.Text = "8081";
             this.txtSendPort.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSendPort_KeyPress);
             // 
             // txtIp1
@@ -185,16 +185,6 @@
             this.btFindIpLan.UseVisualStyleBackColor = true;
             this.btFindIpLan.Click += new System.EventHandler(this.btFindIpLan_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::FT_Client.Properties.Resources.Settings;
-            this.pictureBox1.Location = new System.Drawing.Point(5, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(121, 126);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -212,6 +202,16 @@
             this.lbSettingInfo.Size = new System.Drawing.Size(199, 13);
             this.lbSettingInfo.TabIndex = 5;
             this.lbSettingInfo.Text = "Chọn các thông số để tiến hành cài đặt!";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::FT_Client.Properties.Resources.Settings;
+            this.pictureBox1.Location = new System.Drawing.Point(5, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(121, 126);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // ConnectSetting
             // 

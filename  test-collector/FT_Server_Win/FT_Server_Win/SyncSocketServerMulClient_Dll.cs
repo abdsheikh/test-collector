@@ -73,7 +73,7 @@ namespace ServerSockets.Synchronous.UsingByteArray
         public void StartServer()
         {
             StartReceiveServer();
-            StartSendServer();
+            //StartSendServer();
         }
 
         public void SettingServer(int receivePort, int sendPort, int maxClient, string outPutPath)

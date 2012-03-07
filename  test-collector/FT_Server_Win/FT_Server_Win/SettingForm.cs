@@ -30,7 +30,7 @@ namespace FT_Server_Win
 
         private void button1_Click(object sender, EventArgs e)
         {
-            socketControl.SendPort = (int)(sendPort.Value);
+            socketControl.ReceivedPort = (int)(receivePort.Value);
             socketControl.SaveConfiguration();
             this.Close();
         }

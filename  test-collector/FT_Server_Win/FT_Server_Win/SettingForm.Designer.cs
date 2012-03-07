@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.grpSetting = new System.Windows.Forms.GroupBox();
-            this.sendPort = new System.Windows.Forms.NumericUpDown();
+            this.receivePort = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -40,13 +40,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.grpSetting.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sendPort)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.receivePort)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpSetting
             // 
-            this.grpSetting.Controls.Add(this.sendPort);
+            this.grpSetting.Controls.Add(this.receivePort);
             this.grpSetting.Controls.Add(this.label2);
             this.grpSetting.Location = new System.Drawing.Point(12, 129);
             this.grpSetting.Name = "grpSetting";
@@ -56,23 +56,23 @@
             this.grpSetting.Text = "Cấu hình máy chủ";
             this.grpSetting.Enter += new System.EventHandler(this.grpSetting_Enter);
             // 
-            // sendPort
+            // receivePort
             // 
-            this.sendPort.Location = new System.Drawing.Point(122, 31);
-            this.sendPort.Maximum = new decimal(new int[] {
+            this.receivePort.Location = new System.Drawing.Point(122, 31);
+            this.receivePort.Maximum = new decimal(new int[] {
             32767,
             0,
             0,
             0});
-            this.sendPort.Minimum = new decimal(new int[] {
+            this.receivePort.Minimum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
-            this.sendPort.Name = "sendPort";
-            this.sendPort.Size = new System.Drawing.Size(79, 20);
-            this.sendPort.TabIndex = 7;
-            this.sendPort.Value = new decimal(new int[] {
+            this.receivePort.Name = "receivePort";
+            this.receivePort.Size = new System.Drawing.Size(79, 20);
+            this.receivePort.TabIndex = 7;
+            this.receivePort.Value = new decimal(new int[] {
             8081,
             0,
             0,
@@ -187,7 +187,7 @@
             this.Text = "SettingForm";
             this.grpSetting.ResumeLayout(false);
             this.grpSetting.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sendPort)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.receivePort)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -198,7 +198,7 @@
 
         private System.Windows.Forms.GroupBox grpSetting;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown sendPort;
+        private System.Windows.Forms.NumericUpDown receivePort;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label listenningPort;

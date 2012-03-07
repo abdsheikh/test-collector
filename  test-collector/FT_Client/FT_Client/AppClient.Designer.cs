@@ -50,11 +50,8 @@
             this.btnSend = new System.Windows.Forms.Button();
             this.tabInfoSv = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.bdayStudent = new System.Windows.Forms.DateTimePicker();
-            this.lbNumber = new System.Windows.Forms.Label();
-            this.numBox = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -65,15 +62,16 @@
             this.ConnectSettingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ThoatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.hệThốngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.càiĐặtKếtNốiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gbClientSetting.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabInfoSv.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numBox)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
@@ -160,7 +158,7 @@
             this.label2.Size = new System.Drawing.Size(455, 15);
             this.label2.TabIndex = 14;
             this.label2.Text = "Kéo thả các file vào khu vực này! ( .doc, .docx, .rar, .zip, .txt, .xls, .xlsx, ." +
-    "jpg, .png, .gif)";
+                "jpg, .png, .gif)";
             // 
             // lbFiles
             // 
@@ -277,7 +275,6 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.pictureBox1);
             this.tabPage1.Controls.Add(this.groupBox3);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -287,21 +284,9 @@
             this.tabPage1.Text = "Thông tin Sinh Viên";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::FT_Client.Properties.Resources.students;
-            this.pictureBox1.Location = new System.Drawing.Point(15, 222);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(289, 167);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.bdayStudent);
-            this.groupBox3.Controls.Add(this.lbNumber);
-            this.groupBox3.Controls.Add(this.numBox);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.label4);
@@ -324,37 +309,6 @@
             this.bdayStudent.Size = new System.Drawing.Size(179, 20);
             this.bdayStudent.TabIndex = 8;
             this.bdayStudent.Leave += new System.EventHandler(this.bdayStudent_Leave);
-            // 
-            // lbNumber
-            // 
-            this.lbNumber.AutoSize = true;
-            this.lbNumber.Location = new System.Drawing.Point(17, 141);
-            this.lbNumber.Name = "lbNumber";
-            this.lbNumber.Size = new System.Drawing.Size(73, 13);
-            this.lbNumber.TabIndex = 7;
-            this.lbNumber.Text = "Lần Nộp Thứ:";
-            // 
-            // numBox
-            // 
-            this.numBox.Location = new System.Drawing.Point(115, 139);
-            this.numBox.Maximum = new decimal(new int[] {
-            111,
-            0,
-            0,
-            0});
-            this.numBox.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numBox.Name = "numBox";
-            this.numBox.Size = new System.Drawing.Size(47, 20);
-            this.numBox.TabIndex = 6;
-            this.numBox.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             // 
             // label6
             // 
@@ -400,7 +354,7 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MenuToolStripMenuItem});
+            this.hệThốngToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(885, 24);
@@ -439,6 +393,29 @@
             this.groupBox4.TabIndex = 11;
             this.groupBox4.TabStop = false;
             // 
+            // hệThốngToolStripMenuItem
+            // 
+            this.hệThốngToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.càiĐặtKếtNốiToolStripMenuItem,
+            this.thoátToolStripMenuItem});
+            this.hệThốngToolStripMenuItem.Name = "hệThốngToolStripMenuItem";
+            this.hệThốngToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.hệThốngToolStripMenuItem.Text = "Hệ Thống";
+            // 
+            // càiĐặtKếtNốiToolStripMenuItem
+            // 
+            this.càiĐặtKếtNốiToolStripMenuItem.Name = "càiĐặtKếtNốiToolStripMenuItem";
+            this.càiĐặtKếtNốiToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.càiĐặtKếtNốiToolStripMenuItem.Text = "Cài đặt kết nối";
+            this.càiĐặtKếtNốiToolStripMenuItem.Click += new System.EventHandler(this.ConnectSettingToolStripMenuItem_Click);
+            // 
+            // thoátToolStripMenuItem
+            // 
+            this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
+            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.thoátToolStripMenuItem.Text = "Thoát";
+            this.thoátToolStripMenuItem.Click += new System.EventHandler(this.ThoatToolStripMenuItem_Click);
+            // 
             // AppClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -464,10 +441,8 @@
             this.groupBox1.PerformLayout();
             this.tabInfoSv.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numBox)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -504,9 +479,6 @@
         private System.Windows.Forms.ToolStripMenuItem deleteAllFilesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteFileToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.NumericUpDown numBox;
-        private System.Windows.Forms.Label lbNumber;
         private System.Windows.Forms.Label lbFileName;
         private System.Windows.Forms.ToolStripMenuItem ConnectSettingToolStripMenuItem;
         private System.Windows.Forms.DateTimePicker bdayStudent;
@@ -514,6 +486,9 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.ToolStripMenuItem hệThốngToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem càiĐặtKếtNốiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem thoátToolStripMenuItem;
     }
 }
 
