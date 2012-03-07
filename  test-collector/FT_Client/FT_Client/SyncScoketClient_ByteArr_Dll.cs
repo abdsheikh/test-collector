@@ -66,7 +66,7 @@ namespace ClientSockets.Synchronous.UsingByteArray // SyncScoketClient_ByteArr_D
                 status = "Không thể kết nối đến Server! Vui lòng kiểm tra lại cấu hình!";
                 return status;
             }
-            return "Connected";
+            return "Kết nối thành công!";
         }
         public void SettingClient(string clientId, string ipAddress, int sendPort, int receivePort, string DefaultPath)
         {
@@ -610,8 +610,6 @@ namespace ClientSockets.Synchronous.UsingByteArray // SyncScoketClient_ByteArr_D
                     }
                 }
                 server.Close();
-
-
             }
             #region SOCKET EXCEPTION
             catch (SocketException ex)
