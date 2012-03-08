@@ -181,7 +181,7 @@
             this.btFindIpLan.Name = "btFindIpLan";
             this.btFindIpLan.Size = new System.Drawing.Size(92, 34);
             this.btFindIpLan.TabIndex = 2;
-            this.btFindIpLan.Text = "Quét IP Lan";
+            this.btFindIpLan.Text = "Tìm Server...";
             this.btFindIpLan.UseVisualStyleBackColor = true;
             this.btFindIpLan.Click += new System.EventHandler(this.btFindIpLan_Click);
             // 

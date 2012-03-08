@@ -9,17 +9,6 @@ D:\aCuong\thamkhao\File_Transfer_In_LAN\FT_Server_Win\FT_Server_Win\obj\Release\
 D:\aCuong\thamkhao\File_Transfer_In_LAN\FT_Server_Win\FT_Server_Win\obj\Release\FT_Server_Win.pdb
 D:\aCuong\Gui.1.1.12\Source Code\FT_Server_Win\FT_Server_Win\obj\Release\FT_Server_Win.exe
 D:\aCuong\Gui.1.1.12\Source Code\FT_Server_Win\FT_Server_Win\obj\Release\FT_Server_Win.pdb
-D:\SendFileLan\FT_Server_Win\FT_Server_Win\bin\Release\FT_Server_Win.exe
-D:\SendFileLan\FT_Server_Win\FT_Server_Win\bin\Release\FT_Server_Win.pdb
-D:\SendFileLan\FT_Server_Win\FT_Server_Win\obj\Release\ResolveAssemblyReference.cache
-D:\SendFileLan\FT_Server_Win\FT_Server_Win\obj\Release\FT_Server_Win.Properties.Resources.resources
-D:\SendFileLan\FT_Server_Win\FT_Server_Win\obj\Release\FT_Server_Win.AppServer.resources
-D:\SendFileLan\FT_Server_Win\FT_Server_Win\obj\Release\FT_Server_Win.ServerSocketControl.resources
-D:\SendFileLan\FT_Server_Win\FT_Server_Win\obj\Release\FT_Server_Win.ServerUI.resources
-D:\SendFileLan\FT_Server_Win\FT_Server_Win\obj\Release\GenerateResource-ResGen.read.1.tlog
-D:\SendFileLan\FT_Server_Win\FT_Server_Win\obj\Release\GenerateResource-ResGen.write.1.tlog
-D:\SendFileLan\FT_Server_Win\FT_Server_Win\obj\Release\FT_Server_Win.exe
-D:\SendFileLan\FT_Server_Win\FT_Server_Win\obj\Release\FT_Server_Win.pdb
 D:\aCuong\checkout0703\FT_Server_Win\FT_Server_Win\bin\Release\FT_Server_Win.exe
 D:\aCuong\checkout0703\FT_Server_Win\FT_Server_Win\bin\Release\FT_Server_Win.pdb
 D:\aCuong\checkout0703\FT_Server_Win\FT_Server_Win\obj\Release\ResolveAssemblyReference.cache
@@ -34,3 +23,17 @@ D:\aCuong\checkout0703\FT_Server_Win\FT_Server_Win\obj\Release\GenerateResource-
 D:\aCuong\checkout0703\FT_Server_Win\FT_Server_Win\obj\Release\GenerateResource-ResGen.write.1.tlog
 D:\aCuong\checkout0703\FT_Server_Win\FT_Server_Win\obj\Release\FT_Server_Win.exe
 D:\aCuong\checkout0703\FT_Server_Win\FT_Server_Win\obj\Release\FT_Server_Win.pdb
+D:\SendFileLan\FT_Server_Win\FT_Server_Win\bin\Release\FT_Server_Win.exe
+D:\SendFileLan\FT_Server_Win\FT_Server_Win\bin\Release\FT_Server_Win.pdb
+D:\SendFileLan\FT_Server_Win\FT_Server_Win\obj\Release\ResolveAssemblyReference.cache
+D:\SendFileLan\FT_Server_Win\FT_Server_Win\obj\Release\FT_Server_Win.csproj.ResolveComReference.cache
+D:\SendFileLan\FT_Server_Win\FT_Server_Win\obj\Release\FT_Server_Win.InformationSetup.resources
+D:\SendFileLan\FT_Server_Win\FT_Server_Win\obj\Release\FT_Server_Win.Properties.Resources.resources
+D:\SendFileLan\FT_Server_Win\FT_Server_Win\obj\Release\FT_Server_Win.AppServer.resources
+D:\SendFileLan\FT_Server_Win\FT_Server_Win\obj\Release\FT_Server_Win.ServerSocketControl.resources
+D:\SendFileLan\FT_Server_Win\FT_Server_Win\obj\Release\FT_Server_Win.ServerUI.resources
+D:\SendFileLan\FT_Server_Win\FT_Server_Win\obj\Release\FT_Server_Win.SettingForm.resources
+D:\SendFileLan\FT_Server_Win\FT_Server_Win\obj\Release\GenerateResource-ResGen.read.1.tlog
+D:\SendFileLan\FT_Server_Win\FT_Server_Win\obj\Release\GenerateResource-ResGen.write.1.tlog
+D:\SendFileLan\FT_Server_Win\FT_Server_Win\obj\Release\FT_Server_Win.exe
+D:\SendFileLan\FT_Server_Win\FT_Server_Win\obj\Release\FT_Server_Win.pdb
