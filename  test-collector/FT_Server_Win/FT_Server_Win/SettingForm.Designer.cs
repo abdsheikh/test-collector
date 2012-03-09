@@ -77,6 +77,7 @@
             0,
             0,
             0});
+            this.receivePort.ValueChanged += new System.EventHandler(this.receivePort_ValueChanged);
             // 
             // label2
             // 

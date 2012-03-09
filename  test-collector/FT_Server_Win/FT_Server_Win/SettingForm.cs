@@ -39,7 +39,12 @@ namespace FT_Server_Win
         {
             serverIPAddress.Text = socketControl.getIPAdress();
             serverName.Text = socketControl.m_ServerSocketObject.getHostName();
-            listenningPort.Text = socketControl.SendPort.ToString();
+            listenningPort.Text = socketControl.ReceivedPort.ToString();
+        }
+
+        private void receivePort_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

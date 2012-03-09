@@ -131,18 +131,46 @@ namespace FT_Server_Win
         public ClientItem informationItem;
     }
 
-
+    #region Clocker Class
     public class Clocker
     {
+
+        #region Properties
         private int m_Hours;
+
+        public int Hours
+        {
+            get { return m_Hours; }
+            set { m_Hours = value; }
+        }
         private int m_Minutes;
+
+        public int Minutes
+        {
+            get { return m_Minutes; }
+            set { m_Minutes = value; }
+        }
         private int m_Seconds;
+
+        public int Seconds
+        {
+            get { return m_Seconds; }
+            set { m_Seconds = value; }
+        }
+        #endregion
 
         public Clocker()
         {
             m_Hours = 0;
             m_Minutes = 0;
             m_Seconds = 0;
+        }
+
+        public Clocker(int hours, int minutes, int seconds)
+        {
+            m_Hours = hours;
+            m_Minutes = minutes;
+            m_Seconds = seconds;
         }
 
         public void AddSecond()
@@ -174,4 +202,5 @@ namespace FT_Server_Win
             return String.Format("{0}:{1}:{2}", hour, minute, second);
         }
     }
+#endregion
 }
