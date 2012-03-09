@@ -30,6 +30,17 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.toTimeMinutes = new System.Windows.Forms.NumericUpDown();
+            this.toTimeHours = new System.Windows.Forms.NumericUpDown();
+            this.fromTimeMinutes = new System.Windows.Forms.NumericUpDown();
+            this.fromTimeHours = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
+            this.numericTestPeriod = new System.Windows.Forms.NumericUpDown();
+            this.label5 = new System.Windows.Forms.Label();
             this.numericUpDownStudentCount = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -37,24 +48,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtSubject = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.numericTestPeriod = new System.Windows.Forms.NumericUpDown();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.fromTimeHours = new System.Windows.Forms.NumericUpDown();
-            this.fromTimeMinutes = new System.Windows.Forms.NumericUpDown();
-            this.toTimeMinutes = new System.Windows.Forms.NumericUpDown();
-            this.toTimeHours = new System.Windows.Forms.NumericUpDown();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStudentCount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericTestPeriod)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fromTimeHours)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fromTimeMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toTimeMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toTimeHours)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fromTimeMinutes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fromTimeHours)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericTestPeriod)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStudentCount)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -93,6 +93,130 @@
             this.groupBox1.Size = new System.Drawing.Size(389, 190);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(247, 123);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(27, 13);
+            this.label10.TabIndex = 21;
+            this.label10.Text = "Đến";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(129, 124);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(20, 13);
+            this.label9.TabIndex = 20;
+            this.label9.Text = "Từ";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(188, 124);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(10, 13);
+            this.label8.TabIndex = 20;
+            this.label8.Text = ":";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(320, 124);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(10, 13);
+            this.label7.TabIndex = 19;
+            this.label7.Text = ":";
+            // 
+            // toTimeMinutes
+            // 
+            this.toTimeMinutes.Location = new System.Drawing.Point(331, 121);
+            this.toTimeMinutes.Maximum = new decimal(new int[] {
+            59,
+            0,
+            0,
+            0});
+            this.toTimeMinutes.Name = "toTimeMinutes";
+            this.toTimeMinutes.Size = new System.Drawing.Size(33, 20);
+            this.toTimeMinutes.TabIndex = 18;
+            // 
+            // toTimeHours
+            // 
+            this.toTimeHours.Location = new System.Drawing.Point(285, 121);
+            this.toTimeHours.Maximum = new decimal(new int[] {
+            23,
+            0,
+            0,
+            0});
+            this.toTimeHours.Name = "toTimeHours";
+            this.toTimeHours.Size = new System.Drawing.Size(33, 20);
+            this.toTimeHours.TabIndex = 17;
+            // 
+            // fromTimeMinutes
+            // 
+            this.fromTimeMinutes.Location = new System.Drawing.Point(198, 121);
+            this.fromTimeMinutes.Maximum = new decimal(new int[] {
+            59,
+            0,
+            0,
+            0});
+            this.fromTimeMinutes.Name = "fromTimeMinutes";
+            this.fromTimeMinutes.Size = new System.Drawing.Size(33, 20);
+            this.fromTimeMinutes.TabIndex = 16;
+            // 
+            // fromTimeHours
+            // 
+            this.fromTimeHours.Location = new System.Drawing.Point(155, 121);
+            this.fromTimeHours.Maximum = new decimal(new int[] {
+            23,
+            0,
+            0,
+            0});
+            this.fromTimeHours.Name = "fromTimeHours";
+            this.fromTimeHours.Size = new System.Drawing.Size(33, 20);
+            this.fromTimeHours.TabIndex = 15;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(16, 123);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(68, 13);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Thời gian thi:";
+            // 
+            // numericTestPeriod
+            // 
+            this.numericTestPeriod.Location = new System.Drawing.Point(134, 89);
+            this.numericTestPeriod.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numericTestPeriod.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericTestPeriod.Name = "numericTestPeriod";
+            this.numericTestPeriod.Size = new System.Drawing.Size(72, 20);
+            this.numericTestPeriod.TabIndex = 13;
+            this.numericTestPeriod.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(16, 91);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(37, 13);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Ca thi:";
             // 
             // numericUpDownStudentCount
             // 
@@ -159,135 +283,11 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(105, 6);
+            this.label4.Location = new System.Drawing.Point(67, 6);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(159, 39);
+            this.label4.Size = new System.Drawing.Size(278, 39);
             this.label4.TabIndex = 8;
-            this.label4.Text = "Thông tin";
-            // 
-            // numericTestPeriod
-            // 
-            this.numericTestPeriod.Location = new System.Drawing.Point(134, 89);
-            this.numericTestPeriod.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.numericTestPeriod.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericTestPeriod.Name = "numericTestPeriod";
-            this.numericTestPeriod.Size = new System.Drawing.Size(72, 20);
-            this.numericTestPeriod.TabIndex = 13;
-            this.numericTestPeriod.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(16, 91);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(37, 13);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "Ca thi:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(16, 123);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(68, 13);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "Thời gian thi:";
-            // 
-            // fromTimeHours
-            // 
-            this.fromTimeHours.Location = new System.Drawing.Point(155, 121);
-            this.fromTimeHours.Maximum = new decimal(new int[] {
-            23,
-            0,
-            0,
-            0});
-            this.fromTimeHours.Name = "fromTimeHours";
-            this.fromTimeHours.Size = new System.Drawing.Size(33, 20);
-            this.fromTimeHours.TabIndex = 15;
-            // 
-            // fromTimeMinutes
-            // 
-            this.fromTimeMinutes.Location = new System.Drawing.Point(198, 121);
-            this.fromTimeMinutes.Maximum = new decimal(new int[] {
-            59,
-            0,
-            0,
-            0});
-            this.fromTimeMinutes.Name = "fromTimeMinutes";
-            this.fromTimeMinutes.Size = new System.Drawing.Size(33, 20);
-            this.fromTimeMinutes.TabIndex = 16;
-            // 
-            // toTimeMinutes
-            // 
-            this.toTimeMinutes.Location = new System.Drawing.Point(331, 121);
-            this.toTimeMinutes.Maximum = new decimal(new int[] {
-            59,
-            0,
-            0,
-            0});
-            this.toTimeMinutes.Name = "toTimeMinutes";
-            this.toTimeMinutes.Size = new System.Drawing.Size(33, 20);
-            this.toTimeMinutes.TabIndex = 18;
-            // 
-            // toTimeHours
-            // 
-            this.toTimeHours.Location = new System.Drawing.Point(285, 121);
-            this.toTimeHours.Maximum = new decimal(new int[] {
-            23,
-            0,
-            0,
-            0});
-            this.toTimeHours.Name = "toTimeHours";
-            this.toTimeHours.Size = new System.Drawing.Size(33, 20);
-            this.toTimeHours.TabIndex = 17;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(320, 124);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(10, 13);
-            this.label7.TabIndex = 19;
-            this.label7.Text = ":";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(188, 124);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(10, 13);
-            this.label8.TabIndex = 20;
-            this.label8.Text = ":";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(129, 124);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(20, 13);
-            this.label9.TabIndex = 20;
-            this.label9.Text = "Từ";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(247, 123);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(27, 13);
-            this.label10.TabIndex = 21;
-            this.label10.Text = "Đến";
+            this.label4.Text = "Thông tin buổi thi";
             // 
             // InformationSetup
             // 
@@ -306,12 +306,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStudentCount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericTestPeriod)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fromTimeHours)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fromTimeMinutes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.toTimeMinutes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.toTimeHours)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fromTimeMinutes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fromTimeHours)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericTestPeriod)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStudentCount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
