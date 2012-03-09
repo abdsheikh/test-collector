@@ -324,6 +324,132 @@
   <data name="panel1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
+  <data name="lblTimeToTest.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblTimeToTest.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
+  </data>
+  <data name="lblTimeToTest.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblTimeToTest.Location" type="System.Drawing.Point, System.Drawing">
+    <value>137, 90</value>
+  </data>
+  <data name="lblTimeToTest.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 13</value>
+  </data>
+  <data name="lblTimeToTest.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="lblTimeToTest.Text" xml:space="preserve">
+    <value>&lt;Chưa xác định&gt;</value>
+  </data>
+  <data name="&gt;&gt;lblTimeToTest.Name" xml:space="preserve">
+    <value>lblTimeToTest</value>
+  </data>
+  <data name="&gt;&gt;lblTimeToTest.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblTimeToTest.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;lblTimeToTest.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="label10.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label10.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 90</value>
+  </data>
+  <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 13</value>
+  </data>
+  <data name="label10.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="label10.Text" xml:space="preserve">
+    <value>Thời gian:</value>
+  </data>
+  <data name="&gt;&gt;label10.Name" xml:space="preserve">
+    <value>label10</value>
+  </data>
+  <data name="&gt;&gt;label10.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label10.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;label10.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblTestPeriod.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblTestPeriod.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
+  </data>
+  <data name="lblTestPeriod.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblTestPeriod.Location" type="System.Drawing.Point, System.Drawing">
+    <value>137, 63</value>
+  </data>
+  <data name="lblTestPeriod.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 13</value>
+  </data>
+  <data name="lblTestPeriod.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="lblTestPeriod.Text" xml:space="preserve">
+    <value>&lt;Chưa xác định&gt;</value>
+  </data>
+  <data name="&gt;&gt;lblTestPeriod.Name" xml:space="preserve">
+    <value>lblTestPeriod</value>
+  </data>
+  <data name="&gt;&gt;lblTestPeriod.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblTestPeriod.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;lblTestPeriod.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 63</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 13</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Ca thi:</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
   <data name="label6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -331,7 +457,7 @@
     <value>NoControl</value>
   </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 9</value>
+    <value>13, 9</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
     <value>52, 13</value>
@@ -352,7 +478,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>4</value>
   </data>
   <data name="lblStudentSum.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -364,7 +490,7 @@
     <value>NoControl</value>
   </data>
   <data name="lblStudentSum.Location" type="System.Drawing.Point, System.Drawing">
-    <value>135, 70</value>
+    <value>137, 117</value>
   </data>
   <data name="lblStudentSum.Size" type="System.Drawing.Size, System.Drawing">
     <value>103, 13</value>
@@ -385,7 +511,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;lblStudentSum.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>5</value>
   </data>
   <data name="label5.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -394,7 +520,7 @@
     <value>NoControl</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 40</value>
+    <value>13, 36</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>49, 13</value>
@@ -415,7 +541,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>6</value>
   </data>
   <data name="lblDate.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -427,7 +553,7 @@
     <value>NoControl</value>
   </data>
   <data name="lblDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>135, 40</value>
+    <value>137, 36</value>
   </data>
   <data name="lblDate.Size" type="System.Drawing.Size, System.Drawing">
     <value>103, 13</value>
@@ -448,7 +574,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;lblDate.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>7</value>
   </data>
   <data name="label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -457,7 +583,7 @@
     <value>NoControl</value>
   </data>
   <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 70</value>
+    <value>13, 117</value>
   </data>
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
     <value>94, 13</value>
@@ -478,7 +604,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>8</value>
   </data>
   <data name="lblSubject.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -490,7 +616,7 @@
     <value>NoControl</value>
   </data>
   <data name="lblSubject.Location" type="System.Drawing.Point, System.Drawing">
-    <value>135, 9</value>
+    <value>137, 9</value>
   </data>
   <data name="lblSubject.Size" type="System.Drawing.Size, System.Drawing">
     <value>103, 13</value>
@@ -511,7 +637,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;lblSubject.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>9</value>
   </data>
   <data name="label8.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -520,7 +646,7 @@
     <value>NoControl</value>
   </data>
   <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 98</value>
+    <value>13, 144</value>
   </data>
   <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
     <value>94, 13</value>
@@ -541,7 +667,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>10</value>
   </data>
   <data name="sentCount.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -553,7 +679,7 @@
     <value>NoControl</value>
   </data>
   <data name="sentCount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>135, 127</value>
+    <value>137, 171</value>
   </data>
   <data name="sentCount.Size" type="System.Drawing.Size, System.Drawing">
     <value>14, 13</value>
@@ -574,7 +700,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;sentCount.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>11</value>
   </data>
   <data name="connectCount.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -586,7 +712,7 @@
     <value>NoControl</value>
   </data>
   <data name="connectCount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>135, 98</value>
+    <value>137, 144</value>
   </data>
   <data name="connectCount.Size" type="System.Drawing.Size, System.Drawing">
     <value>14, 13</value>
@@ -607,7 +733,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;connectCount.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>12</value>
   </data>
   <data name="label9.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -616,7 +742,7 @@
     <value>NoControl</value>
   </data>
   <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 127</value>
+    <value>13, 171</value>
   </data>
   <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
     <value>122, 13</value>
@@ -637,13 +763,13 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>13</value>
   </data>
   <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
     <value>10, 19</value>
   </data>
   <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>255, 149</value>
+    <value>255, 200</value>
   </data>
   <data name="panel1.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
@@ -888,6 +1014,9 @@
   <metadata name="saveFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>132, 17</value>
   </metadata>
+  <data name="saveFileDialog1.Filter" xml:space="preserve">
+    <value>Microsoft Excel files|*.xls</value>
+  </data>
   <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>268, 17</value>
   </metadata>
@@ -931,7 +1060,7 @@
     <value>1099, 685</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>ServerUI</value>
+    <value>Phần mềm thu bài thi</value>
   </data>
   <data name="&gt;&gt;hệThốngToolStripMenuItem.Name" xml:space="preserve">
     <value>hệThốngToolStripMenuItem</value>

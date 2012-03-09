@@ -23,6 +23,9 @@ namespace FT_Server_Win
         private string m_Subject = String.Empty;
         private DateTime m_Date = DateTime.Now;
         private int m_StudentSum = 0;
+        private Clocker m_FromTime;
+        private Clocker m_ToTime;
+        private int m_TestPeriod = 1;
         #endregion
 
         public ServerUI()
@@ -45,6 +48,9 @@ namespace FT_Server_Win
             socketControl = new ServerSocketControl();
             socketControl.OutputPath = @"D:\save";
             socketControl.SaveConfiguration();
+
+            m_FromTime = new Clocker();
+            m_ToTime = new Clocker();
 
             if (socketControl.m_ServerSocketObject.isRunning())
             {
@@ -363,18 +369,23 @@ namespace FT_Server_Win
 
         }
 
-        public void setClassInformation(string subject, DateTime date, int sumOfStudent)
+        public void setClassInformation(string subject, DateTime date, int testPeriod, int sumOfStudent, Clocker fromTime, Clocker toTime)
         {
             lblSubject.Text = m_Subject = subject;
             m_Date = date;
             m_StudentSum = sumOfStudent;
             lblDate.Text = String.Format("{0}/{1}/{2}", m_Date.Day, m_Date.Month, m_Date.Year);
             lblStudentSum.Text = m_StudentSum.ToString();
+            m_FromTime = fromTime;
+            m_ToTime = toTime;
+            m_TestPeriod = testPeriod;
+            lblTestPeriod.Text = m_TestPeriod.ToString();
+            lblTimeToTest.Text = String.Format("Từ {0}:{1} đến {2}:{3}", m_FromTime.Hours, m_FromTime.Minutes, m_ToTime.Hours, m_ToTime.Minutes);
         }
 
         private void thiếtLậpThôngTinToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            InformationSetup form = new InformationSetup(setClassInformation, m_Subject, m_Date, m_StudentSum);
+            InformationSetup form = new InformationSetup(setClassInformation, m_Subject, m_Date, m_TestPeriod, m_StudentSum, m_FromTime, m_ToTime);
             form.ShowDialog();
         }
 

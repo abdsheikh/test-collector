@@ -49,6 +49,10 @@
             this.rightPanel = new System.Windows.Forms.GroupBox();
             this.lblStartedTime = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblTimeToTest = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.lblTestPeriod = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lblStudentSum = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -225,6 +229,10 @@
             // 
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.lblTimeToTest);
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.lblTestPeriod);
+            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.lblStudentSum);
             this.panel1.Controls.Add(this.label5);
@@ -236,6 +244,26 @@
             this.panel1.Controls.Add(this.connectCount);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Name = "panel1";
+            // 
+            // lblTimeToTest
+            // 
+            resources.ApplyResources(this.lblTimeToTest, "lblTimeToTest");
+            this.lblTimeToTest.Name = "lblTimeToTest";
+            // 
+            // label10
+            // 
+            resources.ApplyResources(this.label10, "label10");
+            this.label10.Name = "label10";
+            // 
+            // lblTestPeriod
+            // 
+            resources.ApplyResources(this.lblTestPeriod, "lblTestPeriod");
+            this.lblTestPeriod.Name = "lblTestPeriod";
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
             // 
             // label6
             // 
@@ -332,6 +360,10 @@
             resources.ApplyResources(this.lblSaveFolder, "lblSaveFolder");
             this.lblSaveFolder.Name = "lblSaveFolder";
             // 
+            // saveFileDialog1
+            // 
+            resources.ApplyResources(this.saveFileDialog1, "saveFileDialog1");
+            // 
             // toolStrip1
             // 
             resources.ApplyResources(this.toolStrip1, "toolStrip1");
@@ -419,5 +451,10 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblStartedTime;
         private System.Windows.Forms.Timer startedTimer;
+        private System.Windows.Forms.Label lblTimeToTest;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label testPeriod;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblTestPeriod;
     }
 }
