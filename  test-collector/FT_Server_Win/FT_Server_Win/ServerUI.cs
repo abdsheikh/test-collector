@@ -13,6 +13,8 @@ namespace FT_Server_Win
 {
     public partial class ServerUI : Form
     {
+        private const string NOT_IDENTIFIED = "<Chưa xác định>";
+
         private DataRow[] m_ClientList;
         DataTable clientData;
         ServerSocketControl socketControl;
@@ -32,15 +34,7 @@ namespace FT_Server_Win
         {
             InitializeComponent();
 
-            //Init
-            //gridViewClientList.Anchor = AnchorStyles.Left;
-            //toolStrip1.Dock = DockStyle.Top;
-            //gridViewClientList.Dock = DockStyle.Left;
-            //rightPanel.Dock = DockStyle.Left;
-
             InitFormSize();
-            
-
 
             CheckForIllegalCrossThreadCalls = false;
             clientData = Extension.CreateDataTableWithHeader();
@@ -61,6 +55,7 @@ namespace FT_Server_Win
                 imgServer.Image = Properties.Resources.stopped;
             }
 
+            ResetInformation();
         }
 
         private void InitFormSize()
@@ -182,8 +177,14 @@ namespace FT_Server_Win
 
         private void ServerUI_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (socketControl.m_ServerSocketObject.isRunning())
+            //if (socketControl.m_ServerSocketObject.isRunning())
+            try
+            {
                 socketControl.m_ServerSocketObject.StopServer();
+            }
+            catch (Exception exception)
+            {
+            }
         }
 
         private void càiĐặtKếtNốiToolStripMenuItem_Click(object sender, EventArgs e)
@@ -380,7 +381,7 @@ namespace FT_Server_Win
             m_ToTime = toTime;
             m_TestPeriod = testPeriod;
             lblTestPeriod.Text = m_TestPeriod.ToString();
-            lblTimeToTest.Text = String.Format("Từ {0}:{1} đến {2}:{3}", m_FromTime.Hours, m_FromTime.Minutes, m_ToTime.Hours, m_ToTime.Minutes);
+            lblTimeToTest.Text = String.Format("Từ {0}:{1} đến {2}:{3}", m_FromTime.Hours >= 10 ? m_FromTime.Hours.ToString() : "0" + m_FromTime.Hours.ToString(), m_FromTime.Minutes >= 10 ? m_FromTime.Minutes.ToString() : "0" + m_FromTime.Minutes.ToString(), m_ToTime.Hours >= 10 ? m_ToTime.Hours.ToString() : "0" + m_ToTime.Hours.ToString(), m_ToTime.Minutes >= 10 ? m_ToTime.Minutes.ToString() : "0" + m_ToTime.Minutes.ToString());
         }
 
         private void thiếtLậpThôngTinToolStripMenuItem_Click(object sender, EventArgs e)
@@ -434,6 +435,33 @@ namespace FT_Server_Win
         {
             m_clock.AddSecond();
             lblStartedTime.Text = m_clock.GetTimeText();
+        }
+
+        private void buổiThiMớiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Khởi tạo buổi thi mới sẽ xóa tất cả thông tin của buổi thi trước. Tạo buổi thi mới?","Xác nhận tạo buổi thi mới", MessageBoxButtons.YesNo,MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.Yes)
+            ResetInformation();
+        }
+
+        public void ResetInformation()
+        {
+            socketControl.m_ServerSocketObject.clientItemList = new List<ClientItem>();
+            clientData.Clear();
+            gridViewClientList.DataSource = clientData;
+            lblSaveFolder.Text = "Nhấn \"Chọn thư mục\" để xác định thư mục lưu bài làm";
+            btnViewFolder.Enabled = false;
+            isSelectedFolder = false;
+
+            m_Subject = String.Empty;
+            m_StudentSum = 0;
+            lblTimeToTest.Text = NOT_IDENTIFIED;
+            lblStudentSum.Text = NOT_IDENTIFIED;
+            lblTestPeriod.Text = NOT_IDENTIFIED;
+            lblTimeToTest.Text = NOT_IDENTIFIED;
+            imgServer.Image = Properties.Resources.stopped;
+            startedTimer.Enabled = false;
+            InformationSetup form = new InformationSetup(setClassInformation, m_Subject, m_Date, m_TestPeriod, m_StudentSum, m_FromTime, m_ToTime);
+            form.ShowDialog();
         }
     }
 }

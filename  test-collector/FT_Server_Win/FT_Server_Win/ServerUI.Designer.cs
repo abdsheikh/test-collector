@@ -73,6 +73,7 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.startedTimer = new System.Windows.Forms.Timer(this.components);
+            this.buổiThiMớiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewClientList)).BeginInit();
             this.rowContextMenu.SuspendLayout();
@@ -94,6 +95,7 @@
             // hệThốngToolStripMenuItem
             // 
             this.hệThốngToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.buổiThiMớiToolStripMenuItem,
             this.bậtKếtNốiToolStripMenuItem,
             this.ngắtKếtNốiToolStripMenuItem,
             this.càiĐặtKếtNốiToolStripMenuItem,
@@ -375,6 +377,12 @@
             this.startedTimer.Interval = 1000;
             this.startedTimer.Tick += new System.EventHandler(this.startedTimer_Tick);
             // 
+            // buổiThiMớiToolStripMenuItem
+            // 
+            this.buổiThiMớiToolStripMenuItem.Name = "buổiThiMớiToolStripMenuItem";
+            resources.ApplyResources(this.buổiThiMớiToolStripMenuItem, "buổiThiMớiToolStripMenuItem");
+            this.buổiThiMớiToolStripMenuItem.Click += new System.EventHandler(this.buổiThiMớiToolStripMenuItem_Click);
+            // 
             // ServerUI
             // 
             resources.ApplyResources(this, "$this");
@@ -456,5 +464,6 @@
         private System.Windows.Forms.Label testPeriod;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblTestPeriod;
+        private System.Windows.Forms.ToolStripMenuItem buổiThiMớiToolStripMenuItem;
     }
 }
