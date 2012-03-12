@@ -34,13 +34,22 @@ namespace FT_Server_Win
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string subject = txtSubject.Text;
-            DateTime date = dateTimeDate.Value;
-            int studentSum = (int)numericUpDownStudentCount.Value;
             Clocker fromTime = new Clocker((int)fromTimeHours.Value, (int)fromTimeMinutes.Value, 0);
             Clocker toTime = new Clocker((int)toTimeHours.Value, (int)toTimeMinutes.Value, 0);
+            if (toTime.IsLargerThan(fromTime))
+            {
+                string subject = txtSubject.Text;
+                DateTime date = dateTimeDate.Value;
+                int studentSum = (int)numericUpDownStudentCount.Value;
 
-            setValueFunction(subject, date, (int)numericTestPeriod.Value, studentSum, fromTime, toTime);
+                setValueFunction(subject, date, (int)numericTestPeriod.Value, studentSum, fromTime, toTime);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Thời gian bắt đầu phải nhỏ hơn thời gian kết thúc!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
         }
 
         private void dateTimeDate_ValueChanged(object sender, EventArgs e)
