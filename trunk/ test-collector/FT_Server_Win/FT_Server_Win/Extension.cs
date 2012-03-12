@@ -201,6 +201,13 @@ namespace FT_Server_Win
                 hour = "0" + hour;
             return String.Format("{0}:{1}:{2}", hour, minute, second);
         }
+
+        public bool IsLargerThan(Clocker clocker)
+        {
+            if (m_Hours < clocker.m_Hours || (m_Hours == clocker.m_Hours && m_Minutes <= clocker.m_Minutes))
+                return false;
+            return true;
+        }
     }
 #endregion
 }

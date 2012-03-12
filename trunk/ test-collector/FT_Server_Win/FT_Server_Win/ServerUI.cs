@@ -185,6 +185,11 @@ namespace FT_Server_Win
             catch (Exception exception)
             {
             }
+            finally
+            {
+                this.Dispose();
+            }
+
         }
 
         private void càiĐặtKếtNốiToolStripMenuItem_Click(object sender, EventArgs e)
