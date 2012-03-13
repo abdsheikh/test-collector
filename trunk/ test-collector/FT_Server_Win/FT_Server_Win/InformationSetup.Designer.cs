@@ -254,7 +254,7 @@
             // 
             // dateTimeDate
             // 
-            this.dateTimeDate.CustomFormat = "dd/mm/yyyy";
+            this.dateTimeDate.CustomFormat = "";
             this.dateTimeDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimeDate.Location = new System.Drawing.Point(134, 48);
             this.dateTimeDate.Name = "dateTimeDate";

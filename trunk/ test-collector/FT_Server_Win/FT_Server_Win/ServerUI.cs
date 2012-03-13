@@ -8,6 +8,8 @@ using System.Windows.Forms;
 using System.Threading;
 using System.Net;
 using COMExcel = Microsoft.Office.Interop.Excel;
+using CarlosAg.ExcelXmlWriter;
+using System.IO;
 
 namespace FT_Server_Win
 {
@@ -261,75 +263,163 @@ namespace FT_Server_Win
 
         private void xuấtDanhSáchToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            COMExcel.Application exApp = new COMExcel.ApplicationClass();
-            object misvalue = System.Reflection.Missing.Value;
-            COMExcel.Workbook exBook = exApp.Workbooks.Add(misvalue);
-            exApp.Visible = false;
-
-            COMExcel.Worksheet exSheet = (COMExcel.Worksheet)exBook.Worksheets.get_Item(1);
-
-            //Trình Bày Tiêu Đề
-            int row = 1;
-            string[] tieude = { "STT", "MSSV", "Họ và tên","Ngày sinh","Tình trạng nộp bài"};
-            exSheet.Cells[row, 1] = "Danh sách Thi";
-            row++;
-            exSheet.Cells[row, 1] = "Môn thi: ";
-            exSheet.Cells[row, 2] = m_Subject;
-
-            row++;
-            exSheet.Cells[row, 1] = "Ngày thi: ";
-            exSheet.Cells[row, 2] = m_Date;
-
-            row++;
-            exSheet.Cells[row, 1] = "Tổng số thí sinh: ";
-            exSheet.Cells[row, 2] = m_StudentSum;
-
-            row++;
-            exSheet.Cells[row, 1] = "Số thí sinh sự thi: ";
-            exSheet.Cells[row, 2] = connectCount.Text;
-
-            row++;
-            exSheet.Cells[row, 1] = "Số thí sinh nộp bài: ";
-            exSheet.Cells[row, 2] = sentCount.Text;
-
-            row += 2;
-            for (int i = 0; i < tieude.Length; i++)
-                exSheet.Cells[row, i + 1] = tieude[i];
-
-
-            for (int i = 1; i <= gridViewClientList.RowCount; i++)
-            //for (int j = 1; j <= gridViewClientList.ColumnCount; j++)
-            {
-                exSheet.Cells[i + row, 1] = gridViewClientList.Rows[i - 1].Cells[Extension.COLUMN_ITEMINDEX].Value;
-                exSheet.Cells[i + row, 2] = gridViewClientList.Rows[i - 1].Cells[Extension.COLUMN_STUDENTID].Value;
-                exSheet.Cells[i + row, 3] = gridViewClientList.Rows[i - 1].Cells[Extension.COLUMN_STUDENTNAME].Value;
-                exSheet.Cells[i + row, 4] = gridViewClientList.Rows[i - 1].Cells[Extension.COLUMN_BIRTHDAY].Value;
-                string submitStatus = "Chưa gửi";
-                int submitTimes =(int)gridViewClientList.Rows[i - 1].Cells[Extension.COLUMN_SUBMITTIMES].Value;
-                if (submitTimes > 0)
-                    submitStatus = "Đã gửi";
-                exSheet.Cells[i + row, 5] = submitStatus ;
-                //exSheet.Cells[i + row, j] = gridViewClientList.Rows[i - 1].Cells[j - 1].Value;
-            }
-
-            if ((saveFileDialog1.ShowDialog() == DialogResult.OK) && (saveFileDialog1.FileName.Length != 0))
+            if (saveFileDialog1.ShowDialog() != System.Windows.Forms.DialogResult.Cancel && saveFileDialog1.CheckPathExists)
             {
                 try
                 {
-                    exBook.SaveAs(saveFileDialog1.FileName, COMExcel.XlFileFormat.xlWorkbookNormal, misvalue, misvalue, misvalue, misvalue, COMExcel.XlSaveAsAccessMode.xlExclusive, misvalue, misvalue, misvalue, misvalue, misvalue);
-                    MessageBox.Show("Ghi file thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    exBook.Close(true, misvalue, misvalue);
-                    exApp.Quit();
+                    // Create the workbook
+                    Workbook book = new Workbook();
 
-                    releaseObject(exSheet);
-                    releaseObject(exBook);
-                    releaseObject(exApp);
+                    // Set the author
+                    book.Properties.Author = "Phần mềm thu bài thi qua mạng LAN";
+
+                    // Add some style
+                    WorksheetStyle style = book.Styles.Add("style1");
+                    style.Font.Bold = true;
+                    //WorksheetStyleBorder border = style.Borders.Add();
+                    //border.LineStyle = LineStyleOption.Continuous;
+                    //border.Weight = 800;
+
+                    //WorksheetStyle titleStyle = book.Styles.Add("HeaderStyle");
+                    //titleStyle.Font.Size = 16;
+                    //titleStyle.Font.Bold = true;
+
+                    //WorksheetStyle tableStyle = book.Styles.Add("tableStyle");
+                    //tableStyle.Borders.Add(StylePosition.NotSet, LineStyleOption.Dash, 300);
+
+                    Worksheet sheet = book.Worksheets.Add("SampleSheet");
+
+                    WorksheetRow dataRow;
+
+                    dataRow = sheet.Table.Rows.Add();
+                    // Add a cell
+                    dataRow.Cells.Add("Thống kê nộp bài thi", DataType.String, "style1");
+
+                    dataRow = sheet.Table.Rows.Add();
+                    dataRow.Cells.Add("Môn thi:", DataType.String, "style1");
+                    dataRow.Cells.Add(m_Subject, DataType.String, "style1");
+
+                    dataRow = sheet.Table.Rows.Add();
+                    dataRow.Cells.Add("Ngày thi:", DataType.String, "style1");
+                    dataRow.Cells.Add(m_Date.ToString(), DataType.String, "style1");
+
+                    dataRow = sheet.Table.Rows.Add();
+                    dataRow.Cells.Add("Ca thi:", DataType.String, "style1");
+                    dataRow.Cells.Add(m_TestPeriod.ToString(), DataType.String, "style1");
+
+                    dataRow = sheet.Table.Rows.Add();
+                    dataRow.Cells.Add("Tổng số thí sinh:", DataType.String, "style1");
+                    dataRow.Cells.Add(m_StudentSum.ToString(), DataType.String, "style1");
+
+                    dataRow = sheet.Table.Rows.Add();
+                    dataRow.Cells.Add("Số thí sinh dự thi:", DataType.String, "style1");
+                    dataRow.Cells.Add(connectCount.Text, DataType.String, "style1");
+
+                    dataRow = sheet.Table.Rows.Add();
+                    dataRow.Cells.Add("Số thí sinh nộp bài:", DataType.String, "style1");
+                    dataRow.Cells.Add(sentCount.Text, DataType.String, "style1");
+
+                    sheet.Table.Rows.Add();
+
+                    dataRow = sheet.Table.Rows.Add();
+                    dataRow.Cells.Add("STT", DataType.String, "style1");
+                    dataRow.Cells.Add("MSSV", DataType.String, "style1");
+                    dataRow.Cells.Add("Họ Và Tên", DataType.String, "style1");
+                    dataRow.Cells.Add("Ngày Sinh", DataType.String, "style1");
+                    dataRow.Cells.Add("Tình trạng nộp bài", DataType.String, "style1");
+
+                    foreach (DataGridViewRow row in gridViewClientList.Rows)
+                    {
+                        dataRow = sheet.Table.Rows.Add();
+                        dataRow.Cells.Add(row.Cells[Extension.COLUMN_ITEMINDEX].Value.ToString(), DataType.String, "style1");
+                        dataRow.Cells.Add(row.Cells[Extension.COLUMN_STUDENTID].Value.ToString(), DataType.String, "style1");
+                        dataRow.Cells.Add(row.Cells[Extension.COLUMN_STUDENTNAME].Value.ToString(), DataType.String, "style1");
+                        dataRow.Cells.Add(row.Cells[Extension.COLUMN_BIRTHDAY].Value.ToString(), DataType.String, "style1");
+                        string submitStatus = "Chưa gửi";
+                        int submitTimes = (int)row.Cells[Extension.COLUMN_SUBMITTIMES].Value;
+                        if (submitTimes > 0)
+                            submitStatus = "Đã gửi";
+                        dataRow.Cells.Add(submitStatus, DataType.String, "style1");
+                        //exSheet.Cells[i + row, j] = gridViewClientList.Rows[i - 1].Cells[j - 1].Value;
+                    }
+                    // Save it             
+                    book.Save(saveFileDialog1.FileName);
                 }
-                catch (Exception ex)
+                catch (Exception exception)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("Không thể ghi file!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                MessageBox.Show("Ghi dữ liệu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            //COMExcel.Application exApp = new COMExcel.ApplicationClass();
+            //object misvalue = System.Reflection.Missing.Value;
+            //COMExcel.Workbook exBook = exApp.Workbooks.Add(misvalue);
+            //exApp.Visible = false;
+
+            //COMExcel.Worksheet exSheet = (COMExcel.Worksheet)exBook.Worksheets.get_Item(1);
+
+            ////Trình Bày Tiêu Đề
+            //int row = 1;
+            //string[] tieude = { "STT", "MSSV", "Họ và tên","Ngày sinh","Tình trạng nộp bài"};
+            //exSheet.Cells[row, 1] = "Danh sách Thi";
+            //row++;
+            //exSheet.Cells[row, 1] = "Môn thi: ";
+            //exSheet.Cells[row, 2] = m_Subject;
+
+            //row++;
+            //exSheet.Cells[row, 1] = "Ngày thi: ";
+            //exSheet.Cells[row, 2] = m_Date;
+
+            //row++;
+            //exSheet.Cells[row, 1] = "Tổng số thí sinh: ";
+            //exSheet.Cells[row, 2] = m_StudentSum;
+
+            //row++;
+            //exSheet.Cells[row, 1] = "Số thí sinh sự thi: ";
+            //exSheet.Cells[row, 2] = connectCount.Text;
+
+            //row++;
+            //exSheet.Cells[row, 1] = "Số thí sinh nộp bài: ";
+            //exSheet.Cells[row, 2] = sentCount.Text;
+
+            //row += 2;
+            //for (int i = 0; i < tieude.Length; i++)
+            //    exSheet.Cells[row, i + 1] = tieude[i];
+
+
+            //for (int i = 1; i <= gridViewClientList.RowCount; i++)
+            ////for (int j = 1; j <= gridViewClientList.ColumnCount; j++)
+            //{
+            //    exSheet.Cells[i + row, 1] = gridViewClientList.Rows[i - 1].Cells[Extension.COLUMN_ITEMINDEX].Value;
+            //    exSheet.Cells[i + row, 2] = gridViewClientList.Rows[i - 1].Cells[Extension.COLUMN_STUDENTID].Value;
+            //    exSheet.Cells[i + row, 3] = gridViewClientList.Rows[i - 1].Cells[Extension.COLUMN_STUDENTNAME].Value;
+            //    exSheet.Cells[i + row, 4] = gridViewClientList.Rows[i - 1].Cells[Extension.COLUMN_BIRTHDAY].Value;
+            //    string submitStatus = "Chưa gửi";
+            //    int submitTimes =(int)gridViewClientList.Rows[i - 1].Cells[Extension.COLUMN_SUBMITTIMES].Value;
+            //    if (submitTimes > 0)
+            //        submitStatus = "Đã gửi";
+            //    exSheet.Cells[i + row, 5] = submitStatus ;
+            //    //exSheet.Cells[i + row, j] = gridViewClientList.Rows[i - 1].Cells[j - 1].Value;
+            //}
+
+            //if ((saveFileDialog1.ShowDialog() == DialogResult.OK) && (saveFileDialog1.FileName.Length != 0))
+            //{
+            //    try
+            //    {
+            //        exBook.SaveAs(saveFileDialog1.FileName, COMExcel.XlFileFormat.xlWorkbookNormal, misvalue, misvalue, misvalue, misvalue, COMExcel.XlSaveAsAccessMode.xlExclusive, misvalue, misvalue, misvalue, misvalue, misvalue);
+            //        MessageBox.Show("Ghi file thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //        exBook.Close(true, misvalue, misvalue);
+            //        exApp.Quit();
+
+            //        releaseObject(exSheet);
+            //        releaseObject(exBook);
+            //        releaseObject(exApp);
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show(ex.Message);
+            //    }
+            //}
         }
 
         private void releaseObject(object obj)
