@@ -23,7 +23,7 @@ namespace FT_Server_Win
             InitializeComponent();
             setValueFunction = setValue;
             txtSubject.Text = subject;
-            dateTimeDate.Value = date;
+            dateTimePickerDate.Value = date;
             numericUpDownStudentCount.Value = sumOfStudent;
             fromTimeHours.Value = fromTime.Hours;
             fromTimeMinutes.Value = fromTime.Minutes;
@@ -39,7 +39,7 @@ namespace FT_Server_Win
             if (toTime.IsLargerThan(fromTime))
             {
                 string subject = txtSubject.Text;
-                DateTime date = dateTimeDate.Value;
+                DateTime date = dateTimePickerDate.Value;
                 int studentSum = (int)numericUpDownStudentCount.Value;
 
                 setValueFunction(subject, date, (int)numericTestPeriod.Value, studentSum, fromTime, toTime);
