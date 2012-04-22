@@ -7,7 +7,6 @@ using System.Text;
 using System.Windows.Forms;
 using System.Threading;
 using System.Net;
-using COMExcel = Microsoft.Office.Interop.Excel;
 using CarlosAg.ExcelXmlWriter;
 using System.IO;
 
@@ -21,6 +20,7 @@ namespace FT_Server_Win
         DataTable clientData;
         ServerSocketControl socketControl;
         bool isSelectedFolder = false;
+        bool firstRun = true;
         Clocker m_clock;
 
         #region Class Information
@@ -276,16 +276,7 @@ namespace FT_Server_Win
                     // Add some style
                     WorksheetStyle style = book.Styles.Add("style1");
                     style.Font.Bold = true;
-                    //WorksheetStyleBorder border = style.Borders.Add();
-                    //border.LineStyle = LineStyleOption.Continuous;
-                    //border.Weight = 800;
-
-                    //WorksheetStyle titleStyle = book.Styles.Add("HeaderStyle");
-                    //titleStyle.Font.Size = 16;
-                    //titleStyle.Font.Bold = true;
-
-                    //WorksheetStyle tableStyle = book.Styles.Add("tableStyle");
-                    //tableStyle.Borders.Add(StylePosition.NotSet, LineStyleOption.Dash, 300);
+                 
 
                     Worksheet sheet = book.Worksheets.Add("SampleSheet");
 
@@ -305,7 +296,8 @@ namespace FT_Server_Win
 
                     dataRow = sheet.Table.Rows.Add();
                     dataRow.Cells.Add("Ca thi:", DataType.String, "style1");
-                    dataRow.Cells.Add(m_TestPeriod.ToString(), DataType.String, "style1");
+                    string strPeriodRange = " ( Từ " + m_FromTime.GetTimeText() + " đến " + m_ToTime.GetTimeText() + ")";
+                    dataRow.Cells.Add(m_TestPeriod.ToString() +  strPeriodRange, DataType.String, "style1");
 
                     dataRow = sheet.Table.Rows.Add();
                     dataRow.Cells.Add("Tổng số thí sinh:", DataType.String, "style1");
@@ -555,8 +547,15 @@ namespace FT_Server_Win
             lblTimeToTest.Text = NOT_IDENTIFIED;
             imgServer.Image = Properties.Resources.stopped;
             startedTimer.Enabled = false;
-            InformationSetup form = new InformationSetup(setClassInformation, m_Subject, m_Date, m_TestPeriod, m_StudentSum, m_FromTime, m_ToTime);
-            form.ShowDialog();
+            if (firstRun)
+            {
+                firstRun = false;
+            }
+            else
+            {
+                InformationSetup form = new InformationSetup(setClassInformation, m_Subject, m_Date, m_TestPeriod, m_StudentSum, m_FromTime, m_ToTime);
+                form.ShowDialog();
+            }
         }
     }
 }
