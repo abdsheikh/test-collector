@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using ClientSockets.Synchronous.UsingByteArray;
 using System.IO;
 using System.Net;
+using System.Threading;
 
 namespace FT_Client
 {
@@ -226,7 +227,21 @@ namespace FT_Client
             else
             {
                 button3.BackgroundImage = Properties.Resources.connect;
+                label1.Text = "Đã ngắt kết nối";
             }
+           
+        }
+        private void DeleteItemFile()
+        {
+            int indexitem = lbFiles.SelectedIndex;
+            if (indexitem >= 0 && indexitem <= lbFiles.Items.Count)
+                lbFiles.Items.RemoveAt(indexitem);
+            if (indexitem == lbFiles.Items.Count)
+            {
+                indexitem = 0;
+            }
+
+            if (lbFiles.Items.Count > 0) lbFiles.SelectedIndex = indexitem;
         }
         #endregion
 #region  Event function...
@@ -303,10 +318,8 @@ namespace FT_Client
         }        
         private void deleteFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int indexitem = lbFiles.SelectedIndex;
-            if(indexitem>0&&indexitem<=lbFiles.Items.Count)
-            lbFiles.Items.RemoveAt(lbFiles.SelectedIndex);
-        }
+            DeleteItemFile();
+        }      
 
         private void deleteAllFilesToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -461,9 +474,47 @@ namespace FT_Client
             objClient.SetFileName(outputZipFiles);
             objClient.SendFileToServer("", "");
             label1.Text = objClient.Status;
+            Thread.Sleep(1000);
             ChangeStatusBackImageConnectServer();
-        }
-        #endregion 
+            this.Refresh();
 
+        }
+        public void CleanAllInfo()
+        {
+            if (MessageBox.Show("Bạn muốn xóa thông tin của mình?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                txtMaSV.Text = "";
+                txtHoTen.Text = "";
+                lbFiles.Items.Clear();
+            }
+            this.Refresh();
+        }
+        private void addFilesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog op = new OpenFileDialog();
+            op.Multiselect = true;
+            if (op.ShowDialog() == DialogResult.OK)
+            {
+                //lbFileName.Text = op.FileName;
+                foreach (string file in op.FileNames)
+                {
+                    if (uClient.checkFileType(file))
+                        lbFiles.Items.Add(file);
+                }
+            }
+        }
+        private void lbFiles_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                DeleteItemFile();
+            }
+        }
+        #endregion                         
+
+        private void btReset_Click(object sender, EventArgs e)
+        {
+            CleanAllInfo();
+        }
     }
 }
