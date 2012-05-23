@@ -326,10 +326,10 @@ namespace FT_Client
             lbFiles.Items.Clear();
         }
 
-        private void zipFilesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ZipFilesToSend();
-        }
+        //private void zipFilesToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    ZipFilesToSend();
+        //}
 
         private void txtSendPort_KeyPress(object sender, KeyPressEventArgs e)
         {

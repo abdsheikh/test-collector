@@ -40,9 +40,8 @@
             this.lbFiles = new System.Windows.Forms.ListBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.zipFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteAllFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteAllFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button3 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -51,7 +50,11 @@
             this.btnSend = new System.Windows.Forms.Button();
             this.tabInfoSv = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btReset = new System.Windows.Forms.Button();
             this.bdayStudent = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -66,9 +69,6 @@
             this.ConnectSettingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ThoatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.btReset = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.gbClientSetting.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -179,39 +179,31 @@
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addFilesToolStripMenuItem,
-            this.zipFilesToolStripMenuItem,
-            this.deleteAllFilesToolStripMenuItem,
-            this.deleteFileToolStripMenuItem});
+            this.deleteFileToolStripMenuItem,
+            this.deleteAllFilesToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(127, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(178, 70);
             // 
             // addFilesToolStripMenuItem
             // 
             this.addFilesToolStripMenuItem.Name = "addFilesToolStripMenuItem";
             this.addFilesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.addFilesToolStripMenuItem.Text = "Add Files";
+            this.addFilesToolStripMenuItem.Text = "Thêm Files";
             this.addFilesToolStripMenuItem.Click += new System.EventHandler(this.addFilesToolStripMenuItem_Click);
-            // 
-            // zipFilesToolStripMenuItem
-            // 
-            this.zipFilesToolStripMenuItem.Name = "zipFilesToolStripMenuItem";
-            this.zipFilesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.zipFilesToolStripMenuItem.Text = "Zip Files";
-            this.zipFilesToolStripMenuItem.Click += new System.EventHandler(this.zipFilesToolStripMenuItem_Click);
-            // 
-            // deleteAllFilesToolStripMenuItem
-            // 
-            this.deleteAllFilesToolStripMenuItem.Name = "deleteAllFilesToolStripMenuItem";
-            this.deleteAllFilesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.deleteAllFilesToolStripMenuItem.Text = "Clear Box";
-            this.deleteAllFilesToolStripMenuItem.Click += new System.EventHandler(this.deleteAllFilesToolStripMenuItem_Click);
             // 
             // deleteFileToolStripMenuItem
             // 
             this.deleteFileToolStripMenuItem.Name = "deleteFileToolStripMenuItem";
             this.deleteFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.deleteFileToolStripMenuItem.Text = "Delete file";
+            this.deleteFileToolStripMenuItem.Text = "Xóa File";
             this.deleteFileToolStripMenuItem.Click += new System.EventHandler(this.deleteFileToolStripMenuItem_Click);
+            // 
+            // deleteAllFilesToolStripMenuItem
+            // 
+            this.deleteAllFilesToolStripMenuItem.Name = "deleteAllFilesToolStripMenuItem";
+            this.deleteAllFilesToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.deleteAllFilesToolStripMenuItem.Text = "Xóa danh sách Files";
+            this.deleteAllFilesToolStripMenuItem.Click += new System.EventHandler(this.deleteAllFilesToolStripMenuItem_Click);
             // 
             // button3
             // 
@@ -288,6 +280,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label13);
             this.tabPage1.Controls.Add(this.label12);
             this.tabPage1.Controls.Add(this.label11);
             this.tabPage1.Controls.Add(this.groupBox3);
@@ -298,6 +291,36 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Thông tin Sinh Viên";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(32, 304);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(240, 15);
+            this.label13.TabIndex = 3;
+            this.label13.Text = "  để xóa thông tin cá nhân của mình.";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(6, 286);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(306, 15);
+            this.label12.TabIndex = 2;
+            this.label12.Text = " thí sinh vui lòng nhấn  \"Xóa thông tin cá nhân\"";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(94, 263);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(137, 15);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "KẾT THÚC BUỔI THI";
             // 
             // groupBox3
             // 
@@ -314,6 +337,16 @@
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Thông tin";
+            // 
+            // btReset
+            // 
+            this.btReset.Location = new System.Drawing.Point(170, 165);
+            this.btReset.Name = "btReset";
+            this.btReset.Size = new System.Drawing.Size(91, 36);
+            this.btReset.TabIndex = 9;
+            this.btReset.Text = "Xóa thông tin cá nhân";
+            this.btReset.UseVisualStyleBackColor = true;
+            this.btReset.Click += new System.EventHandler(this.btReset_Click);
             // 
             // bdayStudent
             // 
@@ -432,36 +465,6 @@
             this.groupBox4.TabIndex = 11;
             this.groupBox4.TabStop = false;
             // 
-            // btReset
-            // 
-            this.btReset.Location = new System.Drawing.Point(170, 165);
-            this.btReset.Name = "btReset";
-            this.btReset.Size = new System.Drawing.Size(91, 36);
-            this.btReset.TabIndex = 9;
-            this.btReset.Text = "Reset All";
-            this.btReset.UseVisualStyleBackColor = true;
-            this.btReset.Click += new System.EventHandler(this.btReset_Click);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(3, 263);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(317, 15);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "Kết thúc buổi thi, thí sinh vui lòng nhấn Reset All";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(35, 285);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(236, 15);
-            this.label12.TabIndex = 2;
-            this.label12.Text = " để xóa thông tin cá nhân của mình.";
-            // 
             // AppClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -522,7 +525,6 @@
         private System.Windows.Forms.ToolStripMenuItem ThoatToolStripMenuItem;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem zipFilesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteAllFilesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteFileToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox4;
@@ -540,6 +542,7 @@
         private System.Windows.Forms.Button btReset;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label13;
     }
 }
 
