@@ -15,7 +15,9 @@ namespace FT_Server_Win
     public partial class ServerUI : Form
     {
         private const string NOT_IDENTIFIED = "<Chưa xác định>";
-
+        public static readonly int DEFAULT_PORT = 8081;
+        public static string SETTINGFILE = "setting.ini";
+        public static readonly string CurrentDirectory = Directory.GetCurrentDirectory();
         private DataRow[] m_ClientList;
         DataTable clientData;
         ServerSocketControl socketControl;
@@ -56,8 +58,34 @@ namespace FT_Server_Win
             {
                 imgServer.Image = Properties.Resources.stopped;
             }
-
+            LoadPort();
             ResetInformation();
+        }
+
+        private void LoadPort()
+        {
+            string currentDirectory = Directory.GetCurrentDirectory();
+            string filePath = currentDirectory + "\\" + SETTINGFILE;
+            try
+            {
+                if (File.Exists(filePath))
+                {
+                    StreamReader sr = new StreamReader(filePath);
+                    socketControl.ReceivedPort = Int32.Parse(sr.ReadLine().ToString());
+                    sr.Close();
+                }
+                else
+                {
+                    StreamWriter sw = new StreamWriter(filePath);
+                    socketControl.ReceivedPort = DEFAULT_PORT;
+                    sw.WriteLine(DEFAULT_PORT);
+                    sw.Close();
+                }
+            }
+            catch (Exception Exception)
+            {
+                //MessageBox.Show(Exception.Message);
+            }
         }
 
         private void InitFormSize()
@@ -204,7 +232,11 @@ namespace FT_Server_Win
 
         private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            try
+            {
+                Application.Exit();
+            }
+            catch { }
         }
 
         private void btnSelectFolder_Click(object sender, EventArgs e)
@@ -545,6 +577,8 @@ namespace FT_Server_Win
             lblStudentSum.Text = NOT_IDENTIFIED;
             lblTestPeriod.Text = NOT_IDENTIFIED;
             lblTimeToTest.Text = NOT_IDENTIFIED;
+            connectCount.Text = "0";
+            sentCount.Text = "0";
             imgServer.Image = Properties.Resources.stopped;
             startedTimer.Enabled = false;
             if (firstRun)

@@ -44,10 +44,10 @@
             this.numericUpDownStudentCount = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.dateTimePickerDate = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSubject = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.dateTimePickerDate = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.toTimeMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toTimeHours)).BeginInit();
@@ -252,6 +252,16 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "Ngày thi:";
             // 
+            // dateTimePickerDate
+            // 
+            this.dateTimePickerDate.CustomFormat = "dd/mm/yyyy";
+            this.dateTimePickerDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerDate.Location = new System.Drawing.Point(134, 48);
+            this.dateTimePickerDate.Name = "dateTimePickerDate";
+            this.dateTimePickerDate.Size = new System.Drawing.Size(228, 20);
+            this.dateTimePickerDate.TabIndex = 8;
+            this.dateTimePickerDate.ValueChanged += new System.EventHandler(this.dateTimeDate_ValueChanged);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -277,16 +287,6 @@
             this.label4.Size = new System.Drawing.Size(278, 39);
             this.label4.TabIndex = 8;
             this.label4.Text = "Thông tin buổi thi";
-            // 
-            // dateTimePickerDate
-            // 
-            this.dateTimePickerDate.CustomFormat = "dd/mm/yyyy";
-            this.dateTimePickerDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerDate.Location = new System.Drawing.Point(134, 48);
-            this.dateTimePickerDate.Name = "dateTimePickerDate";
-            this.dateTimePickerDate.Size = new System.Drawing.Size(228, 20);
-            this.dateTimePickerDate.TabIndex = 8;
-            this.dateTimePickerDate.ValueChanged += new System.EventHandler(this.dateTimeDate_ValueChanged);
             // 
             // InformationSetup
             // 
